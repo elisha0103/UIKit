@@ -14,13 +14,16 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MusicPlayer" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PYd-On-6d9">
-                                <rect key="frame" x="94" y="129" width="204" height="146"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PYd-On-6d9">
+                                <rect key="frame" x="96.666666666666686" y="109" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="SMN-YL-jep"/>
+                                    <constraint firstAttribute="height" constant="200" id="fwv-6N-9pu"/>
+                                </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal">
                                     <imageReference key="image" image="play.fill" catalog="system" symbolScale="large" variableValue="1"/>
@@ -33,24 +36,32 @@
                                     <action selector="touchUpPlayPauseButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cDB-ZA-hLI"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BRJ-eL-rYb">
-                                <rect key="frame" x="158" y="299" width="76" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="7JD-nb-6Ku">
-                                <rect key="frame" x="29" y="361" width="334" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="7JD-nb-6Ku">
+                                <rect key="frame" x="14" y="366" width="365" height="31"/>
                                 <color key="tintColor" systemColor="systemRedColor"/>
                                 <connections>
                                     <action selector="sliderValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="rwQ-Aw-JLU"/>
                                 </connections>
                             </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BRJ-eL-rYb">
+                                <rect key="frame" x="158.66666666666666" y="329" width="76" height="21"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="PYd-On-6d9" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="8mi-0C-kCZ"/>
+                            <constraint firstItem="BRJ-eL-rYb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9zE-HL-8wT"/>
+                            <constraint firstItem="7JD-nb-6Ku" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="D8n-da-P4N"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7JD-nb-6Ku" secondAttribute="trailing" constant="16" id="XvK-mx-OVy"/>
+                            <constraint firstItem="PYd-On-6d9" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bxY-2G-U5r"/>
+                            <constraint firstItem="PYd-On-6d9" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="mxE-MK-PAM"/>
+                            <constraint firstItem="BRJ-eL-rYb" firstAttribute="top" secondItem="PYd-On-6d9" secondAttribute="bottom" constant="20" id="nzE-sB-6Nk"/>
+                            <constraint firstItem="7JD-nb-6Ku" firstAttribute="top" secondItem="BRJ-eL-rYb" secondAttribute="bottom" constant="16" id="qtP-Yi-aTB"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="playPauseButton" destination="PYd-On-6d9" id="QB5-hh-FrB"/>
