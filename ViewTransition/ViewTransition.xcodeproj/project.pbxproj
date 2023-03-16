@@ -17,6 +17,7 @@
 		66ED176729C186350068FBF4 /* ViewTransitionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66ED176629C186350068FBF4 /* ViewTransitionUITests.swift */; };
 		66ED176929C186350068FBF4 /* ViewTransitionUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66ED176829C186350068FBF4 /* ViewTransitionUITestsLaunchTests.swift */; };
 		66ED177629C186B30068FBF4 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66ED177529C186B30068FBF4 /* SecondViewController.swift */; };
+		66ED17B429C2DC080068FBF4 /* UserInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66ED17B329C2DC080068FBF4 /* UserInformation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		66ED176629C186350068FBF4 /* ViewTransitionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTransitionUITests.swift; sourceTree = "<group>"; };
 		66ED176829C186350068FBF4 /* ViewTransitionUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTransitionUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		66ED177529C186B30068FBF4 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		66ED17B329C2DC080068FBF4 /* UserInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				66ED174729C186340068FBF4 /* SceneDelegate.swift */,
 				66ED174929C186340068FBF4 /* ViewController.swift */,
 				66ED174B29C186340068FBF4 /* Main.storyboard */,
+				66ED17B329C2DC080068FBF4 /* UserInformation.swift */,
 				66ED177529C186B30068FBF4 /* SecondViewController.swift */,
 				66ED174E29C186350068FBF4 /* Assets.xcassets */,
 				66ED175029C186350068FBF4 /* LaunchScreen.storyboard */,
@@ -261,6 +264,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66ED17B429C2DC080068FBF4 /* UserInformation.swift in Sources */,
 				66ED177629C186B30068FBF4 /* SecondViewController.swift in Sources */,
 				66ED174A29C186340068FBF4 /* ViewController.swift in Sources */,
 				66ED174629C186340068FBF4 /* AppDelegate.swift in Sources */,
