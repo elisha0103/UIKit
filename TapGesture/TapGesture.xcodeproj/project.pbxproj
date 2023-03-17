@@ -1,0 +1,601 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		66ED17FE29C44B620068FBF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66ED17FD29C44B620068FBF4 /* AppDelegate.swift */; };
+		66ED180029C44B620068FBF4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66ED17FF29C44B620068FBF4 /* SceneDelegate.swift */; };
+		66ED180229C44B620068FBF4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66ED180129C44B620068FBF4 /* ViewController.swift */; };
+		66ED180529C44B620068FBF4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66ED180329C44B620068FBF4 /* Main.storyboard */; };
+		66ED180729C44B630068FBF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66ED180629C44B630068FBF4 /* Assets.xcassets */; };
+		66ED180A29C44B630068FBF4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66ED180829C44B630068FBF4 /* LaunchScreen.storyboard */; };
+		66ED181529C44B630068FBF4 /* TapGestureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66ED181429C44B630068FBF4 /* TapGestureTests.swift */; };
+		66ED181F29C44B630068FBF4 /* TapGestureUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66ED181E29C44B630068FBF4 /* TapGestureUITests.swift */; };
+		66ED182129C44B630068FBF4 /* TapGestureUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66ED182029C44B630068FBF4 /* TapGestureUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		66ED181129C44B630068FBF4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 66ED17F229C44B620068FBF4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 66ED17F929C44B620068FBF4;
+			remoteInfo = TapGesture;
+		};
+		66ED181B29C44B630068FBF4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 66ED17F229C44B620068FBF4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 66ED17F929C44B620068FBF4;
+			remoteInfo = TapGesture;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		66ED17FA29C44B620068FBF4 /* TapGesture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TapGesture.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		66ED17FD29C44B620068FBF4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		66ED17FF29C44B620068FBF4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		66ED180129C44B620068FBF4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		66ED180429C44B620068FBF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		66ED180629C44B630068FBF4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		66ED180929C44B630068FBF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		66ED180B29C44B630068FBF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		66ED181029C44B630068FBF4 /* TapGestureTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TapGestureTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		66ED181429C44B630068FBF4 /* TapGestureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapGestureTests.swift; sourceTree = "<group>"; };
+		66ED181A29C44B630068FBF4 /* TapGestureUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TapGestureUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		66ED181E29C44B630068FBF4 /* TapGestureUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapGestureUITests.swift; sourceTree = "<group>"; };
+		66ED182029C44B630068FBF4 /* TapGestureUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapGestureUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		66ED17F729C44B620068FBF4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		66ED180D29C44B630068FBF4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		66ED181729C44B630068FBF4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		66ED17F129C44B620068FBF4 = {
+			isa = PBXGroup;
+			children = (
+				66ED17FC29C44B620068FBF4 /* TapGesture */,
+				66ED181329C44B630068FBF4 /* TapGestureTests */,
+				66ED181D29C44B630068FBF4 /* TapGestureUITests */,
+				66ED17FB29C44B620068FBF4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		66ED17FB29C44B620068FBF4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				66ED17FA29C44B620068FBF4 /* TapGesture.app */,
+				66ED181029C44B630068FBF4 /* TapGestureTests.xctest */,
+				66ED181A29C44B630068FBF4 /* TapGestureUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		66ED17FC29C44B620068FBF4 /* TapGesture */ = {
+			isa = PBXGroup;
+			children = (
+				66ED17FD29C44B620068FBF4 /* AppDelegate.swift */,
+				66ED17FF29C44B620068FBF4 /* SceneDelegate.swift */,
+				66ED180129C44B620068FBF4 /* ViewController.swift */,
+				66ED180329C44B620068FBF4 /* Main.storyboard */,
+				66ED180629C44B630068FBF4 /* Assets.xcassets */,
+				66ED180829C44B630068FBF4 /* LaunchScreen.storyboard */,
+				66ED180B29C44B630068FBF4 /* Info.plist */,
+			);
+			path = TapGesture;
+			sourceTree = "<group>";
+		};
+		66ED181329C44B630068FBF4 /* TapGestureTests */ = {
+			isa = PBXGroup;
+			children = (
+				66ED181429C44B630068FBF4 /* TapGestureTests.swift */,
+			);
+			path = TapGestureTests;
+			sourceTree = "<group>";
+		};
+		66ED181D29C44B630068FBF4 /* TapGestureUITests */ = {
+			isa = PBXGroup;
+			children = (
+				66ED181E29C44B630068FBF4 /* TapGestureUITests.swift */,
+				66ED182029C44B630068FBF4 /* TapGestureUITestsLaunchTests.swift */,
+			);
+			path = TapGestureUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		66ED17F929C44B620068FBF4 /* TapGesture */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 66ED182429C44B630068FBF4 /* Build configuration list for PBXNativeTarget "TapGesture" */;
+			buildPhases = (
+				66ED17F629C44B620068FBF4 /* Sources */,
+				66ED17F729C44B620068FBF4 /* Frameworks */,
+				66ED17F829C44B620068FBF4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TapGesture;
+			productName = TapGesture;
+			productReference = 66ED17FA29C44B620068FBF4 /* TapGesture.app */;
+			productType = "com.apple.product-type.application";
+		};
+		66ED180F29C44B630068FBF4 /* TapGestureTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 66ED182729C44B630068FBF4 /* Build configuration list for PBXNativeTarget "TapGestureTests" */;
+			buildPhases = (
+				66ED180C29C44B630068FBF4 /* Sources */,
+				66ED180D29C44B630068FBF4 /* Frameworks */,
+				66ED180E29C44B630068FBF4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				66ED181229C44B630068FBF4 /* PBXTargetDependency */,
+			);
+			name = TapGestureTests;
+			productName = TapGestureTests;
+			productReference = 66ED181029C44B630068FBF4 /* TapGestureTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		66ED181929C44B630068FBF4 /* TapGestureUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 66ED182A29C44B630068FBF4 /* Build configuration list for PBXNativeTarget "TapGestureUITests" */;
+			buildPhases = (
+				66ED181629C44B630068FBF4 /* Sources */,
+				66ED181729C44B630068FBF4 /* Frameworks */,
+				66ED181829C44B630068FBF4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				66ED181C29C44B630068FBF4 /* PBXTargetDependency */,
+			);
+			name = TapGestureUITests;
+			productName = TapGestureUITests;
+			productReference = 66ED181A29C44B630068FBF4 /* TapGestureUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		66ED17F229C44B620068FBF4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					66ED17F929C44B620068FBF4 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					66ED180F29C44B630068FBF4 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 66ED17F929C44B620068FBF4;
+					};
+					66ED181929C44B630068FBF4 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 66ED17F929C44B620068FBF4;
+					};
+				};
+			};
+			buildConfigurationList = 66ED17F529C44B620068FBF4 /* Build configuration list for PBXProject "TapGesture" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 66ED17F129C44B620068FBF4;
+			productRefGroup = 66ED17FB29C44B620068FBF4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				66ED17F929C44B620068FBF4 /* TapGesture */,
+				66ED180F29C44B630068FBF4 /* TapGestureTests */,
+				66ED181929C44B630068FBF4 /* TapGestureUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		66ED17F829C44B620068FBF4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				66ED180A29C44B630068FBF4 /* LaunchScreen.storyboard in Resources */,
+				66ED180729C44B630068FBF4 /* Assets.xcassets in Resources */,
+				66ED180529C44B620068FBF4 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		66ED180E29C44B630068FBF4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		66ED181829C44B630068FBF4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		66ED17F629C44B620068FBF4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				66ED180229C44B620068FBF4 /* ViewController.swift in Sources */,
+				66ED17FE29C44B620068FBF4 /* AppDelegate.swift in Sources */,
+				66ED180029C44B620068FBF4 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		66ED180C29C44B630068FBF4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				66ED181529C44B630068FBF4 /* TapGestureTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		66ED181629C44B630068FBF4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				66ED182129C44B630068FBF4 /* TapGestureUITestsLaunchTests.swift in Sources */,
+				66ED181F29C44B630068FBF4 /* TapGestureUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		66ED181229C44B630068FBF4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 66ED17F929C44B620068FBF4 /* TapGesture */;
+			targetProxy = 66ED181129C44B630068FBF4 /* PBXContainerItemProxy */;
+		};
+		66ED181C29C44B630068FBF4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 66ED17F929C44B620068FBF4 /* TapGesture */;
+			targetProxy = 66ED181B29C44B630068FBF4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		66ED180329C44B620068FBF4 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				66ED180429C44B620068FBF4 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		66ED180829C44B630068FBF4 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				66ED180929C44B630068FBF4 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		66ED182229C44B630068FBF4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		66ED182329C44B630068FBF4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		66ED182529C44B630068FBF4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TapGesture/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Taeyoung.TapGesture;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		66ED182629C44B630068FBF4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TapGesture/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Taeyoung.TapGesture;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		66ED182829C44B630068FBF4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Taeyoung.TapGestureTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TapGesture.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TapGesture";
+			};
+			name = Debug;
+		};
+		66ED182929C44B630068FBF4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Taeyoung.TapGestureTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TapGesture.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TapGesture";
+			};
+			name = Release;
+		};
+		66ED182B29C44B630068FBF4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Taeyoung.TapGestureUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TapGesture;
+			};
+			name = Debug;
+		};
+		66ED182C29C44B630068FBF4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Taeyoung.TapGestureUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TapGesture;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		66ED17F529C44B620068FBF4 /* Build configuration list for PBXProject "TapGesture" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				66ED182229C44B630068FBF4 /* Debug */,
+				66ED182329C44B630068FBF4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		66ED182429C44B630068FBF4 /* Build configuration list for PBXNativeTarget "TapGesture" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				66ED182529C44B630068FBF4 /* Debug */,
+				66ED182629C44B630068FBF4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		66ED182729C44B630068FBF4 /* Build configuration list for PBXNativeTarget "TapGestureTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				66ED182829C44B630068FBF4 /* Debug */,
+				66ED182929C44B630068FBF4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		66ED182A29C44B630068FBF4 /* Build configuration list for PBXNativeTarget "TapGestureUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				66ED182B29C44B630068FBF4 /* Debug */,
+				66ED182C29C44B630068FBF4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 66ED17F229C44B620068FBF4 /* Project object */;
+}
