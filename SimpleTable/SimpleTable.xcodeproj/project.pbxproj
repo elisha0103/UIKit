@@ -17,6 +17,7 @@
 		667C14B429D6BA100095A05C /* SimpleTableUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667C14B329D6BA100095A05C /* SimpleTableUITests.swift */; };
 		667C14B629D6BA100095A05C /* SimpleTableUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667C14B529D6BA100095A05C /* SimpleTableUITestsLaunchTests.swift */; };
 		667C14C329D6E5010095A05C /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667C14C229D6E5010095A05C /* CustomTableViewCell.swift */; };
+		66E02AC429DC213F0003D0F5 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E02AC329DC213F0003D0F5 /* SecondViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		667C14B329D6BA100095A05C /* SimpleTableUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleTableUITests.swift; sourceTree = "<group>"; };
 		667C14B529D6BA100095A05C /* SimpleTableUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleTableUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		667C14C229D6E5010095A05C /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		66E02AC329DC213F0003D0F5 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				667C149429D6BA0F0095A05C /* SceneDelegate.swift */,
 				667C149629D6BA0F0095A05C /* ViewController.swift */,
 				667C149829D6BA0F0095A05C /* Main.storyboard */,
+				66E02AC329DC213F0003D0F5 /* SecondViewController.swift */,
 				667C14C229D6E5010095A05C /* CustomTableViewCell.swift */,
 				667C149B29D6BA100095A05C /* Assets.xcassets */,
 				667C149D29D6BA100095A05C /* LaunchScreen.storyboard */,
@@ -264,6 +267,7 @@
 				667C149729D6BA0F0095A05C /* ViewController.swift in Sources */,
 				667C149329D6BA0F0095A05C /* AppDelegate.swift in Sources */,
 				667C14C329D6E5010095A05C /* CustomTableViewCell.swift in Sources */,
+				66E02AC429DC213F0003D0F5 /* SecondViewController.swift in Sources */,
 				667C149529D6BA0F0095A05C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

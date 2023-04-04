@@ -80,6 +80,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             let text: String = indexPath.section == 0 ? korean[indexPath.row] : english[indexPath.row]
             cell.textLabel?.text = text
             
+            // 셀의 재사용 확인하는 코드
+            /*
+            if indexPath.row == 1 {
+                cell.backgroundColor = .red
+            }
+             */
+            
             return cell
         } else {
             let cell: CustomTableViewCell = tableView.dequeueReusableCell(withIdentifier: self.customCellIdentifier, for: indexPath) as! CustomTableViewCell
@@ -100,5 +107,30 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         return " "
     }
+    
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+        guard let nextViewController: SecondViewController = segue.destination as? SecondViewController else {
+            return
+        }
+        
+        guard let cell: UITableViewCell = sender as? UITableViewCell else {
+            return
+        }
+        
+        nextViewController.textToSet = cell.textLabel?.text
+        
+        // nextViewController.textLabel.text = cell.textLabel?.text
+        /*
+         nextViewController UIComponent에 바로 전달하는 것이 불가능한 이유
+         이 함수는 prepare 말 그대로 준비하는 단계이다.
+         인스턴스는 생성되어있지만, 안에 있는 UI 구성 요소는 메모리 대기열에 올라가있지 않기 때문에 접근할 때 문제가 생기는 것이다.
+         */
+    }
+
 }
 
