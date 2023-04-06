@@ -8,12 +8,29 @@
 import UIKit
 import Photos
 
-class ViewController: UIViewController, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, PHPhotoLibraryChangeObserver {
 
     @IBOutlet weak var tableView: UITableView!
     var fetchResult: PHFetchResult<PHAsset>!
     let imageManager: PHCachingImageManager = PHCachingImageManager() // 많은 asset을 가져올 때 미리 캐싱하여 asset을 가지고 있다가 개별 asset을 요청하면 지연없이 바로 다룰 수 있도록 하는 객체
     let cellIdentifier: String = "cell"
+    
+    // 편집 가능하도록 하는 요소
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+            return true
+    }
+    
+    // 테이블 뷰 편집시 수행되는 함수
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let asset: PHAsset = self.fetchResult[indexPath.row]
+            
+            // 사진첩에서 변화 수행 -> 삭제 변화 수행 -> 삭제 확인 뷰 생성
+            PHPhotoLibrary.shared().performChanges {
+                PHAssetChangeRequest.deleteAssets([asset] as NSArray)
+            }
+        }
+    }
     
     func requestCollection() { // 컬랙션 요청 함수
         // 컬렉션 객체 생성
@@ -33,6 +50,17 @@ class ViewController: UIViewController, UITableViewDataSource {
         self.fetchResult = PHAsset.fetchAssets(in: cameraRollCollection, options: fetchOptions)
     }
     
+    // 사진첩 변화 수행 감지
+    func photoLibraryDidChange(_ changeInstance: PHChange) {
+        guard let changes = changeInstance.changeDetails(for: fetchResult) else {return}
+        
+        // 변경사항 적용 후에 대한 fetchResult 데이터 반환
+        fetchResult = changes.fetchResultAfterChanges
+        OperationQueue.main.addOperation {
+            self.tableView.reloadSections(IndexSet(0...0), with: .automatic)
+        }
+    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,6 +98,9 @@ class ViewController: UIViewController, UITableViewDataSource {
          default:
             break
         }
+        
+        // 아이폰 기본 사진첩과 데이터를 공유하고 수행자를 해당 ViewController 객체가 수행한다
+        PHPhotoLibrary.shared().register(self)
         
     }
     
