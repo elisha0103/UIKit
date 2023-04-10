@@ -15,6 +15,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     let imageManager: PHCachingImageManager = PHCachingImageManager() // 많은 asset을 가져올 때 미리 캐싱하여 asset을 가지고 있다가 개별 asset을 요청하면 지연없이 바로 다룰 수 있도록 하는 객체
     let cellIdentifier: String = "cell"
     
+    @IBAction func touchUpRefreshButton(_ sender: UIBarButtonItem) {
+        self.tableView.reloadSections(IndexSet(0...0), with: .automatic)
+    }
+    
     // 편집 가능하도록 하는 요소
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
             return true
