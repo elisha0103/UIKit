@@ -120,6 +120,23 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
         return cell
     }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resourcs that can be recreated.
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let nextViewController: ImageZoomViewController = segue.destination as? ImageZoomViewController else {
+            return
+        }
+        
+        guard let cell: UITableViewCell = sender as? UITableViewCell else { return }
+        
+        guard let index: IndexPath = self.tableView.indexPath(for: cell) else { return }
+        
+        nextViewController.asset = self.fetchResult[index.row]
+    }
 
 
 }
