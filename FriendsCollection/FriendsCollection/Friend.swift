@@ -39,10 +39,3 @@ struct Friend:Codable {
         case addressInfo = "address_info"
     }
 }
-
-var count: [Character] = []
-
-var temp: Character = Character("")
-
-
-count.removelast

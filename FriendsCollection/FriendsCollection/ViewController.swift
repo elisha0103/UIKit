@@ -41,7 +41,21 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let flowLaywout: UICollectionViewFlowLayout
+        flowLaywout = UICollectionViewFlowLayout()
+        flowLaywout.sectionInset = UIEdgeInsets.zero
+        flowLaywout.minimumInteritemSpacing = 10
+        flowLaywout.minimumLineSpacing = 10
+        
+        let halfWidth: CGFloat = UIScreen.main.bounds.width / 2.0
+        
+        // flowLaywout.estimatedItemSize = CGSize(width: halfWidth - 30, height: 90)
+        flowLaywout.itemSize = CGSize(width: halfWidth - 30, height: 90)
+        self.collectionView.collectionViewLayout = flowLaywout
+        
         let jsonDecoder: JSONDecoder = JSONDecoder()
+        let inset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+        self.collectionView.contentInset = inset
         guard let dataAsset: NSDataAsset = NSDataAsset(name: "friends") else {
             return
         }
