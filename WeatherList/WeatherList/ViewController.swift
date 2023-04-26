@@ -16,7 +16,6 @@ class ViewController: UIViewController, UITableViewDataSource {
         let cell: CountryTableViewCell = tableView.dequeueReusableCell(withIdentifier: "country", for: indexPath) as? CountryTableViewCell ?? CountryTableViewCell()
         let countryName: String = country[indexPath.row].koreanName
         let imageName: String = country[indexPath.row].assetName
-        cell.defaultContentConfiguration().image
         cell.countryLabel.text = countryName
         cell.countryImg.image = UIImage(named: "flag_\(imageName)")
         
@@ -62,13 +61,27 @@ class ViewController: UIViewController, UITableViewDataSource {
             self.country = countryArr.map({ country in
                 return CountryPModel.convertTo(country)
             })
-                        
+            print("country.count: \(country.count)")
         } catch {
             print(error.localizedDescription)
         }
     }
     
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("run prepare")
+        if segue.identifier == "city" {
+            print("city")
+            guard let nextViewController: CityViewController = segue.destination as? CityViewController else {
+                return
+            }
+            
+            guard let cell: CountryTableViewCell = sender as? CountryTableViewCell else { return }
+            print("cell.countryLabel: \(cell.countryLabel.text)")
+            nextViewController.country = cell.countryLabel.text
+            nextViewController.countryEg = change(s: cell.countryLabel.text!)
+        }
+    }
 
 
 }

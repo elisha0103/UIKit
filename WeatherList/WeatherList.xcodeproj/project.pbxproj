@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		66012DBF29F908AA005F8FA8 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66012DBE29F908AA005F8FA8 /* DetailViewController.swift */; };
 		66FA55E829F7A25E00A4230E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FA55E729F7A25E00A4230E /* AppDelegate.swift */; };
 		66FA55EA29F7A25E00A4230E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FA55E929F7A25E00A4230E /* SceneDelegate.swift */; };
 		66FA55EC29F7A25E00A4230E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FA55EB29F7A25E00A4230E /* ViewController.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		66012DBE29F908AA005F8FA8 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		66FA55E429F7A25E00A4230E /* WeatherList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66FA55E729F7A25E00A4230E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		66FA55E929F7A25E00A4230E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 				66FA55E929F7A25E00A4230E /* SceneDelegate.swift */,
 				66FA55EB29F7A25E00A4230E /* ViewController.swift */,
 				66FA560229F7ADB700A4230E /* CityViewController.swift */,
+				66012DBE29F908AA005F8FA8 /* DetailViewController.swift */,
 				66FA560029F7A66B00A4230E /* CountryTableViewCell.swift */,
 				66FA560829F7B06B00A4230E /* CityTableViewCell.swift */,
 				66FA55FF29F7A45F00A4230E /* Model */,
@@ -167,6 +170,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66012DBF29F908AA005F8FA8 /* DetailViewController.swift in Sources */,
 				66FA560729F7AFB500A4230E /* CityPModel.swift in Sources */,
 				66FA560129F7A66B00A4230E /* CountryTableViewCell.swift in Sources */,
 				66FA560929F7B06B00A4230E /* CityTableViewCell.swift in Sources */,
