@@ -63,8 +63,13 @@ class ViewController: UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(self.didRecieveFriendsNotification(_:)), name: DidReceiveFirendsNotification, object: nil)
+        
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        requestFriends()
+    }
 
 }
 
