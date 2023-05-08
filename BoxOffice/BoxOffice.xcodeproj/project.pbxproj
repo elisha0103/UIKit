@@ -80,14 +80,9 @@
 		661C81142A0244A800D153CC = {
 			isa = PBXGroup;
 			children = (
-				66F710942A051A5A006F0E74 /* MoviesAPIProvider.swift */,
-				66F710A22A052E5A006F0E74 /* URLSessionable.swift */,
-				66F710982A0522A5006F0E74 /* Requestable.swift */,
-				66F710A02A052CF6006F0E74 /* Provider.swift */,
-				66F7109A2A052AA8006F0E74 /* Codable+.swift */,
-				66F7109C2A052ADC006F0E74 /* Responsable.swift */,
-				66F7109E2A052B34006F0E74 /* NetworkEndpoint.swift */,
-				66F710962A052289006F0E74 /* NetworkErrorType.swift */,
+				66F710A42A088FB0006F0E74 /* Protocol */,
+				66F710A62A088FF9006F0E74 /* Extension */,
+				66F710A52A088FE0006F0E74 /* Network */,
 				661C811F2A0244A800D153CC /* BoxOffice */,
 				661C811E2A0244A800D153CC /* Products */,
 			);
@@ -133,6 +128,35 @@
 				661C813F2A035B2500D153CC /* DetailsMoviePModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		66F710A42A088FB0006F0E74 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				66F710982A0522A5006F0E74 /* Requestable.swift */,
+				66F7109C2A052ADC006F0E74 /* Responsable.swift */,
+				66F710A22A052E5A006F0E74 /* URLSessionable.swift */,
+				66F710A02A052CF6006F0E74 /* Provider.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		66F710A52A088FE0006F0E74 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				66F710942A051A5A006F0E74 /* MoviesAPIProvider.swift */,
+				66F7109E2A052B34006F0E74 /* NetworkEndpoint.swift */,
+				66F710962A052289006F0E74 /* NetworkErrorType.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		66F710A62A088FF9006F0E74 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				66F7109A2A052AA8006F0E74 /* Codable+.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
