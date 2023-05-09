@@ -14,6 +14,9 @@ class MoviesAPIProvider: Provider {
         self.session = session
     }
     
+    // 제너릭 함수
+    // R은 Decodable해야하고, Endpoint 내 Response 타입과 일치해야한다.
+    // E는 Endpoint 조건을 가지고 있여야한다.
     func request<R, E>(with endpoint: E, completion: @escaping (Result<R, Error>) -> Void) where R : Decodable, R == E.Response, E : RequestResponsable {
         do {
             let urlRequest = try endpoint.getUrlRequest()
@@ -24,6 +27,7 @@ class MoviesAPIProvider: Provider {
                 
                     switch result {
                     case .success(let data):
+                        // 요청된 데이터를 Endpoint Response 타입에 따라 decode하는 부분
                         completion(moviesAPIProvider.decode(data: data))
                     case .failure(let error):
                         completion(.failure(error))
