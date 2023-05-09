@@ -8,5 +8,5 @@
 import Foundation
 
 protocol Responsable {
-    associatedtype Response
+    associatedtype Response // Protocol에서 제네릭 타입을 명시하는 방법
 }

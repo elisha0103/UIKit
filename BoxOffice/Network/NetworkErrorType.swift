@@ -7,6 +7,7 @@
 
 import Foundation
 
+// 공통 Error 타입 정의
 enum NetworkError: Error {
     case unknownError
     case componentsError
@@ -39,6 +40,7 @@ enum NetworkError: Error {
     }
 }
 
+// RESTful API 에러 타입 정의
 enum ServerError: Int {
     case unknown
     case badRequest = 400
