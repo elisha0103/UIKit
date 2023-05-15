@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		664C62822A1271B700BFEB99 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664C62812A1271B700BFEB99 /* DetailViewController.swift */; };
 		66F710B82A0B77B6006F0E74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F710B72A0B77B6006F0E74 /* AppDelegate.swift */; };
 		66F710BA2A0B77B6006F0E74 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F710B92A0B77B6006F0E74 /* SceneDelegate.swift */; };
 		66F710BC2A0B77B6006F0E74 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F710BB2A0B77B6006F0E74 /* ViewController.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		664C62812A1271B700BFEB99 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		66F710B42A0B77B6006F0E74 /* ArticleProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArticleProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66F710B72A0B77B6006F0E74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		66F710B92A0B77B6006F0E74 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				66F710B92A0B77B6006F0E74 /* SceneDelegate.swift */,
 				66F710BB2A0B77B6006F0E74 /* ViewController.swift */,
 				66F710BD2A0B77B6006F0E74 /* Main.storyboard */,
+				664C62812A1271B700BFEB99 /* DetailViewController.swift */,
 				66F710C02A0B77B7006F0E74 /* Assets.xcassets */,
 				66F710C22A0B77B7006F0E74 /* LaunchScreen.storyboard */,
 				66F710C52A0B77B7006F0E74 /* Info.plist */,
@@ -183,6 +186,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				664C62822A1271B700BFEB99 /* DetailViewController.swift in Sources */,
 				66F710D02A0CC3D4006F0E74 /* ArticleController.swift in Sources */,
 				66F710DB2A0CC6DA006F0E74 /* ArticlePModel.swift in Sources */,
 				66F710D42A0CC3FC006F0E74 /* ArticleProtocol.swift in Sources */,
