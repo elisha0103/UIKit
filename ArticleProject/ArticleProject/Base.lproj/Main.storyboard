@@ -23,12 +23,12 @@
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ArticleCell" id="oXH-vv-cec">
                                         <rect key="frame" x="0.0" y="50" width="393" height="100.33333587646484"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oXH-vv-cec" id="Nst-23-oMn">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oXH-vv-cec" id="Nst-23-oMn" customClass="ArticleTableViewCell" customModule="ArticleProject" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="100.33333587646484"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uZP-vZ-wzn">
-                                                    <rect key="frame" x="0.0" y="0.0" width="42" height="100.33333333333333"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="293" height="100.33333333333333"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -51,10 +51,19 @@
                                                 <constraint firstItem="ocd-dA-MMk" firstAttribute="top" secondItem="Nst-23-oMn" secondAttribute="top" id="TrL-2L-oUL"/>
                                                 <constraint firstItem="uZP-vZ-wzn" firstAttribute="top" secondItem="Nst-23-oMn" secondAttribute="top" id="hgQ-v1-dji"/>
                                                 <constraint firstAttribute="bottom" secondItem="ocd-dA-MMk" secondAttribute="bottom" id="sTg-ss-vUz"/>
+                                                <constraint firstItem="ocd-dA-MMk" firstAttribute="leading" secondItem="uZP-vZ-wzn" secondAttribute="trailing" id="w8E-88-Dlu"/>
                                             </constraints>
+                                            <connections>
+                                                <outlet property="articleImage" destination="ocd-dA-MMk" id="uLX-3G-3Ck"/>
+                                                <outlet property="articleLabel" destination="uZP-vZ-wzn" id="ujC-8E-Hhr"/>
+                                            </connections>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="QB8-QP-tZo"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="z5G-fk-A1F"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -66,21 +75,43 @@
                             <constraint firstItem="6iv-BP-pYt" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="h5x-cs-Opd"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="6iv-BP-pYt" id="ae3-TE-D58"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="140" y="4"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="UTZ-pX-ouf">
             <objects>
-                <viewController id="kJ9-a0-n7d" sceneMemberID="viewController">
+                <viewController id="kJ9-a0-n7d" customClass="DetailViewController" customModule="ArticleProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Zwz-oE-BVw">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bOc-7E-JDN">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Mn5-ap-QjJ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Mn5-ap-QjJ" firstAttribute="bottom" secondItem="bOc-7E-JDN" secondAttribute="bottom" id="HLc-Zi-1fu"/>
+                            <constraint firstItem="Mn5-ap-QjJ" firstAttribute="trailing" secondItem="bOc-7E-JDN" secondAttribute="trailing" id="NMO-dS-iAo"/>
+                            <constraint firstItem="bOc-7E-JDN" firstAttribute="top" secondItem="Mn5-ap-QjJ" secondAttribute="top" id="Nys-wR-zQD"/>
+                            <constraint firstItem="bOc-7E-JDN" firstAttribute="leading" secondItem="Zwz-oE-BVw" secondAttribute="leading" id="nX4-ml-mJt"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="webView" destination="bOc-7E-JDN" id="R17-GS-FaE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Exn-xd-fTU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -10,5 +10,7 @@ import Foundation
 extension ViewController: ArticleProtocol {
     func articlesRetrieved(articles: [Article]) {
         print("articles retrieved from article model!")
+        self.articles = articles
+        self.tableView.reloadData()
     }
 }

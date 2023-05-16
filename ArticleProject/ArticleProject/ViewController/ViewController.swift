@@ -7,14 +7,27 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: articleCellIdentifier, for: indexPath)
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return articles.count
+    }
+    
 
     var model = ArticleController()
+    var articles: [Article] = []
+    let articleCellIdentifier: String = "ArticleCell"
+    
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // ArticleController의 getArticles 함수로 가져온 데이터를 사용하기 위해서 delegate를 사용함
-        // model에서 사용하는 함수를 self를 통해 ViewController과 관장하고 있으므로 데이터도 비동기적으로 가져올 수 있음
+        // model에서 사용하는 함수를 self를 통해 ViewController가 관장하고 있으므로 데이터도 비동기적으로 가져올 수 있음
         // model의 delegate는 ArticleProtocol을 따르는 객체이다. 따라서 self가 관장하기 위해서 self도 해당 프로토콜을 따라야한다.
         model.delegate = self
         model.getArticles()
