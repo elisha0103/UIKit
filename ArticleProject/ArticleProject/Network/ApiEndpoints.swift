@@ -8,7 +8,7 @@
 import Foundation
 
 struct ApiEndpoints {
-    static func getArticles() -> Endpoint<ArticleService> {
-        return Endpoint(baseURL: "", path: "", method: .get, queryParameters: "")
+    static func getArticles(with articleRequest: ArticleRequest) -> Endpoint<ArticleService> {
+        return Endpoint(baseURL: "https://newsapi.org/v2/", path: "everything", method: .get, queryParameters: articleRequest)
     }
 }
