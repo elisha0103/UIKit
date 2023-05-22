@@ -9,7 +9,11 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: articleCellIdentifier, for: indexPath)
+        let cell: ArticleTableViewCell = tableView.dequeueReusableCell(withIdentifier: articleCellIdentifier, for: indexPath) as? ArticleTableViewCell ?? ArticleTableViewCell(style: .default, reuseIdentifier: articleCellIdentifier)
+        let article = self.articles[indexPath.row]
+        
+        cell.displayArticle(article: article)
+        
         return cell
     }
     

@@ -14,6 +14,6 @@ extension Bundle {
         guard let resource = NSDictionary(contentsOfFile: file) else { return "" }
         
         guard let key = resource["API_KEY"] as? String else { fatalError("ApiInfo.plist에 API_KEY 설정을 해주세요.")}
-        return apiKey
+        return key
     }
 }
