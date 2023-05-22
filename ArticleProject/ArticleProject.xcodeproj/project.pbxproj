@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		663EC9592A1B782E00FC251B /* URLSessionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663EC9582A1B782E00FC251B /* URLSessionable.swift */; };
 		664C62822A1271B700BFEB99 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664C62812A1271B700BFEB99 /* DetailViewController.swift */; };
 		664C62852A1309DA00BFEB99 /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664C62842A1309DA00BFEB99 /* ArticleTableViewCell.swift */; };
 		669C32BC2A1776BA00B96EB9 /* ArticleApiProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669C32BB2A1776BA00B96EB9 /* ArticleApiProvider.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		663EC9582A1B782E00FC251B /* URLSessionable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionable.swift; sourceTree = "<group>"; };
 		664C62812A1271B700BFEB99 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		664C62842A1309DA00BFEB99 /* ArticleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTableViewCell.swift; sourceTree = "<group>"; };
 		669C32BB2A1776BA00B96EB9 /* ArticleApiProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleApiProvider.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				669C32BD2A17783200B96EB9 /* Requestable.swift */,
 				669C32C12A17794800B96EB9 /* Responsable.swift */,
 				669C32CB2A17823300B96EB9 /* Provider.swift */,
+				663EC9582A1B782E00FC251B /* URLSessionable.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 				669C32C22A17794800B96EB9 /* Responsable.swift in Sources */,
 				669C32C02A1778CE00B96EB9 /* Requestable+.swift in Sources */,
 				66F710BC2A0B77B6006F0E74 /* ViewController.swift in Sources */,
+				663EC9592A1B782E00FC251B /* URLSessionable.swift in Sources */,
 				66F710B82A0B77B6006F0E74 /* AppDelegate.swift in Sources */,
 				669C32CA2A177B0500B96EB9 /* ApiEndpoints.swift in Sources */,
 				669C32CC2A17823300B96EB9 /* Provider.swift in Sources */,
