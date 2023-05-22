@@ -34,6 +34,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         // model에서 사용하는 함수를 self를 통해 ViewController가 관장하고 있으므로 데이터도 비동기적으로 가져올 수 있음
         // model의 delegate는 ArticleProtocol을 따르는 객체이다. 따라서 self가 관장하기 위해서 self도 해당 프로토콜을 따라야한다.
         model.delegate = self
+        model.articleRequest = ArticleRequest(q: "bitcoin", page: 1)
         model.getArticles()
         /*
          model의 getArticles 함수는 내부에 delegate.articleRetrieved() 구문이 있다.
