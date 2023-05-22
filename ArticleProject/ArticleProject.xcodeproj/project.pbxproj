@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		663EC9592A1B782E00FC251B /* URLSessionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663EC9582A1B782E00FC251B /* URLSessionable.swift */; };
 		663EC95B2A1B83FD00FC251B /* ApiInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 663EC95A2A1B83FD00FC251B /* ApiInfo.plist */; };
+		663EC95D2A1B84C300FC251B /* ArticleProject+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663EC95C2A1B84C300FC251B /* ArticleProject+.swift */; };
 		664C62822A1271B700BFEB99 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664C62812A1271B700BFEB99 /* DetailViewController.swift */; };
 		664C62852A1309DA00BFEB99 /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664C62842A1309DA00BFEB99 /* ArticleTableViewCell.swift */; };
 		669C32BC2A1776BA00B96EB9 /* ArticleApiProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669C32BB2A1776BA00B96EB9 /* ArticleApiProvider.swift */; };
@@ -39,6 +40,7 @@
 /* Begin PBXFileReference section */
 		663EC9582A1B782E00FC251B /* URLSessionable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionable.swift; sourceTree = "<group>"; };
 		663EC95A2A1B83FD00FC251B /* ApiInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ApiInfo.plist; sourceTree = "<group>"; };
+		663EC95C2A1B84C300FC251B /* ArticleProject+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArticleProject+.swift"; sourceTree = "<group>"; };
 		664C62812A1271B700BFEB99 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		664C62842A1309DA00BFEB99 /* ArticleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTableViewCell.swift; sourceTree = "<group>"; };
 		669C32BB2A1776BA00B96EB9 /* ArticleApiProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleApiProvider.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				66F710D62A0CC496006F0E74 /* ViewController+.swift */,
 				669C32BF2A1778CE00B96EB9 /* Requestable+.swift */,
 				669C32C32A17798D00B96EB9 /* Codable+.swift */,
+				663EC95C2A1B84C300FC251B /* ArticleProject+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 				669C32C42A17798D00B96EB9 /* Codable+.swift in Sources */,
 				669C32C82A177AC100B96EB9 /* NetworkEndpoint.swift in Sources */,
 				66F710BA2A0B77B6006F0E74 /* SceneDelegate.swift in Sources */,
+				663EC95D2A1B84C300FC251B /* ArticleProject+.swift in Sources */,
 				66F710CE2A0CBF52006F0E74 /* Article.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

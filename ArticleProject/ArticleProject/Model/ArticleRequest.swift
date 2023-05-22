@@ -10,7 +10,7 @@ import Foundation
 struct ArticleRequest: Codable {
     let q: String // 검색어
     let page: Int // Page
-    let apiKey: String // apiKey
+    let apiKey: String = Bundle.main.apiKey // apiKey
     
     
     enum CodingKeys: String, CodingKey {
