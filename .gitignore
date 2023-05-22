@@ -94,3 +94,4 @@ iOSInjectionProject/
 
 # API Link 파일 포함하지 않도록 함
 APILinkList.plist
+ArticleProject/ArticleProject/ApiInfo.plist

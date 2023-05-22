@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		663EC9592A1B782E00FC251B /* URLSessionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663EC9582A1B782E00FC251B /* URLSessionable.swift */; };
+		663EC95B2A1B83FD00FC251B /* ApiInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 663EC95A2A1B83FD00FC251B /* ApiInfo.plist */; };
 		664C62822A1271B700BFEB99 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664C62812A1271B700BFEB99 /* DetailViewController.swift */; };
 		664C62852A1309DA00BFEB99 /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664C62842A1309DA00BFEB99 /* ArticleTableViewCell.swift */; };
 		669C32BC2A1776BA00B96EB9 /* ArticleApiProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669C32BB2A1776BA00B96EB9 /* ArticleApiProvider.swift */; };
@@ -37,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		663EC9582A1B782E00FC251B /* URLSessionable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionable.swift; sourceTree = "<group>"; };
+		663EC95A2A1B83FD00FC251B /* ApiInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ApiInfo.plist; sourceTree = "<group>"; };
 		664C62812A1271B700BFEB99 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		664C62842A1309DA00BFEB99 /* ArticleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTableViewCell.swift; sourceTree = "<group>"; };
 		669C32BB2A1776BA00B96EB9 /* ArticleApiProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleApiProvider.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				66F710C02A0B77B7006F0E74 /* Assets.xcassets */,
 				66F710C22A0B77B7006F0E74 /* LaunchScreen.storyboard */,
 				66F710C52A0B77B7006F0E74 /* Info.plist */,
+				663EC95A2A1B83FD00FC251B /* ApiInfo.plist */,
 			);
 			path = ArticleProject;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				66F710C42A0B77B7006F0E74 /* LaunchScreen.storyboard in Resources */,
+				663EC95B2A1B83FD00FC251B /* ApiInfo.plist in Resources */,
 				66F710C12A0B77B7006F0E74 /* Assets.xcassets in Resources */,
 				66F710BF2A0B77B6006F0E74 /* Main.storyboard in Resources */,
 			);
