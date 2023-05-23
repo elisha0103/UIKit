@@ -42,6 +42,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
          self가 해줘야한다. 따라서 extension에 해당 프로토콜 함수를 정의했다.
          */
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let indexPath = tableView.indexPathForSelectedRow
+        
+        guard let indexPath = indexPath else { return }
+        
+        let selectedArticle = articles[indexPath.row]
+        
+        let detailVC = segue.destination as? DetailViewController
+        detailVC?.url = selectedArticle.url
+    }
 
 
 }
