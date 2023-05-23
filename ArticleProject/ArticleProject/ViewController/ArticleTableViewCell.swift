@@ -27,13 +27,11 @@ class ArticleTableViewCell: UITableViewCell {
     }
     
     func displayArticle(article: Article) {
+        articleLabel.text = ""
+        articleImage.image = nil
         articleCell = article
-        print("func displayArticle, articleCell.title: \(articleCell?.title)")
-        guard let title = articleCell?.title else {
-            print("func displayArticle title error ")
-            return
-        }
-        articleLabel.text = title
+        
+        articleLabel.text = articleCell?.title
         // 이미지 url이 없는 기사인 경우,
         guard articleCell?.urlToImage != nil else { return }
         

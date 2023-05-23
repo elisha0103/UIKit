@@ -11,6 +11,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: ArticleTableViewCell = tableView.dequeueReusableCell(withIdentifier: articleCellIdentifier, for: indexPath) as? ArticleTableViewCell ?? ArticleTableViewCell(style: .default, reuseIdentifier: articleCellIdentifier)
         let article = self.articles[indexPath.row]
+        
         cell.displayArticle(article: article)
         
         return cell
