@@ -28,8 +28,12 @@ class ArticleTableViewCell: UITableViewCell {
     
     func displayArticle(article: Article) {
         articleCell = article
-        
-        articleLabel.text = articleCell?.title
+        print("func displayArticle, articleCell.title: \(articleCell?.title)")
+        guard let title = articleCell?.title else {
+            print("func displayArticle title error ")
+            return
+        }
+        articleLabel.text = title
         // 이미지 url이 없는 기사인 경우,
         guard articleCell?.urlToImage != nil else { return }
         
@@ -42,8 +46,10 @@ class ArticleTableViewCell: UITableViewCell {
         articleApiProvider.request(url) { result in
             switch result {
             case .success(let data):
-                DispatchQueue.main.async {
-                    self.articleImage.image = UIImage(data: data)
+                if self.articleCell?.urlToImage == urlString {
+                    DispatchQueue.main.async {
+                        self.articleImage.image = UIImage(data: data)
+                    }
                 }
                 break
             case .failure(let error):

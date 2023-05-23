@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ArticleCell" id="oXH-vv-cec">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ArticleCell" id="oXH-vv-cec" customClass="ArticleTableViewCell" customModule="ArticleProject" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="393" height="100.33333587646484"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oXH-vv-cec" id="Nst-23-oMn" customClass="ArticleTableViewCell" customModule="ArticleProject" customModuleProvider="target">
@@ -54,8 +54,8 @@
                                                 <constraint firstItem="ocd-dA-MMk" firstAttribute="leading" secondItem="uZP-vZ-wzn" secondAttribute="trailing" id="w8E-88-Dlu"/>
                                             </constraints>
                                             <connections>
-                                                <outlet property="articleImage" destination="ocd-dA-MMk" id="uLX-3G-3Ck"/>
-                                                <outlet property="articleLabel" destination="uZP-vZ-wzn" id="ujC-8E-Hhr"/>
+                                                <outlet property="articleImage" destination="ocd-dA-MMk" id="tb4-A6-1yM"/>
+                                                <outlet property="articleLabel" destination="uZP-vZ-wzn" id="iii-bu-Fze"/>
                                             </connections>
                                         </tableViewCellContentView>
                                     </tableViewCell>

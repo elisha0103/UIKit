@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		66053E5E2A1C86730076D2A8 /* HeadlineArticleRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66053E5D2A1C86730076D2A8 /* HeadlineArticleRequest.swift */; };
+		66053E602A1C873F0076D2A8 /* ArticleRequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66053E5F2A1C873F0076D2A8 /* ArticleRequestProtocol.swift */; };
 		663EC9592A1B782E00FC251B /* URLSessionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663EC9582A1B782E00FC251B /* URLSessionable.swift */; };
 		663EC95B2A1B83FD00FC251B /* ApiInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 663EC95A2A1B83FD00FC251B /* ApiInfo.plist */; };
 		663EC95D2A1B84C300FC251B /* ArticleProject+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663EC95C2A1B84C300FC251B /* ArticleProject+.swift */; };
@@ -38,6 +40,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		66053E5D2A1C86730076D2A8 /* HeadlineArticleRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlineArticleRequest.swift; sourceTree = "<group>"; };
+		66053E5F2A1C873F0076D2A8 /* ArticleRequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleRequestProtocol.swift; sourceTree = "<group>"; };
 		663EC9582A1B782E00FC251B /* URLSessionable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionable.swift; sourceTree = "<group>"; };
 		663EC95A2A1B83FD00FC251B /* ApiInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ApiInfo.plist; sourceTree = "<group>"; };
 		663EC95C2A1B84C300FC251B /* ArticleProject+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArticleProject+.swift"; sourceTree = "<group>"; };
@@ -157,6 +161,7 @@
 				669C32C12A17794800B96EB9 /* Responsable.swift */,
 				669C32CB2A17823300B96EB9 /* Provider.swift */,
 				663EC9582A1B782E00FC251B /* URLSessionable.swift */,
+				66053E5F2A1C873F0076D2A8 /* ArticleRequestProtocol.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -169,6 +174,7 @@
 				66F710D82A0CC6D4006F0E74 /* ArticleServicePModel.swift */,
 				66F710DA2A0CC6DA006F0E74 /* ArticlePModel.swift */,
 				669C32CD2A178A5900B96EB9 /* ArticleRequest.swift */,
+				66053E5D2A1C86730076D2A8 /* HeadlineArticleRequest.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -249,6 +255,7 @@
 				669C32BE2A17783200B96EB9 /* Requestable.swift in Sources */,
 				66F710D02A0CC3D4006F0E74 /* ArticleController.swift in Sources */,
 				66F710DB2A0CC6DA006F0E74 /* ArticlePModel.swift in Sources */,
+				66053E5E2A1C86730076D2A8 /* HeadlineArticleRequest.swift in Sources */,
 				669C32BC2A1776BA00B96EB9 /* ArticleApiProvider.swift in Sources */,
 				66F710D42A0CC3FC006F0E74 /* ArticleProtocol.swift in Sources */,
 				669C32CE2A178A5900B96EB9 /* ArticleRequest.swift in Sources */,
@@ -268,6 +275,7 @@
 				669C32C82A177AC100B96EB9 /* NetworkEndpoint.swift in Sources */,
 				66F710BA2A0B77B6006F0E74 /* SceneDelegate.swift in Sources */,
 				663EC95D2A1B84C300FC251B /* ArticleProject+.swift in Sources */,
+				66053E602A1C873F0076D2A8 /* ArticleRequestProtocol.swift in Sources */,
 				66F710CE2A0CBF52006F0E74 /* Article.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

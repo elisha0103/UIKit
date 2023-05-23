@@ -8,8 +8,15 @@
 import Foundation
 
 struct ApiEndpoints {
-    static func getArticles(with articleRequest: ArticleRequest) -> Endpoint<ArticleService> {
-        return Endpoint(baseURL: "https://newsapi.org/v2/", path: "everything", method: .get, queryParameters: articleRequest)
+    static func getArticles(with articleRequest: ArticleRequestProtocol) -> Endpoint<ArticleService> {
+        
+        if ((articleRequest as? ArticleRequest) != nil) {
+            print("Endpoint, everything")
+            return Endpoint(baseURL: "https://newsapi.org/v2/", path: "everything", method: .get, queryParameters: articleRequest)
+        } else {
+            print("Endpoint, top-headlines")
+            return Endpoint(baseURL: "https://newsapi.org/v2/", path: "top-headlines", method: .get, queryParameters: articleRequest)
+        }
     }
     
     static func getArticlesImage(path: String, width: Int) -> Endpoint<Data> {

@@ -13,22 +13,27 @@ extension Requestable {
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = method.rawValue
         
-        guard let bodyParameters = try bodyParameters?.toDictionary() else { throw NetworkError.toDictionaryError }
-        
-        if !bodyParameters.isEmpty {
-            // 딕셔너리 타입의 변수를 JSON 파일로 변경
-            // JSON 파일을 httpbody에 넣어줌으로써 서버에 전송할 데이터 삽입
-            urlRequest.httpBody = try? JSONSerialization.data(withJSONObject: bodyParameters)
+        if bodyParameters != nil {
+            guard let bodyParameters = try bodyParameters?.toDictionary() else { throw NetworkError.toDictionaryError }
+            if !bodyParameters.isEmpty {
+                // 딕셔너리 타입의 변수를 JSON 파일로 변경
+                // JSON 파일을 httpbody에 넣어줌으로써 서버에 전송할 데이터 삽입
+                urlRequest.httpBody = try? JSONSerialization.data(withJSONObject: bodyParameters)
+            }
         }
         
-        headers?.forEach({ key, value in
-            urlRequest.setValue(value, forHTTPHeaderField: "\(key)")
-        })
+        if headers != nil {
+            headers?.forEach({ key, value in
+                urlRequest.setValue(value, forHTTPHeaderField: "\(key)")
+            })
+        }
+        print("urlRequest: \(urlRequest.description)")
         return urlRequest
     }
     
     func makeUrl() throws -> URL {
         let fullPath = "\(baseURL)\(path)"
+        print("fullPath: \(fullPath)")
         guard var urlComponents = URLComponents(string: fullPath) else { throw NetworkError.componentsError }
         
         var urlQueryItems: [URLQueryItem] = []
@@ -42,7 +47,7 @@ extension Requestable {
         
         urlComponents.queryItems = urlQueryItems.isEmpty ? nil : urlQueryItems
         guard let url = urlComponents.url else { throw NetworkError.componentsError }
-        
+        print("complete url: \(url.absoluteString)")
         return url
     }
 }

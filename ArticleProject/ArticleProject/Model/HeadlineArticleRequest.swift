@@ -1,20 +1,20 @@
 //
-//  ArticleRequest.swift
+//  HeadlineArticleRequest.swift
 //  ArticleProject
 //
-//  Created by 진태영 on 2023/05/19.
+//  Created by 진태영 on 2023/05/23.
 //
 
 import Foundation
 
-struct ArticleRequest: Codable, ArticleRequestProtocol {
-    let q: String // 검색어
+struct HeadlineArticleRequest: Codable, ArticleRequestProtocol {
+    let country: String?
     let page: Int // Page
     let apiKey: String = Bundle.main.apiKey // apiKey
     
     
     enum CodingKeys: String, CodingKey {
-        case q = "q"
+        case country = "country"
         case page = "page"
         case apiKey = "apiKey"
         
