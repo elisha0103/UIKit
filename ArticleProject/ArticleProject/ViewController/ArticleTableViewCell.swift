@@ -31,7 +31,17 @@ class ArticleTableViewCell: UITableViewCell {
         articleImage.image = nil
         articleCell = article
         
+        // cell animation
+        articleLabel.alpha = 0
+        articleImage.alpha = 0
+        
+        
         articleLabel.text = articleCell?.title
+        
+        UIView.animate(withDuration: 0.6, delay: 0, options: .curveEaseOut, animations: {
+            self.articleLabel.alpha = 1
+        }, completion: nil)
+        
         // 이미지 url이 없는 기사인 경우,
         guard articleCell?.urlToImage != nil else { return }
         
@@ -47,6 +57,10 @@ class ArticleTableViewCell: UITableViewCell {
                 if self.articleCell?.urlToImage == urlString {
                     DispatchQueue.main.async {
                         self.articleImage.image = UIImage(data: data)
+                        
+                        UIView.animate(withDuration: 0.6, delay: 0, options: .curveEaseOut, animations: {
+                            self.articleImage.alpha = 1
+                        }, completion: nil)
                     }
                 }
                 break
