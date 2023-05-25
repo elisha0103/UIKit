@@ -32,7 +32,7 @@ extension Requestable {
     }
     
     func makeUrl() throws -> URL {
-        let fullPath = "\(baseURL)\(path)"
+        let fullPath = "\(baseURL)\(String(describing: path))"
         print("fullPath: \(fullPath)")
         guard var urlComponents = URLComponents(string: fullPath) else { throw NetworkError.componentsError }
         
