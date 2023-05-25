@@ -8,9 +8,9 @@
 import Foundation
 
 class ArticleApiProvider: Provider {
-    let session: URLSession
+    let session: URLSessionable
     
-    init(session: URLSession = URLSession.shared) {
+    init(session: URLSessionable = URLSession.shared) {
         self.session = session
     }
     

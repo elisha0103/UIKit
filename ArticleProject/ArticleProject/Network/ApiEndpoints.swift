@@ -12,10 +12,10 @@ struct ApiEndpoints {
         
         if ((articleRequest as? ArticleRequest) != nil) {
             print("Endpoint, everything")
-            return Endpoint(baseURL: "https://newsapi.org/v2/", path: "everything", method: .get, queryParameters: articleRequest)
+            return Endpoint(baseURL: "https://newsapi.org/v2/", path: "everything", method: .get, queryParameters: articleRequest, sampleData: NetworkMock.articleList)
         } else {
             print("Endpoint, top-headlines")
-            return Endpoint(baseURL: "https://newsapi.org/v2/", path: "top-headlines", method: .get, queryParameters: articleRequest)
+            return Endpoint(baseURL: "https://newsapi.org/v2/", path: "top-headlines", method: .get, queryParameters: articleRequest, sampleData: NetworkMock.articleList)
         }
     }
     
@@ -23,6 +23,6 @@ struct ApiEndpoints {
 //        let sizes = [92, 154, 185, 342, 500, 780]
 //        let closesWidth = sizes.enumerated().min { abs($0.1 - width) < abs($1.1 - width)}?.element ?? sizes.first
         
-        return Endpoint(baseURL: path, path: "", method: .get)
+        return Endpoint(baseURL: path, path: "", method: .get, sampleData: NetworkMock.image)
     }
 }

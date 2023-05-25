@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: ArticleTableViewCell = tableView.dequeueReusableCell(withIdentifier: articleCellIdentifier, for: indexPath) as? ArticleTableViewCell ?? ArticleTableViewCell(style: .default, reuseIdentifier: articleCellIdentifier)
         let article = self.articles[indexPath.row]
@@ -26,7 +26,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     var articles: [Article] = []
     let articleCellIdentifier: String = "ArticleCell"
     
+    
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +57,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         detailVC?.url = selectedArticle.url
     }
 
+    
 
 }
 

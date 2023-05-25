@@ -19,4 +19,8 @@ struct ArticleRequest: Codable, ArticleRequestProtocol {
         case apiKey = "apiKey"
         
     }
+    init(q: String, page: Int) {
+        self.q = q
+        self.page = page
+    }
 }
