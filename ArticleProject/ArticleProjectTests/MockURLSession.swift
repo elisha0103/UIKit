@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 @testable import ArticleProject
 
 class MockURLSession: URLSessionable {
@@ -20,7 +21,8 @@ class MockURLSession: URLSessionable {
     }
     
     func dataTask(with request: URLRequest, completionHandler: @escaping @Sendable (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTaskProtocol {
-        let endPoint = ApiEndpoints.getArticles(with: ArticleRequest(q: "", page: 1))
+        print("Test dataTask")
+        let endPoint = ApiEndpoints.getArticles(with: ArticleRequest(q: "bitcoin", page: 1))
         
         // 성공 callback
         let successResponse = HTTPURLResponse(url: try! endPoint.makeUrl(),
@@ -42,7 +44,7 @@ class MockURLSession: URLSessionable {
             if self.makeRequestFail {
                 completionHandler(nil, failureResponse, nil)
             } else {
-                completionHandler(endPoint.sampleData!, successResponse, nil)
+                completionHandler(NetworkMock.load(), successResponse, nil)
             }
         }
         self.sessionDataTask = sessionDataTask
@@ -51,14 +53,18 @@ class MockURLSession: URLSessionable {
 
     
     func dataTask(with url: URL, completionHandler: @escaping @Sendable (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTaskProtocol {
-        let endPoint = ApiEndpoints.getArticlesImage(path: "https://s.yimg.com/uu/api/res/1.2/LKRH31mzL9wqtcqoQ_lkjw--~B/Zmk9ZmlsbDtoPTYzMDtweW9mZj0wO3c9MTIwMDthcHBpZD15dGFjaHlvbg--/https://media-mbst-pub-ue1.s3.amazonaws.com/creatr-uploaded-images/2023-04/835a5670-e5f4-11ed-9db6-3febf57b7a4a.cf.jpg", width: 1)
+//        let endPoint = ApiEndpoints.getArticlesImage(path: "https://s.yimg.com/uu/api/res/1.2/LKRH31mzL9wqtcqoQ_lkjw--~B/Zmk9ZmlsbDtoPTYzMDtweW9mZj0wO3c9MTIwMDthcHBpZD15dGFjaHlvbg--/https://media-mbst-pub-ue1.s3.amazonaws.com/creatr-uploaded-images/2023-04/835a5670-e5f4-11ed-9db6-3febf57b7a4a.cf.jpg", width: 1)
+        let urlString = "https://s.yimg.com/uu/api/res/1.2/LKRH31mzL9wqtcqoQ_lkjw--~B/Zmk9ZmlsbDtoPTYzMDtweW9mZj0wO3c9MTIwMDthcHBpZD15dGFjaHlvbg--/https://media-mbst-pub-ue1.s3.amazonaws.com/creatr-uploaded-images/2023-04/835a5670-e5f4-11ed-9db6-3febf57b7a4a.cf.jpg"
+        let url: URL = URL(string: urlString)!
         
-        let successResponse = HTTPURLResponse(url: try! endPoint.makeUrl(),
+        let image: Data = UIImage(systemName: "square")!.pngData()!
+
+        let successResponse = HTTPURLResponse(url: url,
                                               statusCode: 200,
                                               httpVersion: "2",
                                               headerFields: nil)
         // 실패 callback
-        let failureResponse = HTTPURLResponse(url: try! endPoint.makeUrl(),
+        let failureResponse = HTTPURLResponse(url: url,
                                               statusCode: 401,
                                               httpVersion: "2",
                                               headerFields: nil)
@@ -72,7 +78,7 @@ class MockURLSession: URLSessionable {
             if self.makeRequestFail {
                 completionHandler(nil, failureResponse, nil)
             } else {
-                completionHandler(endPoint.sampleData!, successResponse, nil)
+                completionHandler(image, successResponse, nil)
             }
         }
         self.sessionDataTask = sessionDataTask

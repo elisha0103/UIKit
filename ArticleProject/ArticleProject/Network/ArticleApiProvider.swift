@@ -36,6 +36,7 @@ class ArticleApiProvider: Provider {
             }
             .resume()
         } catch {
+            print("request가 실패요")
             completion(.failure(NetworkError.urlRequestError(error)))
         }
     }
