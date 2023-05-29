@@ -27,13 +27,11 @@ extension Requestable {
                 urlRequest.setValue(value, forHTTPHeaderField: "\(key)")
             })
         }
-        print("urlRequest: \(urlRequest.description)")
         return urlRequest
     }
     
     func makeUrl() throws -> URL {
         let fullPath = "\(baseURL)\(String(describing: path))"
-        print("fullPath: \(fullPath)")
         guard var urlComponents = URLComponents(string: fullPath) else { throw NetworkError.componentsError }
         
         var urlQueryItems: [URLQueryItem] = []

@@ -19,9 +19,7 @@ class ArticleApiProvider: Provider {
     // E는 Endpoint 조건을 가지고 있어야한다.
     func request<R, E>(with endpoint: E, completion: @escaping (Result<R, Error>) -> Void) where R : Decodable, R == E.Response, E : RequestResponsable {
         do {
-            print("func request")
             let urlRequest = try endpoint.getUrlRequest()
-            print("urlRequest: \(String(describing: urlRequest.url?.absoluteString))")
             session.dataTask(with: urlRequest) { [weak self] data, response, error in
                 self?.checkError(with: data, response, error, completion: { result in
                     guard let articleApiProvider = self else { return }
@@ -52,7 +50,6 @@ class ArticleApiProvider: Provider {
     
     private func checkError(with data: Data?, _ response: URLResponse?, _ error: Error?, completion: @escaping (Result<Data, Error>) -> ()) {
         let nomalNetworkResponseCodes: ClosedRange<Int> = 200...299
-        print("func checkError")
         if let error = error {
             completion(.failure(error))
             return
@@ -77,7 +74,6 @@ class ArticleApiProvider: Provider {
     }
     
     private func decode<T: Decodable>(data: Data) -> Result<T, Error> {
-        print("func decode")
         do {
             let decoded = try JSONDecoder().decode(T.self, from: data)
             return .success(decoded)

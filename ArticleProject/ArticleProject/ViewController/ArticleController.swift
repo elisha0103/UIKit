@@ -9,12 +9,12 @@ import Foundation
 
 class ArticleController {
     var delegate: ArticleProtocol?
-    var articleRequest: ArticleRequest?
+    var request: ArticleRequestProtocol?
     let articleApiProvider: ArticleApiProvider = ArticleApiProvider()
     
     func getArticles() {
         delegate?.articlesRetrieved(articles: [])
-        guard let articleRequest = self.articleRequest else { return }
+        guard let articleRequest = self.request else { return }
         
         articleApiProvider.request(with: ApiEndpoints.getArticles(with: articleRequest)) { result in
             switch result {
