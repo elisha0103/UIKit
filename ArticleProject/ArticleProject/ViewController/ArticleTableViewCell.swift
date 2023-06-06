@@ -49,6 +49,11 @@ class ArticleTableViewCell: UITableViewCell {
         if let cacheImage = cache.object(forKey: articleCell?.urlToImage as AnyObject) {
             // 캐시가 존재하는 경우
             self.articleImage.image = cacheImage
+            UIView.animate(withDuration: 0.6, delay: 0, options: .curveEaseOut, animations: {
+                self.articleImage.alpha = 1
+            }, completion: nil)
+            
+            print("cache Image")
         } else {
             let urlString = articleCell?.urlToImage
             guard let url = URL(string: urlString ?? "") else {
@@ -59,9 +64,10 @@ class ArticleTableViewCell: UITableViewCell {
             articleApiProvider.request(url) { result in
                 switch result {
                 case .success(let data):
-                    // 셀이 재사용되는 경우 셀의 인덱스 정보가 변경되더라도 이미지를 정상적으로 할당해주기 위한 방법
-                    if let currentCell = tableView.cellForRow(at: indexPath) as? ArticleTableViewCell, currentCell == self {
                         DispatchQueue.main.async {
+                            
+                            // 셀이 재사용되는 경우 셀의 인덱스 정보가 변경되더라도 이미지를 정상적으로 할당해주기 위한 방법
+                            if let currentCell = tableView.cellForRow(at: indexPath) as? ArticleTableViewCell, currentCell == self {
 
                             guard let img: UIImage = UIImage(data: data) else { return }
                             
@@ -72,8 +78,8 @@ class ArticleTableViewCell: UITableViewCell {
                                 self.articleImage.alpha = 1
                             }, completion: nil)
                         }
+                            print("Network Image")
                     }
-                    break
                 case .failure(let error):
                     print("ArticleTableViewCell func displayArticle Image error: \(error.localizedDescription)")
                 }
