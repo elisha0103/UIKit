@@ -12,7 +12,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let cell: ArticleTableViewCell = tableView.dequeueReusableCell(withIdentifier: articleCellIdentifier, for: indexPath) as? ArticleTableViewCell ?? ArticleTableViewCell(style: .default, reuseIdentifier: articleCellIdentifier)
         let article = self.articles[indexPath.row]
         
-        cell.displayArticle(article: article)
+        cell.displayArticle(article: article, forIndexPath: indexPath, tableView: tableView)
         
         return cell
     }
@@ -25,7 +25,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     var model = ArticleController()
     var articles: [Article] = []
     let articleCellIdentifier: String = "ArticleCell"
-    
+    let refreshControl = UIRefreshControl()
+    var searchText: String?
+    var page: Int?
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -44,6 +46,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
          아직 articleRetrieved의 함수를 정의해주지 않았는데, model.delegate를 self가 관장하고 있고 delegate는 ArticleProtocol을 따르므로 해당 프로토콜의 함수 정의도
          self가 해줘야한다. 따라서 extension에 해당 프로토콜 함수를 정의했다.
          */
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -58,12 +61,28 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        let searchText = searchBar.text
+        self.searchText = searchBar.text
         guard let searchText = searchText else { return }
         let articleRequest: ArticleRequest = ArticleRequest(q: "\(searchText)", page: 1)
         model.delegate = self
         model.request = articleRequest
         model.getArticles()
+    }
+    
+    func initRefresh() {
+        refreshControl.addTarget(self, action: #selector(refreshTable(refresh: )), for: .valueChanged)
+        
+        tableView.refreshControl = self.refreshControl
+    }
+    
+    @objc func refreshTable(refresh: UIRefreshControl) {
+        print("새로고침")
+        guard let searchText = self.searchText else { return }
+        let articleRequest: ArticleRequest = ArticleRequest(q: "\(searchText)", page: 1)
+        model.delegate = self
+        model.request = articleRequest
+        model.getArticles()
+        
     }
 
     
