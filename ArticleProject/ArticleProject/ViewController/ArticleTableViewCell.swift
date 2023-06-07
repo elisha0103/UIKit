@@ -46,23 +46,21 @@ class ArticleTableViewCell: UITableViewCell {
         
         // 이미지 url이 없는 기사인 경우,
         guard articleCell?.urlToImage != nil else { return }
-        
-        let currentCell = tableView.cellForRow(at: indexPath) as? ArticleTableViewCell
-        
+                
         // 메모리 캐시가 존재하는 경우
-//        if let memoryCacheImage = cache.object(forKey: articleCell?.urlToImage as AnyObject), let currentCell = tableView.cellForRow(at: indexPath) as? ArticleTableViewCell, currentCell == self {
+        //        if let memoryCacheImage = cache.object(forKey: articleCell?.urlToImage as AnyObject), let currentCell = tableView.cellForRow(at: indexPath) as? ArticleTableViewCell, currentCell == self {
         
-        if let memoryCacheImage = cache.object(forKey: articleCell?.urlToImage as AnyObject) {
-            print(currentCell == self ? "true" : "false")
-            self.articleImage.image = memoryCacheImage
-            UIView.animate(withDuration: 0.6, delay: 0, options: .curveEaseOut, animations: {
-                self.articleImage.alpha = 1
-            }, completion: nil)
-            
-            print("Memory Cache Image")
-            
-            return
-        }
+        //        if let memoryCacheImage = cache.object(forKey: articleCell?.urlToImage as AnyObject) {
+        //            print(currentCell == self ? "true" : "false")
+        //            self.articleImage.image = memoryCacheImage
+        //            UIView.animate(withDuration: 0.6, delay: 0, options: .curveEaseOut, animations: {
+        //                self.articleImage.alpha = 1
+        //            }, completion: nil)
+        //
+        //            print("Memory Cache Image")
+        //
+        //            return
+        //        }
         
         let urlString = articleCell?.urlToImage
         guard let url = URL(string: urlString ?? "") else {
@@ -77,66 +75,83 @@ class ArticleTableViewCell: UITableViewCell {
         filePath.appendPathComponent(url.lastPathComponent)
         
         // 디스크 캐시가 있는 경우
-//        if fileManager.fileExists(atPath: filePath.path), let currentCell = tableView.cellForRow(at: indexPath) as? ArticleTableViewCell, currentCell == self {
+        //        if fileManager.fileExists(atPath: filePath.path), let currentCell = tableView.cellForRow(at: indexPath) as? ArticleTableViewCell, currentCell == self {
         if fileManager.fileExists(atPath: filePath.path) {
-            print(currentCell == self ? "true" : "false")
-
             guard let diskCacheData = try? Data(contentsOf: filePath) else {
                 print("Disk Cache Data Error")
                 
                 return
             }
-            
-            guard let diskCacheImage = UIImage(data: diskCacheData) else {
-                print("Disk Cache Image Error")
-                
-                return
-            }
-            
-            self.articleImage.image = diskCacheImage
-            self.cache.setObject(diskCacheImage, forKey: self.articleCell?.urlToImage as AnyObject)
 
-            UIView.animate(withDuration: 0.6, delay: 0, options: .curveEaseOut, animations: {
-                self.articleImage.alpha = 1
-            }, completion: nil)
-            
-            print("Disk Cache Image")
-            
-            return
-        }
-        
-        
-        // Memory, Disk Cache가 모두 없는 경우
-        articleApiProvider.request(url) { result in
-            switch result {
-            case .success(let data):
                 DispatchQueue.main.async {
-                    print(currentCell == self ? "Network Before true" : "false")
 
-                    // 셀이 재사용되는 경우 셀의 인덱스 정보가 변경되더라도 이미지를 정상적으로 할당해주기 위한 방법
                     if let currentCell = tableView.cellForRow(at: indexPath) as? ArticleTableViewCell, currentCell == self {
-                        print(currentCell == self ? "Network after true" : "false")
+                        print(currentCell == self ? "Disk after true \(indexPath.row)" : "Disk after false")
+                        print("\(String(describing: currentCell.articleLabel.text))")
 
-                        guard let img: UIImage = UIImage(data: data) else { return }
                         
-                        self.articleImage.image = img
-                        self.cache.setObject(img, forKey: self.articleCell?.urlToImage as AnyObject)
-                        self.fileManager.createFile(atPath: filePath.path(), contents: img.jpegData(compressionQuality: 0.4))
+                        guard let diskCacheImage = UIImage(data: diskCacheData) else {
+                            print("Disk Cache Image Error")
+                            
+                            return
+                        }
+
+                        self.articleImage.image = diskCacheImage
+                        self.cache.setObject(diskCacheImage, forKey: self.articleCell?.urlToImage as AnyObject)
                         
                         UIView.animate(withDuration: 0.6, delay: 0, options: .curveEaseOut, animations: {
                             self.articleImage.alpha = 1
                         }, completion: nil)
                     } else {
-                        DispatchQueue.main.async {
-                            self.articleImage.image = nil
-                        }
+                        self.articleImage.image = nil
                     }
-                    print("Network Image")
+                    print("Disk Cache Image")
+                    return
+                    
                 }
-            case .failure(let error):
-                print("ArticleTableViewCell func displayArticle Image error: \(error.localizedDescription)")
-                DispatchQueue.main.async {
-                    self.articleImage.image = nil
+                
+                
+        } else {
+            
+            
+            // Memory, Disk Cache가 모두 없는 경우
+            articleApiProvider.request(url) { result in
+                switch result {
+                case .success(let data):
+                    DispatchQueue.main.async {
+                        
+                        // 셀이 재사용되는 경우 셀의 인덱스 정보가 변경되더라도 이미지를 정상적으로 할당해주기 위한 방법
+                        if let currentCell = tableView.cellForRow(at: indexPath) as? ArticleTableViewCell, currentCell == self {
+                            print(currentCell == self ? "Network after true" : "false")
+                            
+                            guard let img: UIImage = UIImage(data: data) else { return }
+                            
+                            self.articleImage.image = img
+                            self.cache.setObject(img, forKey: self.articleCell?.urlToImage as AnyObject)
+                            
+                            // 디스크 캐시 폴더
+                            guard let diskCachePath = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true).first else { return }
+                            
+                            var filePath = URL(fileURLWithPath: diskCachePath)
+                            filePath.appendPathComponent(url.lastPathComponent)
+
+                            self.fileManager.createFile(atPath: filePath.path(), contents: img.jpegData(compressionQuality: 0.4))
+                            
+                            UIView.animate(withDuration: 0.6, delay: 0, options: .curveEaseOut, animations: {
+                                self.articleImage.alpha = 1
+                            }, completion: nil)
+                        } else {
+                            DispatchQueue.main.async {
+                                self.articleImage.image = nil
+                            }
+                        }
+                        print("Network Image")
+                    }
+                case .failure(let error):
+                    print("ArticleTableViewCell func displayArticle Image error: \(error.localizedDescription)")
+                    DispatchQueue.main.async {
+                        self.articleImage.image = nil
+                    }
                 }
             }
         }

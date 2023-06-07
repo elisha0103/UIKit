@@ -33,7 +33,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // ArticleController의 getArticles 함수로 가져온 데이터를 사용하기 위해서 delegate를 사용함
@@ -65,7 +64,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func getArticleResponse(request: ArticleRequestProtocol) {
-        print("page: \(page)")
+        print("page: \(String(describing: page))")
         model.request = request
         model.getArticles()
         guard self.page != nil else { return }
