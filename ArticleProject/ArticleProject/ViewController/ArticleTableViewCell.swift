@@ -121,6 +121,9 @@ class ArticleTableViewCell: UITableViewCell {
                 }
             case .failure(let error):
                 print("ArticleTableViewCell func displayArticle Image error: \(error.localizedDescription)")
+                DispatchQueue.main.async {
+                    self.articleImage.image = nil
+                }
             }
         }
     }
