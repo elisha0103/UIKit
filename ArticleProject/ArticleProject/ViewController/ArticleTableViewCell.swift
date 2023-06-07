@@ -47,8 +47,13 @@ class ArticleTableViewCell: UITableViewCell {
         // 이미지 url이 없는 기사인 경우,
         guard articleCell?.urlToImage != nil else { return }
         
+        let currentCell = tableView.cellForRow(at: indexPath) as? ArticleTableViewCell
+        
         // 메모리 캐시가 존재하는 경우
+//        if let memoryCacheImage = cache.object(forKey: articleCell?.urlToImage as AnyObject), let currentCell = tableView.cellForRow(at: indexPath) as? ArticleTableViewCell, currentCell == self {
+        
         if let memoryCacheImage = cache.object(forKey: articleCell?.urlToImage as AnyObject) {
+            print(currentCell == self ? "true" : "false")
             self.articleImage.image = memoryCacheImage
             UIView.animate(withDuration: 0.6, delay: 0, options: .curveEaseOut, animations: {
                 self.articleImage.alpha = 1
@@ -72,7 +77,10 @@ class ArticleTableViewCell: UITableViewCell {
         filePath.appendPathComponent(url.lastPathComponent)
         
         // 디스크 캐시가 있는 경우
+//        if fileManager.fileExists(atPath: filePath.path), let currentCell = tableView.cellForRow(at: indexPath) as? ArticleTableViewCell, currentCell == self {
         if fileManager.fileExists(atPath: filePath.path) {
+            print(currentCell == self ? "true" : "false")
+
             guard let diskCacheData = try? Data(contentsOf: filePath) else {
                 print("Disk Cache Data Error")
                 
@@ -103,10 +111,12 @@ class ArticleTableViewCell: UITableViewCell {
             switch result {
             case .success(let data):
                 DispatchQueue.main.async {
-                    
+                    print(currentCell == self ? "Network Before true" : "false")
+
                     // 셀이 재사용되는 경우 셀의 인덱스 정보가 변경되더라도 이미지를 정상적으로 할당해주기 위한 방법
                     if let currentCell = tableView.cellForRow(at: indexPath) as? ArticleTableViewCell, currentCell == self {
-                        
+                        print(currentCell == self ? "Network after true" : "false")
+
                         guard let img: UIImage = UIImage(data: data) else { return }
                         
                         self.articleImage.image = img
@@ -116,6 +126,10 @@ class ArticleTableViewCell: UITableViewCell {
                         UIView.animate(withDuration: 0.6, delay: 0, options: .curveEaseOut, animations: {
                             self.articleImage.alpha = 1
                         }, completion: nil)
+                    } else {
+                        DispatchQueue.main.async {
+                            self.articleImage.image = nil
+                        }
                     }
                     print("Network Image")
                 }
