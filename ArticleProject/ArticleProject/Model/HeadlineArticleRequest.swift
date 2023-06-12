@@ -12,11 +12,9 @@ struct HeadlineArticleRequest: Codable, ArticleRequestProtocol {
     let page: Int // Page
     let apiKey: String = Bundle.main.apiKey // apiKey
     
-    
     enum CodingKeys: String, CodingKey {
         case country = "country"
         case page = "page"
         case apiKey = "apiKey"
-        
     }
 }
