@@ -45,75 +45,56 @@ class ArticleTableViewCell: UITableViewCell {
         }, completion: nil)
         
         // 이미지 url이 없는 기사인 경우,
-        guard articleCell?.urlToImage != nil else { return }
-                
-        // 메모리 캐시가 존재하는 경우
-        //        if let memoryCacheImage = cache.object(forKey: articleCell?.urlToImage as AnyObject), let currentCell = tableView.cellForRow(at: indexPath) as? ArticleTableViewCell, currentCell == self {
+        guard let urlString = articleCell?.urlToImage else { return }
         
-        //        if let memoryCacheImage = cache.object(forKey: articleCell?.urlToImage as AnyObject) {
-        //            print(currentCell == self ? "true" : "false")
-        //            self.articleImage.image = memoryCacheImage
-        //            UIView.animate(withDuration: 0.6, delay: 0, options: .curveEaseOut, animations: {
-        //                self.articleImage.alpha = 1
-        //            }, completion: nil)
-        //
-        //            print("Memory Cache Image")
-        //
-        //            return
-        //        }
-        
-        let urlString = articleCell?.urlToImage
-        guard let url = URL(string: urlString ?? "") else {
+        guard let url = URL(string: urlString) else {
             print("ArticleTableViewCell func displayArticle URL Error")
             return
         }
         
-        // 디스크 캐시 폴더
-        guard let diskCachePath = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true).first else { return }
+        guard let cachePath = makeCacheKey(url: url) else { return }
         
-        var filePath = URL(fileURLWithPath: diskCachePath)
-        filePath.appendPathComponent(url.lastPathComponent)
+        // 메모리 캐시가 존재하는 경우
+        if let memoryCacheImage = cache.object(forKey: cachePath.path() as AnyObject) {
+            self.articleImage.image = memoryCacheImage
+            UIView.animate(withDuration: 0.6, delay: 0, options: .curveEaseOut, animations: {
+                self.articleImage.alpha = 1
+            }, completion: nil)
+            
+            print("Memory Cache Image")
+            
+            return
+        }
+        
         
         // 디스크 캐시가 있는 경우
-        //        if fileManager.fileExists(atPath: filePath.path), let currentCell = tableView.cellForRow(at: indexPath) as? ArticleTableViewCell, currentCell == self {
-        if fileManager.fileExists(atPath: filePath.path) {
-            guard let diskCacheData = try? Data(contentsOf: filePath) else {
+        if fileManager.fileExists(atPath: cachePath.path()) {
+            guard let diskCacheData = try? Data(contentsOf: cachePath) else {
                 print("Disk Cache Data Error")
                 
                 return
             }
-
-                DispatchQueue.main.async {
-
-                    if let currentCell = tableView.cellForRow(at: indexPath) as? ArticleTableViewCell, currentCell == self {
-                        print(currentCell == self ? "Disk after true \(indexPath.row)" : "Disk after false")
-                        print("\(String(describing: currentCell.articleLabel.text))")
-
-                        
-                        guard let diskCacheImage = UIImage(data: diskCacheData) else {
-                            print("Disk Cache Image Error")
-                            
-                            return
-                        }
-
-                        self.articleImage.image = diskCacheImage
-                        self.cache.setObject(diskCacheImage, forKey: self.articleCell?.urlToImage as AnyObject)
-                        
-                        UIView.animate(withDuration: 0.6, delay: 0, options: .curveEaseOut, animations: {
-                            self.articleImage.alpha = 1
-                        }, completion: nil)
-                    } else {
-                        self.articleImage.image = nil
-                    }
-                    print("Disk Cache Image")
-                    return
+            
+            DispatchQueue.main.async {
+                
+                guard let diskCacheImage = UIImage(data: diskCacheData) else {
+                    print("Disk Cache Image Error")
                     
+                    return
                 }
                 
+                self.articleImage.image = diskCacheImage
+                self.cache.setObject(diskCacheImage, forKey: cachePath.path() as AnyObject)
                 
+                UIView.animate(withDuration: 0.6, delay: 0, options: .curveEaseOut, animations: {
+                    self.articleImage.alpha = 1
+                }, completion: nil)
+                
+                print("Disk Cache Image")
+                return
+                
+            }
         } else {
-            
-            
             // Memory, Disk Cache가 모두 없는 경우
             articleApiProvider.request(url) { result in
                 switch result {
@@ -122,21 +103,16 @@ class ArticleTableViewCell: UITableViewCell {
                         
                         // 셀이 재사용되는 경우 셀의 인덱스 정보가 변경되더라도 이미지를 정상적으로 할당해주기 위한 방법
                         if let currentCell = tableView.cellForRow(at: indexPath) as? ArticleTableViewCell, currentCell == self {
-                            print(currentCell == self ? "Network after true" : "false")
                             
-                            guard let img: UIImage = UIImage(data: data) else { return }
+                            guard let img: UIImage = UIImage(data: data) else {
+                                print("UIImage setting failed")
+                                return
+                                
+                            }
                             
                             self.articleImage.image = img
-                            self.cache.setObject(img, forKey: self.articleCell?.urlToImage as AnyObject)
-                            
-                            // 디스크 캐시 폴더
-                            guard let diskCachePath = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true).first else { return }
-                            
-                            var filePath = URL(fileURLWithPath: diskCachePath)
-                            filePath.appendPathComponent(url.lastPathComponent)
-
-                            self.fileManager.createFile(atPath: filePath.path(), contents: img.jpegData(compressionQuality: 0.4))
-                            
+                            self.cache.setObject(img, forKey: cachePath.path() as AnyObject)
+                            self.fileManager.createFile(atPath: cachePath.path(), contents: img.jpegData(compressionQuality: 0.4))
                             UIView.animate(withDuration: 0.6, delay: 0, options: .curveEaseOut, animations: {
                                 self.articleImage.alpha = 1
                             }, completion: nil)
@@ -151,9 +127,27 @@ class ArticleTableViewCell: UITableViewCell {
                     print("ArticleTableViewCell func displayArticle Image error: \(error.localizedDescription)")
                     DispatchQueue.main.async {
                         self.articleImage.image = nil
+                        UIView.animate(withDuration: 0.6, delay: 0, options: .curveEaseOut, animations: {
+                            self.articleImage.alpha = 1
+                        }, completion: nil)
+                        
                     }
                 }
             }
         }
+    }
+    
+    // cache 경로 생성
+    func makeCacheKey(url: URL) -> URL? {
+        // 디스크 캐시 폴더
+        guard let diskCachePath = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true).first else { return nil }
+        
+        var filePath = URL(fileURLWithPath: diskCachePath)
+        
+        var urlsPathComponents = url.pathComponents
+        urlsPathComponents.removeFirst()
+        filePath.appendPathComponent(urlsPathComponents.joined(separator: ""))
+        
+        return filePath
     }
 }
