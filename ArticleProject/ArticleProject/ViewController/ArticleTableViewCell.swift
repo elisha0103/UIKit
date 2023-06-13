@@ -55,7 +55,7 @@ class ArticleTableViewCell: UITableViewCell {
         guard let cachePath = makeCacheKey(url: url) else { return }
         
         // 메모리 캐시가 존재하는 경우
-        if let memoryCacheImage = cache.object(forKey: cachePath.path() as AnyObject) {
+        if let memoryCacheImage = cache.object(forKey: cachePath.path as AnyObject) {
             self.articleImage.image = memoryCacheImage
             UIView.animate(withDuration: 0.6, delay: 0, options: .curveEaseOut, animations: {
                 self.articleImage.alpha = 1
@@ -68,7 +68,7 @@ class ArticleTableViewCell: UITableViewCell {
         
         
         // 디스크 캐시가 있는 경우
-        if fileManager.fileExists(atPath: cachePath.path()) {
+        if fileManager.fileExists(atPath: cachePath.path) {
             guard let diskCacheData = try? Data(contentsOf: cachePath) else {
                 print("Disk Cache Data Error")
                 
@@ -84,7 +84,7 @@ class ArticleTableViewCell: UITableViewCell {
                 }
                 
                 self.articleImage.image = diskCacheImage
-                self.cache.setObject(diskCacheImage, forKey: cachePath.path() as AnyObject)
+                self.cache.setObject(diskCacheImage, forKey: cachePath.path as AnyObject)
                 
                 UIView.animate(withDuration: 0.6, delay: 0, options: .curveEaseOut, animations: {
                     self.articleImage.alpha = 1
@@ -111,8 +111,8 @@ class ArticleTableViewCell: UITableViewCell {
                             }
                             
                             self.articleImage.image = img
-                            self.cache.setObject(img, forKey: cachePath.path() as AnyObject)
-                            self.fileManager.createFile(atPath: cachePath.path(), contents: img.jpegData(compressionQuality: 0.4))
+                            self.cache.setObject(img, forKey: cachePath.path as AnyObject)
+                            self.fileManager.createFile(atPath: cachePath.path, contents: img.jpegData(compressionQuality: 0.4))
                             UIView.animate(withDuration: 0.6, delay: 0, options: .curveEaseOut, animations: {
                                 self.articleImage.alpha = 1
                             }, completion: nil)

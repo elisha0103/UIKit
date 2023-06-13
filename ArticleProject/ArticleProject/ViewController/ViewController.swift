@@ -114,9 +114,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         // contentOffset_y > 0은 refresh할 때에는 중복된 패치가 이뤄지지 않도록 하기 위함
         // 아래 구문은 아래로 스크롤할 때에만 적용되게 하기 위한 예외처리
         if contentOffset_y > (tableViewContentSize - tableView.bounds.size.height), isPaginationFetching, contentOffset_y > 0 {
-            print("contentOffset_y: \(contentOffset_y)")
-            print("second paramiters: \(tableViewContentSize - tableView.bounds.size.height)")
-            print("-------Scroll-------")
             print("page plus")
             if let searchText = self.searchText {
                 let articleRequest: ArticleRequest = ArticleRequest(q: "\(searchText)", page: page ?? 1)
@@ -127,7 +124,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             
             let headlineArticleReqeust: HeadlineArticleRequest = HeadlineArticleRequest(country: "kr", page: page ?? 1)
             getArticleResponse(request: headlineArticleReqeust)
-            print("page scroll")
             
             return
         }
