@@ -1,8 +1,9 @@
 # ArticleProject
 
 ### 프로젝트 소개 
+<div align="center">
 <img src = "https://github.com/elisha0103/UIKit/assets/41459466/beb6939a-05c9-4253-bb5a-3e8064114b6a">
-
+</div>
 <br>
 
 ### 프로젝트 목표
@@ -62,23 +63,26 @@ ArticleProjectTests
 
 ## 구현 화면
 
-
+<div align="center">
 |<img src="https://github.com/elisha0103/UIKit/assets/41459466/72c30e12-9a25-4446-b2ff-137ce310a938" width="200" height="400"/></img>|<img src="https://github.com/elisha0103/UIKit/assets/41459466/87abbac0-273d-4d28-afa8-9e7d6a09dfac" width="200" height="400"/></img>|
 |:-:|:-:|
 |`메인, Pagination 구현 화면`|`Pagination 구현 화면`|
-
+</div>
 <br>
 
 ## Troubleshooting
 ### **Cache 관련**
-
+<div align="center">
 <img src="https://github.com/elisha0103/UIKit/assets/41459466/c2c83ff5-7a4c-44d7-872f-ba65193ab00c" width="200" height="400"/>
+</div>
 
 - 문제:  Network로부터 이미지 데이터를 받아올 때 NEWS 기사와 일치하는 이미지 데이터가 UITableViewCell에 정상 할당되지만, Cache 이미지를 불러올 때에는 기사와 상관없는 이미지가 일부 UITableViewCell에 중복 할당 됨
 
 <br>
 
+<div align="center">
 <img src="https://github.com/elisha0103/UIKit/assets/41459466/ad6c96df-b76c-4b16-9048-e1d23073a0b9" width="600" height="180"/>
+</div>
 
 ```
 
@@ -96,7 +100,9 @@ self.fileManager.createFile(atPath: filePath.path, contents: img.jpegData(Compre
  
 <br>
 
+<div align="center">
 <img src="https://github.com/elisha0103/UIKit/assets/41459466/60937569-341f-41b5-8024-b9e73bbe767c" width="600" height="180"/>
+</div>
 
 ```
 
@@ -122,8 +128,9 @@ self.fileManager.createFile(atPath: filePath.path, contents: img.jpegData(Compre
 <br>
     
 ### **View 관련**
-
+<div align="center">
 <img src="https://github.com/elisha0103/UIKit/assets/41459466/cc0f1e8f-20b8-4b48-a7d0-9d21a329fc1f" width="600" height="180"/>
+</div>
 
 - 문제: 검색 View Refresh 할 때, 서버에 page 1(Refresh request), page 2(Pagination request) 데이터를 연속으로 요청
 
