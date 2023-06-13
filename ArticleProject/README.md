@@ -197,6 +197,6 @@ self.fileManager.createFile(atPath: filePath.path, contents: img.jpegData(Compre
     
 #### Language & Tools
 
-<img src="https://img.shields.io/badge/Xcode-147EFB?style=flat&logo=Xcode&logoColor=white"/> <img src="https://img.shields.io/badge/UIKit-2396F3?style=flat&logo=Swift&logoColor=white"/> <img src="https://img.shields.io/badge/Swift-F05138?style=flat&logo=swift&logoColor=white"/>
+<img src="https://img.shields.io/badge/Xcode-147EFB?style=flat&logo=Xcode&logoColor=white"/> <img src="https://img.shields.io/badge/UIKit-%232396F3.svg?&style=flat&logo=UIKit&logoColor=white" /> <img src="https://img.shields.io/badge/Swift-F05138?style=flat&logo=swift&logoColor=white"/>
 -->
 
