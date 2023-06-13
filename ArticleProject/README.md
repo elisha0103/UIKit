@@ -64,9 +64,11 @@ ArticleProjectTests
 ## 구현 화면
 
 <div align="center">
+ 
 |<img src="https://github.com/elisha0103/UIKit/assets/41459466/72c30e12-9a25-4446-b2ff-137ce310a938" width="200" height="400"/></img>|<img src="https://github.com/elisha0103/UIKit/assets/41459466/87abbac0-273d-4d28-afa8-9e7d6a09dfac" width="200" height="400"/></img>|
 |:-:|:-:|
 |`메인, Pagination 구현 화면`|`Pagination 구현 화면`|
+ 
 </div>
 <br>
 
