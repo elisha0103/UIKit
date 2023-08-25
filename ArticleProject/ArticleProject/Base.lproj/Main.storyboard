@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XGh-iv-hum">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -17,37 +18,41 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="VZy-Ub-KP4">
-                                <rect key="frame" x="10" y="103" width="373" height="749"/>
+                                <rect key="frame" x="10" y="59" width="373" height="793"/>
                                 <subviews>
-                                    <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="sX2-3m-yNU">
+                                    <searchBar contentMode="redraw" text="" translatesAutoresizingMaskIntoConstraints="NO" id="sX2-3m-yNU">
                                         <rect key="frame" x="0.0" y="0.0" width="373" height="70"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="70" id="5k8-e5-aM8"/>
                                         </constraints>
                                         <textInputTraits key="textInputTraits"/>
+                                        <scopeButtonTitles>
+                                            <string>Title</string>
+                                            <string>Title</string>
+                                        </scopeButtonTitles>
                                         <connections>
                                             <outlet property="delegate" destination="BYZ-38-t0r" id="Jmy-pm-nmx"/>
                                         </connections>
                                     </searchBar>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="6iv-BP-pYt">
-                                        <rect key="frame" x="0.0" y="70" width="373" height="679"/>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="6iv-BP-pYt">
+                                        <rect key="frame" x="0.0" y="70" width="373" height="723"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ArticleCell" id="oXH-vv-cec" customClass="ArticleTableViewCell" customModule="ArticleProject" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="50" width="373" height="100.33333587646484"/>
+                                                <rect key="frame" x="20" y="55.333332061767578" width="333" height="100.33333587646484"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oXH-vv-cec" id="Nst-23-oMn">
-                                                    <rect key="frame" x="0.0" y="0.0" width="373" height="100.33333587646484"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="333" height="100.33333587646484"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uZP-vZ-wzn">
-                                                            <rect key="frame" x="0.0" y="0.0" width="273" height="100.33333333333333"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="233" height="100.33333333333333"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ocd-dA-MMk">
-                                                            <rect key="frame" x="273" y="0.0" width="100" height="100.33333333333333"/>
+                                                            <rect key="frame" x="233" y="0.0" width="100" height="100.33333333333333"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="100" id="SjC-Kf-G24"/>
                                                                 <constraint firstAttribute="width" constant="100" id="xhY-zk-b1i"/>
@@ -92,6 +97,8 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="VFB-qD-YKn"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="searchBar" destination="sX2-3m-yNU" id="fhc-dG-9fg"/>
                         <outlet property="tableView" destination="6iv-BP-pYt" id="ae3-TE-D58"/>
@@ -110,7 +117,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bOc-7E-JDN">
-                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>

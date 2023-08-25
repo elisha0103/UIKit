@@ -31,6 +31,7 @@ final class ArticleProjectTests: XCTestCase {
         }
 
         let responseMock = try? JSONDecoder().decode(ArticleService.self, from: sampleData)
+        
         sut?.request(with: endpoint, completion: { result in
             switch result {
             case .success(let response):

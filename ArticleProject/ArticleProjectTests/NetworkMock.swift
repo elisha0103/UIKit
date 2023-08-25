@@ -1,3 +1,4 @@
+
 //
 //  NetworkMock.swift
 //  ArticleProjectTests
@@ -27,7 +28,7 @@ struct NetworkMock {
             let data = try Data(contentsOf: fileLocation)
             return data
         } catch {
-            // 5. 잘못된 위치나 불가능한 파일 처리 (오늘은 따로 안하기)
+            // 5. 잘못된 위치나 불가능한 파일 처리
             print("json load fail")
             return nil
         }
