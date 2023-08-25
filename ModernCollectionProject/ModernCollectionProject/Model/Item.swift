@@ -15,7 +15,7 @@ struct Section: Hashable {
 
 enum Item: Hashable {
     case banner(HomeItem)
-    case nomalCarousel(HomeItem)
+    case normalCarousel(HomeItem)
     case listCarousel(HomeItem)
 }
 

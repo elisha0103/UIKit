@@ -17,6 +17,8 @@
 		66D3EE2A2A9892630016E37C /* BannerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D3EE292A9892630016E37C /* BannerCollectionViewCell.swift */; };
 		66D3EE2D2A9893380016E37C /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 66D3EE2C2A9893380016E37C /* SnapKit */; };
 		66D3EE302A98A4BB0016E37C /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 66D3EE2F2A98A4BB0016E37C /* Kingfisher */; };
+		66D3EE322A98AE340016E37C /* NormalCaroselCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D3EE312A98AE340016E37C /* NormalCaroselCollectionViewCell.swift */; };
+		66D3EE342A98B8650016E37C /* ListCarouselCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D3EE332A98B8650016E37C /* ListCarouselCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		66D3EE202A988F220016E37C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		66D3EE262A9890C60016E37C /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		66D3EE292A9892630016E37C /* BannerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCollectionViewCell.swift; sourceTree = "<group>"; };
+		66D3EE312A98AE340016E37C /* NormalCaroselCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalCaroselCollectionViewCell.swift; sourceTree = "<group>"; };
+		66D3EE332A98B8650016E37C /* ListCarouselCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCarouselCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +73,8 @@
 				66D3EE142A988F210016E37C /* SceneDelegate.swift */,
 				66D3EE162A988F210016E37C /* ViewController.swift */,
 				66D3EE292A9892630016E37C /* BannerCollectionViewCell.swift */,
+				66D3EE312A98AE340016E37C /* NormalCaroselCollectionViewCell.swift */,
+				66D3EE332A98B8650016E37C /* ListCarouselCollectionViewCell.swift */,
 				66D3EE182A988F210016E37C /* Main.storyboard */,
 				66D3EE1B2A988F220016E37C /* Assets.xcassets */,
 				66D3EE1D2A988F220016E37C /* LaunchScreen.storyboard */,
@@ -167,7 +173,9 @@
 				66D3EE172A988F210016E37C /* ViewController.swift in Sources */,
 				66D3EE132A988F210016E37C /* AppDelegate.swift in Sources */,
 				66D3EE152A988F210016E37C /* SceneDelegate.swift in Sources */,
+				66D3EE342A98B8650016E37C /* ListCarouselCollectionViewCell.swift in Sources */,
 				66D3EE2A2A9892630016E37C /* BannerCollectionViewCell.swift in Sources */,
+				66D3EE322A98AE340016E37C /* NormalCaroselCollectionViewCell.swift in Sources */,
 				66D3EE272A9890C60016E37C /* Item.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
