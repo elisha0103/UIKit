@@ -27,6 +27,7 @@
 		66B0334C2A9C95FC007FB5D3 /* MovieNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B0334B2A9C95FC007FB5D3 /* MovieNetwork.swift */; };
 		66B0334E2A9C96FE007FB5D3 /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B0334D2A9C96FE007FB5D3 /* NetworkProvider.swift */; };
 		66B033512A9C9A59007FB5D3 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B033502A9C9A59007FB5D3 /* ButtonView.swift */; };
+		66B033542A9C9FCC007FB5D3 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B033532A9C9FCC007FB5D3 /* ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		66B0334B2A9C95FC007FB5D3 /* MovieNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieNetwork.swift; sourceTree = "<group>"; };
 		66B0334D2A9C96FE007FB5D3 /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
 		66B033502A9C9A59007FB5D3 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
+		66B033532A9C9FCC007FB5D3 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,12 +86,12 @@
 		66B033162A9C7D42007FB5D3 /* TVMOVIEProject */ = {
 			isa = PBXGroup;
 			children = (
+				66B033522A9C9FB9007FB5D3 /* ViewModel */,
 				66B0334F2A9C9A44007FB5D3 /* View */,
 				66B0333F2A9C8619007FB5D3 /* Model */,
 				66B0333C2A9C8361007FB5D3 /* Network */,
 				66B033172A9C7D42007FB5D3 /* AppDelegate.swift */,
 				66B033192A9C7D42007FB5D3 /* SceneDelegate.swift */,
-				66B0331B2A9C7D42007FB5D3 /* ViewController.swift */,
 				66B0331D2A9C7D42007FB5D3 /* Main.storyboard */,
 				66B033202A9C7D42007FB5D3 /* Assets.xcassets */,
 				66B033222A9C7D42007FB5D3 /* LaunchScreen.storyboard */,
@@ -123,9 +125,18 @@
 		66B0334F2A9C9A44007FB5D3 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				66B0331B2A9C7D42007FB5D3 /* ViewController.swift */,
 				66B033502A9C9A59007FB5D3 /* ButtonView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		66B033522A9C9FB9007FB5D3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				66B033532A9C9FCC007FB5D3 /* ViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -218,6 +229,7 @@
 				66B033482A9C91E1007FB5D3 /* Network.swift in Sources */,
 				66B0334A2A9C951E007FB5D3 /* TVNetwork.swift in Sources */,
 				66B0333E2A9C836D007FB5D3 /* Const.swift in Sources */,
+				66B033542A9C9FCC007FB5D3 /* ViewModel.swift in Sources */,
 				66B0334C2A9C95FC007FB5D3 /* MovieNetwork.swift in Sources */,
 				66B033432A9C89CD007FB5D3 /* Movie.swift in Sources */,
 				66B0334E2A9C96FE007FB5D3 /* NetworkProvider.swift in Sources */,
