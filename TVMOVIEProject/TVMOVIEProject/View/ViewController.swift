@@ -31,6 +31,7 @@ class ViewController: UIViewController {
         configureUI()
         bindViewModel()
         bindView()
+        tvTrigger.onNext(())
     }
     
     private func configureUI() {
@@ -54,9 +55,20 @@ class ViewController: UIViewController {
         let input = ViewModel.Input(tvTrigger: tvTrigger.asObservable(), movieTrigger: movieTrigger.asObservable())
         
         let output = viewModel.transform(input: input)
-        
+
+        /**
+         input으로 인해 데이터의 변경이 나타나면 transform 함수가 재호출되어 새로운 output이 할당되는 것이 아니다.
+         각 함수의 반환값이 모두 Observable이다.
+         따라서, 함수로 생성된 output도 Observable이고  output 안에 있는 각 프로퍼티도 모두 Observable이다.
+         input에 의해 프로퍼티가 변경되면 해당 Observable 프로퍼티로 인해 output 안에 있는 프로퍼티까지 모두 Observable로 영향을 받기 때문에 결국, output 프로퍼티를 바인딩하면 데이터 변경의 알림이 나타난다.
+         **/
         output.tvList.bind { tvList in
-            print(tvList)
+            print("tvList")
+        }
+        .disposed(by: disposeBag)
+        
+        output.movieResult.bind { movieList in
+            print("movieList")
         }
         .disposed(by: disposeBag)
     }
@@ -64,6 +76,11 @@ class ViewController: UIViewController {
     private func bindView() {
         buttonView.tvButton.rx.tap.bind { [weak self] in
             self?.tvTrigger.onNext(Void())
+        }
+        .disposed(by: disposeBag)
+        
+        buttonView.movieButton.rx.tap.bind { [weak self] in
+            self?.movieTrigger.onNext(Void())
         }
         .disposed(by: disposeBag)
     }
