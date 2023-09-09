@@ -12,7 +12,7 @@ struct TVListModel: Decodable {
     let results: [TV]
 }
 
-struct TV: Decodable {
+struct TV: Decodable, Hashable {
     let name: String
     let overView: String
     let posterURL: String

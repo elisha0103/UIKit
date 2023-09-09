@@ -12,8 +12,16 @@ import RxSwift
 class ViewController: UIViewController {
     
     let buttonView = ButtonView()
-    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
     let viewModel = ViewModel()
+    lazy var collectionView: UICollectionView = {
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
+        collectionView.register(NormalCollectionViewCell.self, forCellWithReuseIdentifier: NormalCollectionViewCell.id)
+        collectionView.register(BigImageCollectionViewCell.self, forCellWithReuseIdentifier: BigImageCollectionViewCell.id)
+        collectionView.register(ListCollectionViewCell.self, forCellWithReuseIdentifier: ListCollectionViewCell.id)
+        collectionView.register(HeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderView.id) // Header 등록
+        return collectionView
+    }()
+    var dataSource: UICollectionViewDiffableDataSource<Section, Item>?
     
     // Subject - 이벤트를 발생 시키면서, 다른 곳에서 이벤트를 받을 수 있는 것
     // ButtonView에서 발생되는 이벤트를 구독하면서, ViewModel에 이벤트를 전달도 해야하기 때문에 Subject를 사용
@@ -25,6 +33,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         configure()
+        setDatasource()
     }
 
     private func configure() {
@@ -37,7 +46,6 @@ class ViewController: UIViewController {
     private func configureUI() {
         view.addSubview(buttonView)
         view.addSubview(collectionView)
-        collectionView.backgroundColor = .systemBlue
         
         buttonView.snp.makeConstraints { make in
             make.top.leading.trailing.equalTo(self.view.safeAreaLayoutGuide)
@@ -64,11 +72,34 @@ class ViewController: UIViewController {
          **/
         output.tvList.bind { tvList in
             print("tvList")
+            var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
+            let items = tvList.map { Item.normal(Content(tv: $0)) }
+            let section = Section.double
+            snapshot.appendSections([section])
+            snapshot.appendItems(items, toSection: section)
+            self.dataSource?.apply(snapshot)
         }
         .disposed(by: disposeBag)
         
-        output.movieResult.bind { movieList in
+        output.movieResult.bind { [weak self] movieList in
             print("movieList")
+            var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
+            let bigImageList = movieList.nowPlaying.results.map { Item.bigImage($0) }
+            let bannerSection = Section.banner
+            snapshot.appendSections([bannerSection])
+            snapshot.appendItems(bigImageList, toSection: bannerSection)
+            
+            let horizontalSection = Section.horizontal("Popular Movies")
+            let normalList = movieList.popular.results.map { Item.normal(Content(movie: $0)) }
+            snapshot.appendSections([horizontalSection])
+            snapshot.appendItems(normalList, toSection: horizontalSection)
+            
+            let verticalSection = Section.vertical("Upcoming Movies")
+            let verticalList = movieList.upcoming.results.map { Item.list($0) }
+            snapshot.appendSections([verticalSection])
+            snapshot.appendItems(verticalList, toSection: verticalSection)
+            
+            self?.dataSource?.apply(snapshot)
         }
         .disposed(by: disposeBag)
     }
