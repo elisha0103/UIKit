@@ -25,6 +25,9 @@
 		664D76192AEB8D6400097C8C /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664D76182AEB8D6400097C8C /* Message.swift */; };
 		664D761B2AEB956500097C8C /* Sender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664D761A2AEB956500097C8C /* Sender.swift */; };
 		664D761D2AEB95C200097C8C /* Message+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664D761C2AEB95C200097C8C /* Message+.swift */; };
+		664D76212AEB97DF00097C8C /* ChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664D76202AEB97DF00097C8C /* ChannelViewController.swift */; };
+		664D76252AEB997A00097C8C /* ChannelViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664D76242AEB997A00097C8C /* ChannelViewController+.swift */; };
+		664D76272AEB9A9D00097C8C /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664D76262AEB9A9D00097C8C /* UIColor+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +45,9 @@
 		664D76182AEB8D6400097C8C /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		664D761A2AEB956500097C8C /* Sender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sender.swift; sourceTree = "<group>"; };
 		664D761C2AEB95C200097C8C /* Message+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Message+.swift"; sourceTree = "<group>"; };
+		664D76202AEB97DF00097C8C /* ChannelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelViewController.swift; sourceTree = "<group>"; };
+		664D76242AEB997A00097C8C /* ChannelViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChannelViewController+.swift"; sourceTree = "<group>"; };
+		664D76262AEB9A9D00097C8C /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,8 +109,10 @@
 			isa = PBXGroup;
 			children = (
 				664D76112AEB8C2A00097C8C /* Channel.swift */,
+				664D76142AEB8C4D00097C8C /* Channel+.swift */,
 				664D76162AEB8C9400097C8C /* ImageMediaItem.swift */,
 				664D76182AEB8D6400097C8C /* Message.swift */,
+				664D761C2AEB95C200097C8C /* Message+.swift */,
 				664D761A2AEB956500097C8C /* Sender.swift */,
 			);
 			path = Model;
@@ -113,8 +121,7 @@
 		664D76132AEB8C4300097C8C /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				664D76142AEB8C4D00097C8C /* Channel+.swift */,
-				664D761C2AEB95C200097C8C /* Message+.swift */,
+				664D76262AEB9A9D00097C8C /* UIColor+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -132,9 +139,27 @@
 		664D761F2AEB96BB00097C8C /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				664D75F02AEB889400097C8C /* LoginViewController.swift */,
+				664D76232AEB996000097C8C /* ChannelView */,
+				664D76222AEB995800097C8C /* LoginView */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		664D76222AEB995800097C8C /* LoginView */ = {
+			isa = PBXGroup;
+			children = (
+				664D75F02AEB889400097C8C /* LoginViewController.swift */,
+			);
+			path = LoginView;
+			sourceTree = "<group>";
+		};
+		664D76232AEB996000097C8C /* ChannelView */ = {
+			isa = PBXGroup;
+			children = (
+				664D76202AEB97DF00097C8C /* ChannelViewController.swift */,
+				664D76242AEB997A00097C8C /* ChannelViewController+.swift */,
+			);
+			path = ChannelView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,7 +250,10 @@
 				664D75F12AEB889400097C8C /* LoginViewController.swift in Sources */,
 				664D76172AEB8C9400097C8C /* ImageMediaItem.swift in Sources */,
 				664D76122AEB8C2A00097C8C /* Channel.swift in Sources */,
+				664D76212AEB97DF00097C8C /* ChannelViewController.swift in Sources */,
+				664D76272AEB9A9D00097C8C /* UIColor+.swift in Sources */,
 				664D75ED2AEB889400097C8C /* AppDelegate.swift in Sources */,
+				664D76252AEB997A00097C8C /* ChannelViewController+.swift in Sources */,
 				664D75EF2AEB889400097C8C /* SceneDelegate.swift in Sources */,
 				664D76152AEB8C4D00097C8C /* Channel+.swift in Sources */,
 				664D76192AEB8D6400097C8C /* Message.swift in Sources */,
