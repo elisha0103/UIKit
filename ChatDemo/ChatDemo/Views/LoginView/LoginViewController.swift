@@ -8,8 +8,9 @@
 import UIKit
 
 import SnapKit
+import FirebaseAuth
 
-class LoginViewController: UIViewController {
+class LoginViewController: BaseViewController {
     
     // MARK: - Properties
     

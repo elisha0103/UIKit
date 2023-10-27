@@ -7,6 +7,7 @@
 
 import UIKit
 
+import SnapKit
 import MessageKit
 import InputBarAccessoryView
 
@@ -14,22 +15,17 @@ class ChannelViewController: MessagesViewController {
     
     // MARK: - Properties
     
-    let channel: Channel
-    var sender = Sender(senderId: "any_unique_id", displayName: "Taeyoung")
-    var messages: [Message] = []
+    var channels: [Channel] = []
+    
+    lazy var channelTableView: UITableView = {
+        let view = UITableView()
+        view.register(ChannelTableViewCell.self, forCellReuseIdentifier: ChannelTableViewCell.cellId)
+        view.delegate = self
+        view.dataSource = self
+    }()
     
     // MARK: - Lifecycles
-    
-    init(channel: Channel, sender: Sender = Sender(senderId: "any_unique_id", displayName: "Taeyoung")) {
-        self.channel = channel
-        self.sender = sender
-        super.init()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -41,6 +37,16 @@ class ChannelViewController: MessagesViewController {
     // MARK: - Selectors
     
     // MARK: - Helpers
+    
+    private func configure() {
+        view.addSubview(channelTableView)
+        channelTableView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        
+        title = "Channel"
+//        channels = getChannelMocks()
+    }
     
     private func configureDelegates() {
         messagesCollectionView.messagesDataSource = self
