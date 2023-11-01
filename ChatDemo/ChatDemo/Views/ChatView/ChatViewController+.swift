@@ -66,9 +66,7 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
 }
 
 extension ChatViewController: PHPickerViewControllerDelegate {
-    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
-        var selectedImage: UIImage?
-        
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {        
         picker.dismiss(animated: true)
         
         let itemProvider = results.first?.itemProvider

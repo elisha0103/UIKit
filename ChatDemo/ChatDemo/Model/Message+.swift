@@ -16,3 +16,21 @@ extension Message: Comparable {
         return lhs.sentDate < rhs.sentDate
     }
 }
+
+extension Message: DatabaseRepresentation {
+    var representation: [String : Any] {
+        var representation: [String: Any] = [
+            "created": sentDate,
+            "senderId": sender.senderId,
+            "senderName": sender.displayName
+        ]
+        
+        if let url = downloadURL {
+            representation["url"] = url.absoluteString
+        } else {
+            representation["content"] = content
+        }
+        
+        return representation
+    }
+}

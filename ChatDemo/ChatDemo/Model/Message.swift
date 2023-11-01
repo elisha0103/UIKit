@@ -6,8 +6,9 @@
 //
 
 import UIKit
-import Foundation
+
 import MessageKit
+import Firebase
 
 struct Message: MessageType {
     let id: String?
@@ -43,5 +44,23 @@ struct Message: MessageType {
         id = nil
     }
     
-    
+    init?(document: QueryDocumentSnapshot) {
+        let data = document.data()
+        guard let sentDate = data["created"] as? Timestamp,
+              let senderId = data["senderId"] as? String,
+              let senderName = data["senderName"] as? String else { return nil }
+        id = document.documentID
+        self.sentDate = sentDate.dateValue()
+        sender = Sender(senderId: senderId, displayName: senderName)
+        
+        if let content = data["content"] as? String {
+            self.content = content
+            downloadURL = nil
+        } else if let urlString = data["url"] as? String, let url = URL(string: urlString) {
+            downloadURL = url
+            content = ""
+        } else {
+            return nil
+        }
+    }
 }
