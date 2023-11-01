@@ -40,6 +40,8 @@
 		66614A322AF1F82D005A594B /* ChannelAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66614A312AF1F82D005A594B /* ChannelAPI.swift */; };
 		66614A342AF1FD94005A594B /* StorageAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66614A332AF1FD94005A594B /* StorageAPI.swift */; };
 		66614A362AF2000B005A594B /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66614A352AF2000B005A594B /* UIImage+.swift */; };
+		66614A382AF240D8005A594B /* ChatAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66614A372AF240D8005A594B /* ChatAPI.swift */; };
+		66614A3A2AF2417F005A594B /* StreamError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66614A392AF2417F005A594B /* StreamError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +74,8 @@
 		66614A312AF1F82D005A594B /* ChannelAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelAPI.swift; sourceTree = "<group>"; };
 		66614A332AF1FD94005A594B /* StorageAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageAPI.swift; sourceTree = "<group>"; };
 		66614A352AF2000B005A594B /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
+		66614A372AF240D8005A594B /* ChatAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatAPI.swift; sourceTree = "<group>"; };
+		66614A392AF2417F005A594B /* StreamError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +144,7 @@
 				664D76182AEB8D6400097C8C /* Message.swift */,
 				664D761C2AEB95C200097C8C /* Message+.swift */,
 				664D761A2AEB956500097C8C /* Sender.swift */,
+				66614A392AF2417F005A594B /* StreamError.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -226,6 +231,7 @@
 			children = (
 				66614A312AF1F82D005A594B /* ChannelAPI.swift */,
 				66614A332AF1FD94005A594B /* StorageAPI.swift */,
+				66614A372AF240D8005A594B /* ChatAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -317,6 +323,7 @@
 			files = (
 				664D761B2AEB956500097C8C /* Sender.swift in Sources */,
 				664D75F12AEB889400097C8C /* LoginViewController.swift in Sources */,
+				66614A382AF240D8005A594B /* ChatAPI.swift in Sources */,
 				664D762B2AEBA8E200097C8C /* AppController.swift in Sources */,
 				66614A2F2AF1F4D6005A594B /* DatabaseRepresentation.swift in Sources */,
 				664D762D2AEBB44D00097C8C /* ChannelTableViewCell.swift in Sources */,
@@ -337,6 +344,7 @@
 				664D76302AEBB54000097C8C /* ChatViewController.swift in Sources */,
 				66614A292AF1E7E4005A594B /* ChatViewController+.swift in Sources */,
 				664D761D2AEB95C200097C8C /* Message+.swift in Sources */,
+				66614A3A2AF2417F005A594B /* StreamError.swift in Sources */,
 				66614A322AF1F82D005A594B /* ChannelAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
