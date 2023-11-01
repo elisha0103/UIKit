@@ -1,0 +1,25 @@
+//
+//  UIImage+.swift
+//  ChatDemo
+//
+//  Created by 진태영 on 11/1/23.
+//
+
+import UIKit
+
+extension UIImage {
+    var scaledToSafeUploadSize: UIImage? {
+        let maxImageSideLength: CGFloat = 480
+        let largerSide: CGFloat = max(size.width, size.height)
+        let ratioScale: CGFloat = largerSide > maxImageSideLength ? largerSide / maxImageSideLength : 1
+        let newImageSize = CGSize(width: size.width / ratioScale, height: size.height / ratioScale)
+        
+        return image(scaledTo: newImageSize)
+    }
+    
+    private func image(scaledTo size: CGSize) -> UIImage? {
+        return UIGraphicsImageRenderer(size: size).image { _ in 
+            draw(in: CGRect(origin: .zero, size: size))
+        }
+    }
+}

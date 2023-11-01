@@ -15,6 +15,7 @@ class ChannelViewController: BaseViewController {
     // MARK: - Properties
     
     var channels: [Channel] = []
+    private let currentUser: User
     private let channelAPI = ChannelAPI()
     
     lazy var channelTableView: UITableView = {
@@ -26,9 +27,23 @@ class ChannelViewController: BaseViewController {
     }()
     
     // MARK: - Lifecycles
+    
+    init(currentUser: User) {
+        self.currentUser = currentUser
+        super.init(nibName: nil, bundle: nil)
         
+        title = "Channels"
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        configureUI()
+        setupListener()
     }
     
     // MARK: - API
@@ -48,14 +63,11 @@ class ChannelViewController: BaseViewController {
     
     // MARK: - Helpers
     
-    private func configure() {
+    private func configureUI() {
         view.addSubview(channelTableView)
         channelTableView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
-        
-        title = "Channel"
-//        channels = getChannelMocks()
     }
     
     private func updateCell(to data: [(Channel, DocumentChangeType)]) {
