@@ -37,6 +37,7 @@
 		66614A292AF1E7E4005A594B /* ChatViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66614A282AF1E7E4005A594B /* ChatViewController+.swift */; };
 		66614A2B2AF1F3A2005A594B /* Encodable+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66614A2A2AF1F3A2005A594B /* Encodable+.swift */; };
 		66614A2F2AF1F4D6005A594B /* DatabaseRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66614A2E2AF1F4D6005A594B /* DatabaseRepresentation.swift */; };
+		66614A322AF1F82D005A594B /* ChannelAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66614A312AF1F82D005A594B /* ChannelAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		66614A282AF1E7E4005A594B /* ChatViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatViewController+.swift"; sourceTree = "<group>"; };
 		66614A2A2AF1F3A2005A594B /* Encodable+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+.swift"; sourceTree = "<group>"; };
 		66614A2E2AF1F4D6005A594B /* DatabaseRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseRepresentation.swift; sourceTree = "<group>"; };
+		66614A312AF1F82D005A594B /* ChannelAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,11 +107,12 @@
 		664D75EB2AEB889400097C8C /* ChatDemo */ = {
 			isa = PBXGroup;
 			children = (
+				664D76102AEB8C1E00097C8C /* Model */,
 				664D761F2AEB96BB00097C8C /* Views */,
+				66614A302AF1F7F2005A594B /* API */,
 				664D761E2AEB965E00097C8C /* Resource */,
 				66614A2D2AF1F4C0005A594B /* Protocol */,
 				664D76132AEB8C4300097C8C /* Extension */,
-				664D76102AEB8C1E00097C8C /* Model */,
 				664D75EE2AEB889400097C8C /* SceneDelegate.swift */,
 				664D75F22AEB889400097C8C /* Main.storyboard */,
 				664D75F72AEB889500097C8C /* LaunchScreen.storyboard */,
@@ -211,6 +214,14 @@
 				66614A2E2AF1F4D6005A594B /* DatabaseRepresentation.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		66614A302AF1F7F2005A594B /* API */ = {
+			isa = PBXGroup;
+			children = (
+				66614A312AF1F82D005A594B /* ChannelAPI.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -318,6 +329,7 @@
 				664D76302AEBB54000097C8C /* ChatViewController.swift in Sources */,
 				66614A292AF1E7E4005A594B /* ChatViewController+.swift in Sources */,
 				664D761D2AEB95C200097C8C /* Message+.swift in Sources */,
+				66614A322AF1F82D005A594B /* ChannelAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
