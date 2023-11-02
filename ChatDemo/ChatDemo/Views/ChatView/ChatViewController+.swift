@@ -58,9 +58,14 @@ extension ChatViewController: MessagesDisplayDelegate {
 extension ChatViewController: InputBarAccessoryViewDelegate {
     func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
         let message = Message(content: text)
-        // TODO: - saveMessageAndScrollToLastItem(message)
         
-        insertNewMessage(message)
+        chatAPI.save(message) { [weak self] error in
+            if let error = error {
+                print("DEBUG- inputBar Error: \(error.localizedDescription)")
+            }
+            
+            self?.messagesCollectionView.scrollToLastItem()
+        }
         inputBar.inputTextView.text.removeAll()
     }
 }
@@ -73,8 +78,26 @@ extension ChatViewController: PHPickerViewControllerDelegate {
         if let itemProvider = itemProvider,
            itemProvider.canLoadObject(ofClass: UIImage.self) {
             itemProvider.loadObject(ofClass: UIImage.self) { image, error in
-              // TODO: - Send FireStore
+                if let image = image as? UIImage {
+                    self.sendPhoto(image)
+                }
             }
         }
+    }
+    
+    private func sendPhoto(_ image: UIImage) {
+        isSendingPhoto = true
+        StorageAPI.uploadImage(image: image, channel: channel) { [weak self] url in
+            guard let self = self, let url = url else { return }
+            self.isSendingPhoto = false
+            var message = Message(user: user, image: image)
+            message.downloadURL = url
+            self.chatAPI.save(message)
+            self.messagesCollectionView.scrollToLastItem()
+        }
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: PHPickerViewController) {
+        picker.dismiss(animated: true)
     }
 }

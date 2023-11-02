@@ -29,15 +29,15 @@ struct Message: MessageType {
         }
     }
     
-    init(content: String) {
-        sender = Sender(senderId: "id(TODO...)", displayName: "displayName(TODO...)")
+    init(user: User, content: String) {
+        sender = Sender(senderId: user.uid, displayName: UserDefaultManager.displayName)
         self.content = content
         sentDate = Date()
         id = nil
     }
     
-    init(image: UIImage) {
-        sender = Sender(senderId: "id(TODO...)", displayName: "displayName(TODO...)")
+    init(user: User, image: UIImage) {
+        sender = Sender(senderId: user.uid, displayName: UserDefaultManager.displayName)
         self.image = image
         sentDate = Date()
         content = ""

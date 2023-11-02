@@ -14,11 +14,24 @@ class LoginViewController: BaseViewController {
     
     // MARK: - Properties
     
+    lazy var nameTextField: UITextField = {
+        let textField = UITextField()
+        textField.textColor = .label
+        textField.placeholder = "이름 입력"
+        textField.borderStyle = .roundedRect
+        textField.autocorrectionType = .no
+        textField.returnKeyType = .done
+        textField.delegate = self
+        
+        return textField
+    }()
+    
     lazy var loginButton: UIButton = {
         let button = UIButton()
         button.setTitle("로그인", for: .normal)
         button.setTitleColor(.systemBlue, for: .normal)
         button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
+        button.isEnabled = false
         
         return button
     }()
@@ -27,7 +40,8 @@ class LoginViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        nameTextField.becomeFirstResponder()
     }
 
     // MARK: - API
@@ -36,11 +50,9 @@ class LoginViewController: BaseViewController {
     
     @objc
     func didTapButton() {
-        navigationController?.setViewControllers([ChannelViewController()], animated: true)
+        guard let name = nameTextField.text else { return }
+        UserDefaultManager.displayName = name
+        Auth.auth().signInAnonymously()
     }
-    
-    // MARK: - Helpers
-    
-    
 }
 

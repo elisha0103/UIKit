@@ -42,6 +42,8 @@
 		66614A362AF2000B005A594B /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66614A352AF2000B005A594B /* UIImage+.swift */; };
 		66614A382AF240D8005A594B /* ChatAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66614A372AF240D8005A594B /* ChatAPI.swift */; };
 		66614A3A2AF2417F005A594B /* StreamError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66614A392AF2417F005A594B /* StreamError.swift */; };
+		66614A3C2AF33A00005A594B /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66614A3B2AF33A00005A594B /* UserDefaultManager.swift */; };
+		66614A3E2AF33B16005A594B /* LoginViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66614A3D2AF33B16005A594B /* LoginViewController+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +78,8 @@
 		66614A352AF2000B005A594B /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		66614A372AF240D8005A594B /* ChatAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatAPI.swift; sourceTree = "<group>"; };
 		66614A392AF2417F005A594B /* StreamError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamError.swift; sourceTree = "<group>"; };
+		66614A3B2AF33A00005A594B /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
+		66614A3D2AF33B16005A594B /* LoginViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +149,7 @@
 				664D761C2AEB95C200097C8C /* Message+.swift */,
 				664D761A2AEB956500097C8C /* Sender.swift */,
 				66614A392AF2417F005A594B /* StreamError.swift */,
+				66614A3B2AF33A00005A594B /* UserDefaultManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -186,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				664D75F02AEB889400097C8C /* LoginViewController.swift */,
+				66614A3D2AF33B16005A594B /* LoginViewController+.swift */,
 			);
 			path = LoginView;
 			sourceTree = "<group>";
@@ -336,6 +342,7 @@
 				664D76332AEBB60300097C8C /* BaseNavigationController.swift in Sources */,
 				664D75ED2AEB889400097C8C /* AppDelegate.swift in Sources */,
 				664D76252AEB997A00097C8C /* ChannelViewController+.swift in Sources */,
+				66614A3E2AF33B16005A594B /* LoginViewController+.swift in Sources */,
 				664D75EF2AEB889400097C8C /* SceneDelegate.swift in Sources */,
 				664D76152AEB8C4D00097C8C /* Channel+.swift in Sources */,
 				664D76192AEB8D6400097C8C /* Message.swift in Sources */,
@@ -343,6 +350,7 @@
 				66614A2B2AF1F3A2005A594B /* Encodable+.swift in Sources */,
 				664D76302AEBB54000097C8C /* ChatViewController.swift in Sources */,
 				66614A292AF1E7E4005A594B /* ChatViewController+.swift in Sources */,
+				66614A3C2AF33A00005A594B /* UserDefaultManager.swift in Sources */,
 				664D761D2AEB95C200097C8C /* Message+.swift in Sources */,
 				66614A3A2AF2417F005A594B /* StreamError.swift in Sources */,
 				66614A322AF1F82D005A594B /* ChannelAPI.swift in Sources */,

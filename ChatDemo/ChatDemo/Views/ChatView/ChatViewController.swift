@@ -10,6 +10,8 @@ import UIKit
 import MessageKit
 import InputBarAccessoryView
 import PhotosUI
+import FirebaseFirestore
+import FirebaseAuth
 
 final class ChatViewController: MessagesViewController {
     
@@ -18,6 +20,8 @@ final class ChatViewController: MessagesViewController {
     let channel: Channel
     var sender = Sender(senderId: "any_unique_id", displayName: "Taeyoung")
     var messages: [Message] = []
+    let chatAPI = ChatAPI()
+    let user: User
     
     lazy var cameraBarButtonItem: InputBarButtonItem = {
         let button = InputBarButtonItem(type: .system)
@@ -27,7 +31,7 @@ final class ChatViewController: MessagesViewController {
         return button
     }()
     
-    private var isSendingPhoto = false {
+    var isSendingPhoto = false {
         didSet {
             messageInputBar.leftStackViewItems.forEach {
                 guard let item = $0 as? InputBarButtonItem else { return }
@@ -38,9 +42,12 @@ final class ChatViewController: MessagesViewController {
     
     // MARK: - Lifecycles
     
-    init(channel: Channel) {
+    init(user: User, channel: Channel) {
+        self.user = user
         self.channel = channel
-        super.init()
+        super.init(nibName: nil, bundle: nil)
+        
+        title = channel.name
     }
     
     required init?(coder: NSCoder) {
@@ -68,6 +75,39 @@ final class ChatViewController: MessagesViewController {
         picker.delegate = self
         
         present(picker, animated: true)
+    }
+    
+    // MARK: - API
+    
+    private func listenToMessages() {
+        guard let id = channel.id else {
+            navigationController?.popViewController(animated: true)
+            return
+        }
+        
+        chatAPI.subscribe(id: id) { [weak self] result in
+            switch result {
+            case .success(let messages):
+                self?.loadImageAndUpdateCells(messages)
+            case .failure(let error):
+                print("DEBUG - ListenToMessages Error: \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    private func loadImageAndUpdateCells(_ messages: [Message]) {
+        messages.forEach { message in
+            var message = message
+            if let url = message.downloadURL {
+                StorageAPI.downloadImage(url: url) { [weak self] image in
+                    guard let image = image else { return }
+                    message.image = image
+                    self?.insertNewMessage(message)
+                }
+            } else {
+                insertNewMessage(message)
+            }
+        }
     }
     
     // MARK: - Helpers
