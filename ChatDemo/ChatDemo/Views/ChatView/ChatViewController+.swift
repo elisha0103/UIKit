@@ -35,8 +35,8 @@ extension ChatViewController: MessagesDataSource {
 
 extension ChatViewController: MessagesLayoutDelegate {
     // 아래 여백
-    func footerViewSize(for section: Int, in messagesCollectionView: MessagesCollectionView) -> CGSize {
-        return CGSize(width: 0, height: 8)
+    func cellBottomLabelHeight(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
+        return CGFloat(10)
     }
     
     // 말풍선 위 이름 나오는 곳의 Height

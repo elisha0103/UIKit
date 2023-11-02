@@ -34,7 +34,9 @@ final class ChatViewController: MessagesViewController {
         didSet {
             messageInputBar.leftStackViewItems.forEach {
                 guard let item = $0 as? InputBarButtonItem else { return }
-                item.isEnabled = !self.isSendingPhoto
+                DispatchQueue.main.async {
+                    item.isEnabled = !self.isSendingPhoto
+                }
             }
         }
     }
@@ -160,6 +162,6 @@ final class ChatViewController: MessagesViewController {
         messages.sort()
         
         messagesCollectionView.reloadData()
+        self.messagesCollectionView.scrollToLastItem()
     }
-    
 }
