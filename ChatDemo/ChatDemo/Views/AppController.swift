@@ -43,11 +43,11 @@ final class AppController {
     
     private func setChannelScene(with user: User) {
         let channelViewController = ChannelViewController(currentUser: user)
-        rootViewcontroller = BaseNavigationController(rootViewcontroller: ChannelViewController())
+        rootViewcontroller = BaseNavigationController(rootViewController: channelViewController)
     }
     
     private func setLoginScene() {
-        rootViewcontroller = BaseNavigationController(rootViewcontroller: (LoginViewController()))
+        rootViewcontroller = BaseNavigationController(rootViewController: (LoginViewController()))
     }
     
     // MARK: - Helpers
