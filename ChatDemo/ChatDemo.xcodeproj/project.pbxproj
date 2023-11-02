@@ -44,6 +44,7 @@
 		66614A3A2AF2417F005A594B /* StreamError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66614A392AF2417F005A594B /* StreamError.swift */; };
 		66614A3C2AF33A00005A594B /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66614A3B2AF33A00005A594B /* UserDefaultManager.swift */; };
 		66614A3E2AF33B16005A594B /* LoginViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66614A3D2AF33B16005A594B /* LoginViewController+.swift */; };
+		66614A472AF39A2F005A594B /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 66614A462AF39A2F005A594B /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,6 +90,7 @@
 			files = (
 				664D76022AEB895800097C8C /* MessageKit in Frameworks */,
 				664D76052AEB8A1800097C8C /* FirebaseAuth in Frameworks */,
+				66614A472AF39A2F005A594B /* Kingfisher in Frameworks */,
 				664D76072AEB8A1800097C8C /* FirebaseFirestore in Frameworks */,
 				664D760F2AEB8B2A00097C8C /* SnapKit in Frameworks */,
 				664D760C2AEB8A3600097C8C /* FirebaseStorage in Frameworks */,
@@ -265,6 +267,7 @@
 				664D76082AEB8A1800097C8C /* FirebaseFirestoreSwift */,
 				664D760B2AEB8A3600097C8C /* FirebaseStorage */,
 				664D760E2AEB8B2A00097C8C /* SnapKit */,
+				66614A462AF39A2F005A594B /* Kingfisher */,
 			);
 			productName = ChatDemo;
 			productReference = 664D75E92AEB889400097C8C /* ChatDemo.app */;
@@ -298,6 +301,7 @@
 				664D76002AEB895800097C8C /* XCRemoteSwiftPackageReference "MessageKit" */,
 				664D76032AEB8A1800097C8C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				664D760D2AEB8B2A00097C8C /* XCRemoteSwiftPackageReference "SnapKit" */,
+				66614A452AF39A2F005A594B /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 664D75EA2AEB889400097C8C /* Products */;
 			projectDirPath = "";
@@ -600,6 +604,14 @@
 				minimumVersion = 5.6.0;
 			};
 		};
+		66614A452AF39A2F005A594B /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.10.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -632,6 +644,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 664D760D2AEB8B2A00097C8C /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		66614A462AF39A2F005A594B /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 66614A452AF39A2F005A594B /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

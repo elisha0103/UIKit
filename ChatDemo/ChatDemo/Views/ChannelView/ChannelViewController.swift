@@ -23,8 +23,9 @@ class ChannelViewController: BaseViewController {
     lazy var channelTableView: UITableView = {
         let view = UITableView()
         view.register(ChannelTableViewCell.self, forCellReuseIdentifier: ChannelTableViewCell.cellId)
-        view.delegate = self
         view.dataSource = self
+        view.delegate = self
+        
         return view
     }()
     
@@ -48,9 +49,14 @@ class ChannelViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configureUI()
+//        configureUI()
         addToolBarItems()
         setupListener()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        configureUI()
     }
     
     // MARK: - API
@@ -97,7 +103,8 @@ class ChannelViewController: BaseViewController {
     private func configureUI() {
         view.addSubview(channelTableView)
         channelTableView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
+            $0.top.bottom.equalTo(view.safeAreaLayoutGuide)
+            $0.leading.trailing.equalToSuperview()
         }
     }
     
