@@ -9,14 +9,16 @@ import UIKit
 
 import SnapKit
 import Firebase
+import FirebaseAuth
 
 class ChannelViewController: BaseViewController {
     
     // MARK: - Properties
     
     var channels: [Channel] = []
-    private let currentUser: User
+    let currentUser: User
     private let channelAPI = ChannelAPI()
+    private var currentChannelAlertController: UIAlertController?
     
     lazy var channelTableView: UITableView = {
         let view = UITableView()
@@ -39,10 +41,15 @@ class ChannelViewController: BaseViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    deinit {
+        channelAPI.removeListener()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureUI()
+        addToolBarItems()
         setupListener()
     }
     
@@ -60,6 +67,30 @@ class ChannelViewController: BaseViewController {
     }
     
     // MARK: - Selectors
+    
+    @objc
+    private func didTapSignOutItem() {
+        showAlert(message: "로그아웃 하시겠습니까?",
+                  cancelButtonName: "취소",
+                  confirmButtonName: "확인", 
+                  confirmButtonCompletion:  {
+            do {
+                try Auth.auth().signOut()
+            } catch {
+                print("DEBUG - didTapSignOutItem Error: \(error.localizedDescription)")
+            }
+        })
+    }
+    
+    @objc
+    private func didTapAddItem() {
+        showAlert(title: "새로운 채널 생성",
+                  cancelButtonName: "취소",
+                  confirmButtonName: "확인",
+                  isExistsTextField: true, confirmButtonCompletion:  { [weak self] in
+            self?.channelAPI.createChannel(with: self?.alertController?.textFields?.first?.text ?? "")
+        })
+    }
     
     // MARK: - Helpers
     
@@ -81,6 +112,15 @@ class ChannelViewController: BaseViewController {
                 removeChannelFromTable(channel)
             }
         }
+    }
+    
+    private func addToolBarItems() {
+        toolbarItems = [
+            UIBarButtonItem(title: "로그아웃", style: .plain, target: self, action: #selector(didTapSignOutItem)),
+            UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
+            UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(didTapAddItem))
+        ]
+        navigationController?.isToolbarHidden = false
     }
     
     private func addChannelToTable(_ channel: Channel) {

@@ -18,7 +18,6 @@ final class ChatViewController: MessagesViewController {
     // MARK: - Properties
     
     let channel: Channel
-    var sender = Sender(senderId: "any_unique_id", displayName: "Taeyoung")
     var messages: [Message] = []
     let chatAPI = ChatAPI()
     let user: User
@@ -54,14 +53,20 @@ final class ChatViewController: MessagesViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    deinit {
+        chatAPI.removeListener()
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
-    }
-    
-    deinit {
-        navigationController?.navigationBar.prefersLargeTitles = true
+        configureDelegate()
+        configure()
+        setupMessageInputBar()
+        removeOutgoingMessageAvatars()
+        addCameraBarButtonToMessageInputBar()
+        listenToMessages()
     }
     
     // MARK: - Selectors
@@ -121,9 +126,8 @@ final class ChatViewController: MessagesViewController {
     }
     
     private func configure() {
-        title = channel.name
+//        title = channel.name
         navigationController?.navigationBar.prefersLargeTitles = false
-        //        messages = getMessagesMock()
     }
     
     private func setupMessageInputBar() {

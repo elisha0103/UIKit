@@ -13,7 +13,7 @@ import InputBarAccessoryView
 
 extension ChatViewController: MessagesDataSource {
     var currentSender: MessageKit.SenderType {
-        return sender
+        return Sender(senderId: user.uid, displayName: UserDefaultManager.displayName)
     }
     
     func messageForItem(at indexPath: IndexPath, in messagesCollectionView: MessageKit.MessagesCollectionView) -> MessageKit.MessageType {
@@ -22,6 +22,13 @@ extension ChatViewController: MessagesDataSource {
     
     func numberOfSections(in messagesCollectionView: MessageKit.MessagesCollectionView) -> Int {
         messages.count
+    }
+    
+    func messageTopLabelAttributedText(for message: MessageType, at indexPath: IndexPath) -> NSAttributedString? {
+        let name = message.sender.displayName
+        return NSAttributedString(string: name, attributes: [.font: UIFont.preferredFont(forTextStyle: .caption1),
+                                                             .foregroundColor: UIColor(white: 0.3, alpha: 1)
+        ])
     }
     
 }
@@ -38,6 +45,7 @@ extension ChatViewController: MessagesLayoutDelegate {
     }
 }
 
+// 상대방이 보낸 메시지, 내가 보낸 메시지를 구분하여 색상과 모양 지정
 extension ChatViewController: MessagesDisplayDelegate {
     // 말풍선의 배경 색상
     func backgroundColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
@@ -57,11 +65,12 @@ extension ChatViewController: MessagesDisplayDelegate {
 
 extension ChatViewController: InputBarAccessoryViewDelegate {
     func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
-        let message = Message(content: text)
+        let message = Message(user: user, content: text)
         
         chatAPI.save(message) { [weak self] error in
             if let error = error {
                 print("DEBUG- inputBar Error: \(error.localizedDescription)")
+                return
             }
             
             self?.messagesCollectionView.scrollToLastItem()

@@ -42,4 +42,8 @@ class ChannelAPI {
             completion(.success(result))
         }
     }
+    
+    func removeListener() {
+        listener?.remove()
+    }
 }
