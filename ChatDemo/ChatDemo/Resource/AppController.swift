@@ -59,11 +59,8 @@ final class AppController {
         self.window = window
         window.tintColor = .primary
         window.backgroundColor = .systemBackground
+        checkSignIn()
         window.makeKeyAndVisible()
-        
-        if Auth.auth().currentUser == nil {
-            checkSignIn()
-        }
     }
     
     

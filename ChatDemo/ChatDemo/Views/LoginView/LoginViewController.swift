@@ -41,6 +41,12 @@ class LoginViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configureUI()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
         nameTextField.becomeFirstResponder()
     }
 
@@ -53,6 +59,21 @@ class LoginViewController: BaseViewController {
         guard let name = nameTextField.text else { return }
         UserDefaultManager.displayName = name
         Auth.auth().signInAnonymously()
+    }
+    
+    // MARK: - Helpers
+    
+    private func configureUI() {
+        view.addSubview(loginButton)
+        view.addSubview(nameTextField)
+        loginButton.snp.makeConstraints {
+            $0.center.equalToSuperview()
+        }
+        
+        nameTextField.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(-56)
+            $0.centerX.equalToSuperview()
+        }
     }
 }
 

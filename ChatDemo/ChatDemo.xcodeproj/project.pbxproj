@@ -167,6 +167,7 @@
 		664D761E2AEB965E00097C8C /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				664D762A2AEBA8E200097C8C /* AppController.swift */,
 				664D76282AEBA74000097C8C /* GoogleService-Info.plist */,
 				664D75EC2AEB889400097C8C /* AppDelegate.swift */,
 				664D75F52AEB889500097C8C /* Assets.xcassets */,
@@ -182,7 +183,6 @@
 				664D762E2AEBB53400097C8C /* ChatView */,
 				664D76232AEB996000097C8C /* ChannelView */,
 				664D76222AEB995800097C8C /* LoginView */,
-				664D762A2AEBA8E200097C8C /* AppController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -510,7 +510,6 @@
 				INFOPLIST_FILE = ChatDemo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -538,7 +537,6 @@
 				INFOPLIST_FILE = ChatDemo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

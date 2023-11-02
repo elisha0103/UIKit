@@ -16,8 +16,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = scene as? UIWindowScene else { return }
 
         window?.windowScene = scene
-        window?.rootViewController = LoginViewController()
-        window?.makeKeyAndVisible()
+//        window?.rootViewController = AppController.shared.show(in: <#T##UIWindow?#>)
+//        window?.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
