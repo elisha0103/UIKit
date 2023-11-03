@@ -28,7 +28,6 @@
 		664D76212AEB97DF00097C8C /* ChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664D76202AEB97DF00097C8C /* ChannelViewController.swift */; };
 		664D76252AEB997A00097C8C /* ChannelViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664D76242AEB997A00097C8C /* ChannelViewController+.swift */; };
 		664D76272AEB9A9D00097C8C /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664D76262AEB9A9D00097C8C /* UIColor+.swift */; };
-		664D76292AEBA74000097C8C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 664D76282AEBA74000097C8C /* GoogleService-Info.plist */; };
 		664D762B2AEBA8E200097C8C /* AppController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664D762A2AEBA8E200097C8C /* AppController.swift */; };
 		664D762D2AEBB44D00097C8C /* ChannelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664D762C2AEBB44D00097C8C /* ChannelTableViewCell.swift */; };
 		664D76302AEBB54000097C8C /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664D762F2AEBB54000097C8C /* ChatViewController.swift */; };
@@ -46,6 +45,8 @@
 		66614A3E2AF33B16005A594B /* LoginViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66614A3D2AF33B16005A594B /* LoginViewController+.swift */; };
 		66614A472AF39A2F005A594B /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 66614A462AF39A2F005A594B /* Kingfisher */; };
 		66614A5B2AF3EC64005A594B /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 66614A5A2AF3EC64005A594B /* FirebaseMessaging */; };
+		66614A5D2AF48B3E005A594B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 66614A5C2AF48B3E005A594B /* GoogleService-Info.plist */; };
+		66614A5F2AF4968E005A594B /* AppDelegate+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66614A5E2AF4968E005A594B /* AppDelegate+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -79,7 +80,6 @@
 		664D76202AEB97DF00097C8C /* ChannelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelViewController.swift; sourceTree = "<group>"; };
 		664D76242AEB997A00097C8C /* ChannelViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChannelViewController+.swift"; sourceTree = "<group>"; };
 		664D76262AEB9A9D00097C8C /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
-		664D76282AEBA74000097C8C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		664D762A2AEBA8E200097C8C /* AppController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppController.swift; sourceTree = "<group>"; };
 		664D762C2AEBB44D00097C8C /* ChannelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelTableViewCell.swift; sourceTree = "<group>"; };
 		664D762F2AEBB54000097C8C /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
@@ -98,7 +98,8 @@
 		66614A4E2AF3E3FD005A594B /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		66614A502AF3E3FD005A594B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		66614A582AF3E91F005A594B /* Notification.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Notification.entitlements; sourceTree = "<group>"; };
-		66614A592AF3E926005A594B /* ChatDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ChatDemo.entitlements; sourceTree = "<group>"; };
+		66614A5C2AF48B3E005A594B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		66614A5E2AF4968E005A594B /* AppDelegate+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,7 +142,6 @@
 		664D75EB2AEB889400097C8C /* ChatDemo */ = {
 			isa = PBXGroup;
 			children = (
-				66614A592AF3E926005A594B /* ChatDemo.entitlements */,
 				664D76102AEB8C1E00097C8C /* Model */,
 				664D761F2AEB96BB00097C8C /* Views */,
 				66614A302AF1F7F2005A594B /* API */,
@@ -191,9 +191,10 @@
 			isa = PBXGroup;
 			children = (
 				664D762A2AEBA8E200097C8C /* AppController.swift */,
-				664D76282AEBA74000097C8C /* GoogleService-Info.plist */,
 				664D75EC2AEB889400097C8C /* AppDelegate.swift */,
+				66614A5E2AF4968E005A594B /* AppDelegate+.swift */,
 				664D75F52AEB889500097C8C /* Assets.xcassets */,
+				66614A5C2AF48B3E005A594B /* GoogleService-Info.plist */,
 				664D75FA2AEB889500097C8C /* Info.plist */,
 			);
 			path = Resource;
@@ -351,8 +352,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				664D75F92AEB889500097C8C /* LaunchScreen.storyboard in Resources */,
-				664D76292AEBA74000097C8C /* GoogleService-Info.plist in Resources */,
 				664D75F62AEB889500097C8C /* Assets.xcassets in Resources */,
+				66614A5D2AF48B3E005A594B /* GoogleService-Info.plist in Resources */,
 				664D75F42AEB889400097C8C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -368,6 +369,7 @@
 				664D75F12AEB889400097C8C /* LoginViewController.swift in Sources */,
 				66614A382AF240D8005A594B /* ChatAPI.swift in Sources */,
 				664D762B2AEBA8E200097C8C /* AppController.swift in Sources */,
+				66614A5F2AF4968E005A594B /* AppDelegate+.swift in Sources */,
 				66614A2F2AF1F4D6005A594B /* DatabaseRepresentation.swift in Sources */,
 				664D762D2AEBB44D00097C8C /* ChannelTableViewCell.swift in Sources */,
 				66614A362AF2000B005A594B /* UIImage+.swift in Sources */,

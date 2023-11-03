@@ -3,6 +3,6 @@
 <plist version="1.0">
 <dict>
 	<key>FirebaseAppDelegateProxyEnabled</key>
-	<false/>
+	<string>NO</string>
 </dict>
 </plist>
