@@ -7,19 +7,44 @@
 
 import UIKit
 import FirebaseCore
+import FirebaseMessaging
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         window = UIWindow(frame: UIScreen.main.bounds)
+        registerRemoteNotification()
+
         AppController.shared.show(in: window)
-        
+        Messaging.messaging().token { token, error in
+            print("토큰 = \(token)")
+        }
+
         return true
     }
+    
+    private func registerRemoteNotification() {
+        let center = UNUserNotificationCenter.current()
+        center.delegate = self
+        let options: UNAuthorizationOptions = [.alert, .sound, .badge]
+        center.requestAuthorization(options: options) { granted, _ in
+            // 1. APNs에 device token 등록 요청
+            DispatchQueue.main.async {
+                UIApplication.shared.registerForRemoteNotifications()
+            }
+        }
+    }
+
+    
+    // 2. APNs에서 `device token 등록 요청`에 관한 응답이 온 경우, Provider Server인 Firebase에 등록
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        Messaging.messaging().apnsToken = deviceToken
+    }
+
 
 //    // MARK: UISceneSession Lifecycle
 //

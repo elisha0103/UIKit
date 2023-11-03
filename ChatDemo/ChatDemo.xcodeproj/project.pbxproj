@@ -45,7 +45,21 @@
 		66614A3C2AF33A00005A594B /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66614A3B2AF33A00005A594B /* UserDefaultManager.swift */; };
 		66614A3E2AF33B16005A594B /* LoginViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66614A3D2AF33B16005A594B /* LoginViewController+.swift */; };
 		66614A472AF39A2F005A594B /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 66614A462AF39A2F005A594B /* Kingfisher */; };
+		66614A5B2AF3EC64005A594B /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 66614A5A2AF3EC64005A594B /* FirebaseMessaging */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		66614A572AF3E3FD005A594B /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		664D75E92AEB889400097C8C /* ChatDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,6 +95,10 @@
 		66614A392AF2417F005A594B /* StreamError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamError.swift; sourceTree = "<group>"; };
 		66614A3B2AF33A00005A594B /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
 		66614A3D2AF33B16005A594B /* LoginViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController+.swift"; sourceTree = "<group>"; };
+		66614A4E2AF3E3FD005A594B /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		66614A502AF3E3FD005A594B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		66614A582AF3E91F005A594B /* Notification.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Notification.entitlements; sourceTree = "<group>"; };
+		66614A592AF3E926005A594B /* ChatDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ChatDemo.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66614A5B2AF3EC64005A594B /* FirebaseMessaging in Frameworks */,
 				664D76022AEB895800097C8C /* MessageKit in Frameworks */,
 				664D76052AEB8A1800097C8C /* FirebaseAuth in Frameworks */,
 				66614A472AF39A2F005A594B /* Kingfisher in Frameworks */,
@@ -105,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				664D75EB2AEB889400097C8C /* ChatDemo */,
+				66614A4D2AF3E3FD005A594B /* Notification */,
 				664D75EA2AEB889400097C8C /* Products */,
 				664D760A2AEB8A3600097C8C /* Frameworks */,
 			);
@@ -121,6 +141,7 @@
 		664D75EB2AEB889400097C8C /* ChatDemo */ = {
 			isa = PBXGroup;
 			children = (
+				66614A592AF3E926005A594B /* ChatDemo.entitlements */,
 				664D76102AEB8C1E00097C8C /* Model */,
 				664D761F2AEB96BB00097C8C /* Views */,
 				66614A302AF1F7F2005A594B /* API */,
@@ -244,6 +265,16 @@
 			path = API;
 			sourceTree = "<group>";
 		};
+		66614A4D2AF3E3FD005A594B /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				66614A582AF3E91F005A594B /* Notification.entitlements */,
+				66614A4E2AF3E3FD005A594B /* NotificationService.swift */,
+				66614A502AF3E3FD005A594B /* Info.plist */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -254,6 +285,7 @@
 				664D75E52AEB889400097C8C /* Sources */,
 				664D75E62AEB889400097C8C /* Frameworks */,
 				664D75E72AEB889400097C8C /* Resources */,
+				66614A572AF3E3FD005A594B /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
@@ -268,6 +300,7 @@
 				664D760B2AEB8A3600097C8C /* FirebaseStorage */,
 				664D760E2AEB8B2A00097C8C /* SnapKit */,
 				66614A462AF39A2F005A594B /* Kingfisher */,
+				66614A5A2AF3EC64005A594B /* FirebaseMessaging */,
 			);
 			productName = ChatDemo;
 			productReference = 664D75E92AEB889400097C8C /* ChatDemo.app */;
@@ -505,11 +538,13 @@
 		664D75FE2AEB889500097C8C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ChatDemo/ChatDemo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = RF42434X35;
+				DEVELOPMENT_TEAM = W6X76DS4Z7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ChatDemo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -521,7 +556,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Taeyoung.ChatDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Taeyoung.ChatDemo2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -532,11 +567,13 @@
 		664D75FF2AEB889500097C8C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ChatDemo/ChatDemo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = RF42434X35;
+				DEVELOPMENT_TEAM = W6X76DS4Z7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ChatDemo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -548,7 +585,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Taeyoung.ChatDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Taeyoung.ChatDemo2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -649,6 +686,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 66614A452AF39A2F005A594B /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		66614A5A2AF3EC64005A594B /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 664D76032AEB8A1800097C8C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
