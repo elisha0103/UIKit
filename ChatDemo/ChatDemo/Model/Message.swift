@@ -30,7 +30,7 @@ struct Message: MessageType {
     }
     
     init(user: User, content: String) {
-        sender = Sender(senderId: user.uid, displayName: UserDefaultManager.displayName)
+        sender = Sender(senderId: user.uid, displayName: user.fullName)
         self.content = content
         sentDate = Date()
         id = nil

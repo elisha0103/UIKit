@@ -7,6 +7,8 @@
 
 import Foundation
 
+import Alamofire
+
 class ChannelNotiManager {
     static let shared = ChannelNotiManager()
     

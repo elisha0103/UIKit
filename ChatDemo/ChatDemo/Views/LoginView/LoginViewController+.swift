@@ -19,8 +19,6 @@ extension LoginViewController: UITextFieldDelegate {
         let newString = oldString.replacingCharacters(in: newRange, with: inputString)
             .trimmingCharacters(in: .whitespacesAndNewlines)
         
-        loginButton.isEnabled = !newString.isEmpty
-        
         return true
     }
 }

@@ -15,3 +15,11 @@ extension UIColor {
     /// 연한 회색
     static var incomingMessageBackground = UIColor(red: 98/255, green: 98/255, blue: 98/255, alpha: 1)
 }
+
+extension UIView {
+    func addSubviews(_ subviews: UIView...) {
+        for subview in subviews {
+            addSubview(subview)
+        }
+    }
+}

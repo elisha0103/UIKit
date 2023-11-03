@@ -48,6 +48,11 @@
 		66614A5D2AF48B3E005A594B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 66614A5C2AF48B3E005A594B /* GoogleService-Info.plist */; };
 		66614A5F2AF4968E005A594B /* AppDelegate+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66614A5E2AF4968E005A594B /* AppDelegate+.swift */; };
 		66614A612AF4A1AE005A594B /* ChannelNotiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66614A602AF4A1AE005A594B /* ChannelNotiManager.swift */; };
+		66614A642AF4B367005A594B /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 66614A632AF4B367005A594B /* Alamofire */; };
+		66614A662AF4BB1B005A594B /* AuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66614A652AF4BB1B005A594B /* AuthAPI.swift */; };
+		66614A682AF4BCE4005A594B /* Costant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66614A672AF4BCE4005A594B /* Costant.swift */; };
+		66614A6B2AF4BE16005A594B /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66614A6A2AF4BE16005A594B /* SignUpViewController.swift */; };
+		66614A6D2AF4C9D2005A594B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66614A6C2AF4C9D2005A594B /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -102,6 +107,10 @@
 		66614A5C2AF48B3E005A594B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		66614A5E2AF4968E005A594B /* AppDelegate+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+.swift"; sourceTree = "<group>"; };
 		66614A602AF4A1AE005A594B /* ChannelNotiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelNotiManager.swift; sourceTree = "<group>"; };
+		66614A652AF4BB1B005A594B /* AuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPI.swift; sourceTree = "<group>"; };
+		66614A672AF4BCE4005A594B /* Costant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Costant.swift; sourceTree = "<group>"; };
+		66614A6A2AF4BE16005A594B /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		66614A6C2AF4C9D2005A594B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66614A642AF4B367005A594B /* Alamofire in Frameworks */,
 				66614A5B2AF3EC64005A594B /* FirebaseMessaging in Frameworks */,
 				664D76022AEB895800097C8C /* MessageKit in Frameworks */,
 				664D76052AEB8A1800097C8C /* FirebaseAuth in Frameworks */,
@@ -175,6 +185,7 @@
 				664D761A2AEB956500097C8C /* Sender.swift */,
 				66614A392AF2417F005A594B /* StreamError.swift */,
 				66614A3B2AF33A00005A594B /* UserDefaultManager.swift */,
+				66614A6C2AF4C9D2005A594B /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -198,6 +209,7 @@
 				664D75F52AEB889500097C8C /* Assets.xcassets */,
 				66614A5C2AF48B3E005A594B /* GoogleService-Info.plist */,
 				664D75FA2AEB889500097C8C /* Info.plist */,
+				66614A672AF4BCE4005A594B /* Costant.swift */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -205,6 +217,7 @@
 		664D761F2AEB96BB00097C8C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				66614A692AF4BE05005A594B /* SignUpView */,
 				664D76312AEBB5EC00097C8C /* BaseView */,
 				664D762E2AEBB53400097C8C /* ChatView */,
 				664D76232AEB996000097C8C /* ChannelView */,
@@ -265,6 +278,7 @@
 				66614A332AF1FD94005A594B /* StorageAPI.swift */,
 				66614A372AF240D8005A594B /* ChatAPI.swift */,
 				66614A602AF4A1AE005A594B /* ChannelNotiManager.swift */,
+				66614A652AF4BB1B005A594B /* AuthAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -277,6 +291,14 @@
 				66614A502AF3E3FD005A594B /* Info.plist */,
 			);
 			path = Notification;
+			sourceTree = "<group>";
+		};
+		66614A692AF4BE05005A594B /* SignUpView */ = {
+			isa = PBXGroup;
+			children = (
+				66614A6A2AF4BE16005A594B /* SignUpViewController.swift */,
+			);
+			path = SignUpView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -305,6 +327,7 @@
 				664D760E2AEB8B2A00097C8C /* SnapKit */,
 				66614A462AF39A2F005A594B /* Kingfisher */,
 				66614A5A2AF3EC64005A594B /* FirebaseMessaging */,
+				66614A632AF4B367005A594B /* Alamofire */,
 			);
 			productName = ChatDemo;
 			productReference = 664D75E92AEB889400097C8C /* ChatDemo.app */;
@@ -339,6 +362,7 @@
 				664D76032AEB8A1800097C8C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				664D760D2AEB8B2A00097C8C /* XCRemoteSwiftPackageReference "SnapKit" */,
 				66614A452AF39A2F005A594B /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				66614A622AF4B367005A594B /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 664D75EA2AEB889400097C8C /* Products */;
 			projectDirPath = "";
@@ -371,12 +395,14 @@
 				664D761B2AEB956500097C8C /* Sender.swift in Sources */,
 				66614A612AF4A1AE005A594B /* ChannelNotiManager.swift in Sources */,
 				664D75F12AEB889400097C8C /* LoginViewController.swift in Sources */,
+				66614A682AF4BCE4005A594B /* Costant.swift in Sources */,
 				66614A382AF240D8005A594B /* ChatAPI.swift in Sources */,
 				664D762B2AEBA8E200097C8C /* AppController.swift in Sources */,
 				66614A5F2AF4968E005A594B /* AppDelegate+.swift in Sources */,
 				66614A2F2AF1F4D6005A594B /* DatabaseRepresentation.swift in Sources */,
 				664D762D2AEBB44D00097C8C /* ChannelTableViewCell.swift in Sources */,
 				66614A362AF2000B005A594B /* UIImage+.swift in Sources */,
+				66614A6B2AF4BE16005A594B /* SignUpViewController.swift in Sources */,
 				664D76172AEB8C9400097C8C /* ImageMediaItem.swift in Sources */,
 				664D76122AEB8C2A00097C8C /* Channel.swift in Sources */,
 				664D76212AEB97DF00097C8C /* ChannelViewController.swift in Sources */,
@@ -384,6 +410,7 @@
 				664D76272AEB9A9D00097C8C /* UIColor+.swift in Sources */,
 				664D76332AEBB60300097C8C /* BaseNavigationController.swift in Sources */,
 				664D75ED2AEB889400097C8C /* AppDelegate.swift in Sources */,
+				66614A662AF4BB1B005A594B /* AuthAPI.swift in Sources */,
 				664D76252AEB997A00097C8C /* ChannelViewController+.swift in Sources */,
 				66614A3E2AF33B16005A594B /* LoginViewController+.swift in Sources */,
 				664D75EF2AEB889400097C8C /* SceneDelegate.swift in Sources */,
@@ -397,6 +424,7 @@
 				664D761D2AEB95C200097C8C /* Message+.swift in Sources */,
 				66614A3A2AF2417F005A594B /* StreamError.swift in Sources */,
 				66614A322AF1F82D005A594B /* ChannelAPI.swift in Sources */,
+				66614A6D2AF4C9D2005A594B /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -655,6 +683,14 @@
 				minimumVersion = 7.10.0;
 			};
 		};
+		66614A622AF4B367005A594B /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.8.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -697,6 +733,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 664D76032AEB8A1800097C8C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseMessaging;
+		};
+		66614A632AF4B367005A594B /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 66614A622AF4B367005A594B /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
