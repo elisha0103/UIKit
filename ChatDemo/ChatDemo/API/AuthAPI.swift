@@ -59,4 +59,12 @@ struct AuthAPI {
     func fetchUsers(completion: @escaping (QuerySnapshot?, Error?) -> Void) {
         REF_USERS.getDocuments(completion: completion)
     }
+    
+    func fetchUser(uid: String, completion: @escaping (User) -> Void) {
+        REF_USERS.document(uid).getDocument { snapshot, error in
+            guard let snapshot = snapshot else { return }
+            let user = User(uid: snapshot.documentID, dictionary: snapshot.data()!)
+            completion(user)
+        }
+    }
 }

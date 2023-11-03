@@ -21,6 +21,7 @@ final class ChatViewController: MessagesViewController {
     var messages: [Message] = []
     let chatAPI = ChatAPI()
     let user: User
+    var toUser: User?
     
     lazy var cameraBarButtonItem: InputBarButtonItem = {
         let button = InputBarButtonItem(type: .system)
@@ -69,18 +70,19 @@ final class ChatViewController: MessagesViewController {
         removeOutgoingMessageAvatars()
         addCameraBarButtonToMessageInputBar()
         listenToMessages()
+        fetchToUser()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        ChannelNotiManager.shared.currentChatRoomId = channel.id
+        NotiManager.shared.currentChatRoomId = channel.id
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        ChannelNotiManager.shared.currentChatRoomId = nil
+        NotiManager.shared.currentChatRoomId = nil
     }
     
     // MARK: - Selectors
@@ -126,6 +128,12 @@ final class ChatViewController: MessagesViewController {
             } else {
                 insertNewMessage(message)
             }
+        }
+    }
+    
+    private func fetchToUser() {
+        AuthAPI.shared.fetchUser(uid: channel.toUserId) { [weak self] user in
+            self?.toUser = user
         }
     }
     

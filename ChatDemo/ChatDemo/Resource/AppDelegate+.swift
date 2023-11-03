@@ -23,7 +23,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate, MessagingDelegate {
             return [.sound, .banner, .list]
         }
         
-        if ChannelNotiManager.shared.currentChatRoomId == channelId {
+        if NotiManager.shared.currentChatRoomId == channelId {
             // 현재 활성화된 채팅방이 알림의 채팅방과 동일하다면, 알림 표시 안함
             print("CurrentChatRoom Noti", #function)
             return []

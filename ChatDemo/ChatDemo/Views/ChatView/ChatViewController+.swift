@@ -68,12 +68,14 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
         let message = Message(user: user, content: text)
         
         chatAPI.save(message) { [weak self] error in
+            
             if let error = error {
                 print("DEBUG- inputBar Error: \(error.localizedDescription)")
                 return
             }
-            
-            self?.messagesCollectionView.scrollToLastItem()
+            guard let self = self else { return }
+            self.messagesCollectionView.scrollToLastItem()
+            NotiManager.shared.pushNotification(channel: channel, content: text, fcmToken: toUser!.fcmToken, from: user.fullName)
         }
         inputBar.inputTextView.text.removeAll()
     }
