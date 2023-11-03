@@ -41,7 +41,6 @@ struct StorageAPI {
                     case .success(let value):
                         if let image = value.image {
                             // 이미지 캐시
-                            print("cached")
                             completion(image)
                         } else {
                             // 이미지가 캐시에 없으므로 다운로드합니다.
