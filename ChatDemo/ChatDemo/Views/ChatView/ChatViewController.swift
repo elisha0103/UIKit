@@ -71,6 +71,18 @@ final class ChatViewController: MessagesViewController {
         listenToMessages()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        ChannelNotiManager.shared.currentChatRoomId = channel.id
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        ChannelNotiManager.shared.currentChatRoomId = nil
+    }
+    
     // MARK: - Selectors
     
     @objc

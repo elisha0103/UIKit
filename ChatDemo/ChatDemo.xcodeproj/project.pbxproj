@@ -47,6 +47,7 @@
 		66614A5B2AF3EC64005A594B /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 66614A5A2AF3EC64005A594B /* FirebaseMessaging */; };
 		66614A5D2AF48B3E005A594B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 66614A5C2AF48B3E005A594B /* GoogleService-Info.plist */; };
 		66614A5F2AF4968E005A594B /* AppDelegate+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66614A5E2AF4968E005A594B /* AppDelegate+.swift */; };
+		66614A612AF4A1AE005A594B /* ChannelNotiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66614A602AF4A1AE005A594B /* ChannelNotiManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -100,6 +101,7 @@
 		66614A582AF3E91F005A594B /* Notification.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Notification.entitlements; sourceTree = "<group>"; };
 		66614A5C2AF48B3E005A594B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		66614A5E2AF4968E005A594B /* AppDelegate+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+.swift"; sourceTree = "<group>"; };
+		66614A602AF4A1AE005A594B /* ChannelNotiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelNotiManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -262,6 +264,7 @@
 				66614A312AF1F82D005A594B /* ChannelAPI.swift */,
 				66614A332AF1FD94005A594B /* StorageAPI.swift */,
 				66614A372AF240D8005A594B /* ChatAPI.swift */,
+				66614A602AF4A1AE005A594B /* ChannelNotiManager.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -366,6 +369,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				664D761B2AEB956500097C8C /* Sender.swift in Sources */,
+				66614A612AF4A1AE005A594B /* ChannelNotiManager.swift in Sources */,
 				664D75F12AEB889400097C8C /* LoginViewController.swift in Sources */,
 				66614A382AF240D8005A594B /* ChatAPI.swift in Sources */,
 				664D762B2AEBA8E200097C8C /* AppController.swift in Sources */,

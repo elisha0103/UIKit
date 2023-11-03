@@ -17,7 +17,20 @@ extension AppDelegate: UNUserNotificationCenterDelegate, MessagingDelegate {
     
     // 앱 화면 보고있는 중에 푸시 올 때
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification) async -> UNNotificationPresentationOptions {
-        print("On the App, Tap Push", #function)
+        print("Notification UserInfo", notification.request.content.userInfo)
+        guard let channelId = notification.request.content.userInfo["channelId"] as? String else {
+            print("Push Noti on the app, No ChatRoomId", #function)
+            return [.sound, .banner, .list]
+        }
+        
+        if ChannelNotiManager.shared.currentChatRoomId == channelId {
+            // 현재 활성화된 채팅방이 알림의 채팅방과 동일하다면, 알림 표시 안함
+            print("CurrentChatRoom Noti", #function)
+            return []
+        }
+        // 현재 활성화된 View가 알림의 채팅방 View가 아니라면, 알림 표시
+        print("Push Noti on the app, Not match View", #function)
+        
         return [.sound, .banner, .list]
     }
     
