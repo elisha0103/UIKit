@@ -32,8 +32,8 @@ final class AppController {
     
     @objc
     private func checkSignIn() {
-        if let user = Auth.auth().currentUser {
-            setChannelScene(with: user)
+        if let uid = Auth.auth().currentUser?.uid {
+            setChannelScene()
         } else {
             setLoginScene()
         }
@@ -41,17 +41,15 @@ final class AppController {
     
     // MARK: - Helpers
     
-    private func setChannelScene(with user: User) {
-        let channelViewController = ChannelViewController(currentUser: user)
+    private func setChannelScene() {
+        let channelViewController = ChannelViewController()
         rootViewcontroller = BaseNavigationController(rootViewController: channelViewController)
     }
     
     private func setLoginScene() {
         rootViewcontroller = BaseNavigationController(rootViewController: (LoginViewController()))
     }
-    
-    // MARK: - Helpers
-    
+        
     func show(in window: UIWindow?) {
         guard let window = window else {
             fatalError("Cannot layout app with a nil window.")

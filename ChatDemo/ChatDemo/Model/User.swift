@@ -10,10 +10,10 @@ import Foundation
 struct User {
     let uid: String
     let email: String
-    let fullName: String
-    let fcmToken: String
+    var fullName: String
+    var fcmToken: String
     
-    init(uid: String, dictionary: [String: AnyObject]) {
+    init(uid: String, dictionary: [String: Any]) {
         self.uid = uid
         
         self.email = dictionary["email"] as? String ?? ""

@@ -41,4 +41,18 @@ struct AuthAPI {
             REF_USERS.document("\(uid)").setData(values, completion: completion)
         }
     }
+    
+    func updateFCMTokenAndFetchUser(uid: String, fcmToken: String, completion: @escaping (DocumentSnapshot?, Error?) -> Void) {
+        REF_USERS.document(uid).updateData(["fcmToken": fcmToken]) { error in
+            if let error = error {
+                print("DEBUG: FETCH USER ERROR", #function, error.localizedDescription)
+            }
+            REF_USERS.document(uid).getDocument(completion: completion)
+        }
+        
+    }
+    
+    func updateFCMToken(uid: String, fcmToken: String, completion: ((Error?) -> Void)?) {
+        REF_USERS.document(uid).updateData(["fcmToken": fcmToken])
+    }
 }

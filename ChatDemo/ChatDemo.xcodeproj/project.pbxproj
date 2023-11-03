@@ -53,6 +53,7 @@
 		66614A682AF4BCE4005A594B /* Costant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66614A672AF4BCE4005A594B /* Costant.swift */; };
 		66614A6B2AF4BE16005A594B /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66614A6A2AF4BE16005A594B /* SignUpViewController.swift */; };
 		66614A6D2AF4C9D2005A594B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66614A6C2AF4C9D2005A594B /* User.swift */; };
+		66614A6F2AF4E03B005A594B /* ChannelFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66614A6E2AF4E03B005A594B /* ChannelFriendView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -111,6 +112,7 @@
 		66614A672AF4BCE4005A594B /* Costant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Costant.swift; sourceTree = "<group>"; };
 		66614A6A2AF4BE16005A594B /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		66614A6C2AF4C9D2005A594B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		66614A6E2AF4E03B005A594B /* ChannelFriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelFriendView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -241,6 +243,7 @@
 				664D76202AEB97DF00097C8C /* ChannelViewController.swift */,
 				664D76242AEB997A00097C8C /* ChannelViewController+.swift */,
 				664D762C2AEBB44D00097C8C /* ChannelTableViewCell.swift */,
+				66614A6E2AF4E03B005A594B /* ChannelFriendView.swift */,
 			);
 			path = ChannelView;
 			sourceTree = "<group>";
@@ -404,6 +407,7 @@
 				66614A362AF2000B005A594B /* UIImage+.swift in Sources */,
 				66614A6B2AF4BE16005A594B /* SignUpViewController.swift in Sources */,
 				664D76172AEB8C9400097C8C /* ImageMediaItem.swift in Sources */,
+				66614A6F2AF4E03B005A594B /* ChannelFriendView.swift in Sources */,
 				664D76122AEB8C2A00097C8C /* Channel.swift in Sources */,
 				664D76212AEB97DF00097C8C /* ChannelViewController.swift in Sources */,
 				664D76352AEBB66400097C8C /* BaseViewController.swift in Sources */,

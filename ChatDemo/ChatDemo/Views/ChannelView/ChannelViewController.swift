@@ -16,7 +16,7 @@ class ChannelViewController: BaseViewController {
     // MARK: - Properties
     
     var channels: [Channel] = []
-    let currentUser: User
+    var currentUser: User?
     private let channelAPI = ChannelAPI()
     private var currentChannelAlertController: UIAlertController?
     
@@ -31,8 +31,7 @@ class ChannelViewController: BaseViewController {
     
     // MARK: - Lifecycles
     
-    init(currentUser: User) {
-        self.currentUser = currentUser
+    init() {
         super.init(nibName: nil, bundle: nil)
         
         title = "Channels"
@@ -49,7 +48,8 @@ class ChannelViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        configureUI()
+        //        configureUI()
+        fetchUser()
         addToolBarItems()
         setupListener()
     }
@@ -72,13 +72,28 @@ class ChannelViewController: BaseViewController {
         }
     }
     
+    private func fetchUser() {
+        let uid: String = Auth.auth().currentUser?.uid ?? UUID().uuidString
+        let fcmToken = UserDefaults.standard.string(forKey: "FCMToken") ?? ""
+        
+        AuthAPI.shared.updateFCMTokenAndFetchUser(uid: uid, fcmToken: fcmToken) { [weak self] snapshot, error in
+            if let error = error {
+                print("DEBUG - FetchUser Error: ", #function, error.localizedDescription)
+            }
+            guard let self = self,
+                  let data = snapshot?.data() else { return }
+            self.currentUser = User(uid: uid, dictionary: data)
+            print("DEBUG - CurrentUser: \(String(describing: self.currentUser))")
+        }
+    }
+    
     // MARK: - Selectors
     
     @objc
     private func didTapSignOutItem() {
         showAlert(message: "로그아웃 하시겠습니까?",
                   cancelButtonName: "취소",
-                  confirmButtonName: "확인", 
+                  confirmButtonName: "확인",
                   confirmButtonCompletion:  {
             do {
                 try Auth.auth().signOut()

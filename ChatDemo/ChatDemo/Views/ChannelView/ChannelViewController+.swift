@@ -30,6 +30,7 @@ extension ChannelViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let channel = channels[indexPath.row]
+        guard let currentUser = currentUser else { return }
         let viewController = ChatViewController(user: currentUser, channel: channel)
         navigationController?.pushViewController(viewController, animated: true)
     }

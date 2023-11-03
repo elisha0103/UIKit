@@ -19,7 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
 
         AppController.shared.show(in: window)
-        
         setupFCM(application)
 
         return true

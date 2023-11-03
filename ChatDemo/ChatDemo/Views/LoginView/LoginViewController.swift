@@ -9,6 +9,7 @@ import UIKit
 
 import SnapKit
 import FirebaseAuth
+import FirebaseMessaging
 
 class LoginViewController: BaseViewController {
     
@@ -20,6 +21,7 @@ class LoginViewController: BaseViewController {
         textField.placeholder = "이메일"
         textField.borderStyle = .roundedRect
         textField.autocorrectionType = .no
+        textField.autocapitalizationType = .none
         textField.returnKeyType = .done
         textField.delegate = self
         

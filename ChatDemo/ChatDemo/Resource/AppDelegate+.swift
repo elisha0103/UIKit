@@ -36,7 +36,11 @@ extension AppDelegate: UNUserNotificationCenterDelegate, MessagingDelegate {
     
     /// FCMToken 업데이트시
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
+        
         print("FCM Token Messaging", #function, fcmToken ?? "")
+        guard let fcmToken = fcmToken else { return }
+        UserDefaults.standard.set(fcmToken, forKey: "FCMToken")
+        
     }
     
     /// 스위즐링 No시 APNs 등록, 토큰 값 가져옴
