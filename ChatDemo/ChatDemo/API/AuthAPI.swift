@@ -55,4 +55,8 @@ struct AuthAPI {
     func updateFCMToken(uid: String, fcmToken: String, completion: ((Error?) -> Void)?) {
         REF_USERS.document(uid).updateData(["fcmToken": fcmToken])
     }
+    
+    func fetchUsers(completion: @escaping (QuerySnapshot?, Error?) -> Void) {
+        REF_USERS.getDocuments(completion: completion)
+    }
 }

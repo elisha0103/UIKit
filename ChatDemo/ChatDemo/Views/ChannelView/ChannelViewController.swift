@@ -113,6 +113,11 @@ class ChannelViewController: BaseViewController {
         })
     }
     
+    @objc
+    private func didTapFriend() {
+        present(ChannelFriendView(), animated: true)
+    }
+    
     // MARK: - Helpers
     
     private func configureUI() {
@@ -140,6 +145,7 @@ class ChannelViewController: BaseViewController {
         toolbarItems = [
             UIBarButtonItem(title: "로그아웃", style: .plain, target: self, action: #selector(didTapSignOutItem)),
             UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
+            UIBarButtonItem(title: "친구리스트", style: .plain, target: self, action: #selector(didTapFriend)),
             UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(didTapAddItem))
         ]
         navigationController?.isToolbarHidden = false

@@ -54,6 +54,8 @@
 		66614A6B2AF4BE16005A594B /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66614A6A2AF4BE16005A594B /* SignUpViewController.swift */; };
 		66614A6D2AF4C9D2005A594B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66614A6C2AF4C9D2005A594B /* User.swift */; };
 		66614A6F2AF4E03B005A594B /* ChannelFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66614A6E2AF4E03B005A594B /* ChannelFriendView.swift */; };
+		66614A712AF4E2AE005A594B /* ChannelFriendView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66614A702AF4E2AE005A594B /* ChannelFriendView+.swift */; };
+		66614A732AF4E30F005A594B /* FriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66614A722AF4E30F005A594B /* FriendTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -113,6 +115,8 @@
 		66614A6A2AF4BE16005A594B /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		66614A6C2AF4C9D2005A594B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		66614A6E2AF4E03B005A594B /* ChannelFriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelFriendView.swift; sourceTree = "<group>"; };
+		66614A702AF4E2AE005A594B /* ChannelFriendView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChannelFriendView+.swift"; sourceTree = "<group>"; };
+		66614A722AF4E30F005A594B /* FriendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,6 +248,8 @@
 				664D76242AEB997A00097C8C /* ChannelViewController+.swift */,
 				664D762C2AEBB44D00097C8C /* ChannelTableViewCell.swift */,
 				66614A6E2AF4E03B005A594B /* ChannelFriendView.swift */,
+				66614A702AF4E2AE005A594B /* ChannelFriendView+.swift */,
+				66614A722AF4E30F005A594B /* FriendTableViewCell.swift */,
 			);
 			path = ChannelView;
 			sourceTree = "<group>";
@@ -404,6 +410,7 @@
 				66614A5F2AF4968E005A594B /* AppDelegate+.swift in Sources */,
 				66614A2F2AF1F4D6005A594B /* DatabaseRepresentation.swift in Sources */,
 				664D762D2AEBB44D00097C8C /* ChannelTableViewCell.swift in Sources */,
+				66614A712AF4E2AE005A594B /* ChannelFriendView+.swift in Sources */,
 				66614A362AF2000B005A594B /* UIImage+.swift in Sources */,
 				66614A6B2AF4BE16005A594B /* SignUpViewController.swift in Sources */,
 				664D76172AEB8C9400097C8C /* ImageMediaItem.swift in Sources */,
@@ -421,6 +428,7 @@
 				664D76152AEB8C4D00097C8C /* Channel+.swift in Sources */,
 				664D76192AEB8D6400097C8C /* Message.swift in Sources */,
 				66614A342AF1FD94005A594B /* StorageAPI.swift in Sources */,
+				66614A732AF4E30F005A594B /* FriendTableViewCell.swift in Sources */,
 				66614A2B2AF1F3A2005A594B /* Encodable+.swift in Sources */,
 				664D76302AEBB54000097C8C /* ChatViewController.swift in Sources */,
 				66614A292AF1E7E4005A594B /* ChatViewController+.swift in Sources */,
