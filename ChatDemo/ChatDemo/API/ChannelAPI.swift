@@ -31,6 +31,18 @@ class ChannelAPI {
         REF_USERS.document(user.uid).collection("channels").document(channelId).setData(channel.representation)
     }
     
+    // 같은 사람 채팅방 중복 생성 방지 함수
+    func checkExistChannel(currentUser: User, toUser: User, completion: @escaping(Bool, String?) -> Void) {
+        REF_USERS.document(currentUser.uid).collection("channels").whereField("toUserId", isEqualTo: toUser.uid)
+            .getDocuments { snapshot, error in
+                guard let isExist = snapshot?.isEmpty else { return }
+                let documentId = snapshot?.documents.first?.documentID
+                
+                completion(!isExist, documentId)
+                
+            }
+    }
+    
     // Firestore에 접근하여 실시간으로 데이터를 가져오는 메소드
     func subscribe(completion: @escaping (Result<[(Channel, DocumentChangeType)], Error>) -> Void) {
         guard let ChannelListener = ChannelListener else { return }

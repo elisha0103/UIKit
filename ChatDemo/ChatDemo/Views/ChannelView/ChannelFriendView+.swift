@@ -15,7 +15,16 @@ extension ChannelFriendView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let friend = friendUser[indexPath.row]
         guard let currentUser = currentUser else { return }
-        channelAPI.createChannel(currentUser: currentUser, toUser: friend)
+        channelAPI.checkExistChannel(currentUser: currentUser, toUser: friend) { isExist, channelId in
+            if isExist, let _ = channelId {
+                // TODO: - ChannelViewController Handling
+//                let channel = Channel(id: channelId, toUser: friend)
+//                let viewController = ChatViewController(user: currentUser, channel: channel)
+//                self.navigationController?.pushViewController(viewController, animated: true)
+            } else {
+                self.channelAPI.createChannel(currentUser: currentUser, toUser: friend)
+            }
+        }
         dismiss(animated: true)
     }
 }
