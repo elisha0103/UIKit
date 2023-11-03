@@ -13,18 +13,18 @@ extension Channel: Comparable {
     }
     
     static func < (lhs: Channel, rhs: Channel) -> Bool {
-        return lhs.name < rhs.name
+        return lhs.recentDate < rhs.recentDate
     }
 }
 
 extension Channel: DatabaseRepresentation {
     var representation: [String : Any] {
-        var rep = ["name": name]
-        
-        if let id = id {
-            rep["id"] = id
-        }
-        
+        let rep = [
+            "toUserId": toUserId,
+            "toUserName": toUserName,
+            "recentDate": recentDate
+        ] as [String : Any]
+                
         return rep
     }
 }

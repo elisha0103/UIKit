@@ -32,7 +32,7 @@ final class AppController {
     
     @objc
     private func checkSignIn() {
-        if let uid = Auth.auth().currentUser?.uid {
+        if (Auth.auth().currentUser?.uid) != nil {
             setChannelScene()
         } else {
             setLoginScene()

@@ -8,27 +8,32 @@
 import Foundation
 
 import FirebaseFirestore
-import FirebaseStorage
+import Firebase
 
 class ChannelAPI {
-    private let storage = Storage.storage().reference()
     let firestoreDatabase = Firestore.firestore()
     var listener: ListenerRegistration?
-    lazy var ChannelListener: CollectionReference = {
-        return firestoreDatabase.collection("channels")
+    lazy var ChannelListener: CollectionReference? = {
+        guard let uid = Auth.auth().currentUser?.uid else { return nil }
+        return REF_USERS.document(uid).collection("channels")
     }()
     
-    func createChannel(with channelName: String) {
-        let channel = Channel(name: channelName)
-        ChannelListener.addDocument(data: channel.representation) { error in
-            if let error = error {
-                print("Error saving Channel: \(error.localizedDescription)")
-            }
-        }
+    func createChannel(currentUser: User, toUser: User) {
+        let channelId = UUID().uuidString
+        let registrationMyChannel = Channel(toUser: toUser)
+        let toChannel = Channel(toUser: currentUser)
+        firestoreDatabase.collection("channels").document(channelId).setData(["members": 2])
+        addChannel(with: currentUser, channelId: channelId, channel: registrationMyChannel)
+        addChannel(with: toUser, channelId: channelId, channel: toChannel)
+    }
+    
+    func addChannel(with user: User, channelId: String, channel: Channel) { // User channel 컬렉션에 채널 추가
+        REF_USERS.document(user.uid).collection("channels").document(channelId).setData(channel.representation)
     }
     
     // Firestore에 접근하여 실시간으로 데이터를 가져오는 메소드
     func subscribe(completion: @escaping (Result<[(Channel, DocumentChangeType)], Error>) -> Void) {
+        guard let ChannelListener = ChannelListener else { return }
         ChannelListener.addSnapshotListener { snapshot, error in
             guard let snapshot = snapshot else {
                 completion(.failure(error!))

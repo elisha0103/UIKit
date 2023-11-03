@@ -17,7 +17,7 @@ extension ChannelViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ChannelTableViewCell.cellId, for: indexPath) as! ChannelTableViewCell
-        cell.chatRoomLabel.text = channels[indexPath.row].name
+        cell.chatRoomLabel.text = channels[indexPath.row].toUserName
         
         return cell
     }

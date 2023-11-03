@@ -105,12 +105,12 @@ class ChannelViewController: BaseViewController {
     
     @objc
     private func didTapAddItem() {
-        showAlert(title: "새로운 채널 생성",
-                  cancelButtonName: "취소",
-                  confirmButtonName: "확인",
-                  isExistsTextField: true, confirmButtonCompletion:  { [weak self] in
-            self?.channelAPI.createChannel(with: self?.alertController?.textFields?.first?.text ?? "")
-        })
+//        showAlert(title: "새로운 채널 생성",
+//                  cancelButtonName: "취소",
+//                  confirmButtonName: "확인",
+//                  isExistsTextField: true, confirmButtonCompletion:  { [weak self] in
+//            self?.channelAPI.createChannel(with: self?.alertController?.textFields?.first?.text ?? "")
+//        })
     }
     
     @objc

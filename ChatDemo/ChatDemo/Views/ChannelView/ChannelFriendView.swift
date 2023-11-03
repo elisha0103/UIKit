@@ -8,11 +8,12 @@
 import UIKit
 
 import SnapKit
+import Firebase
 
 class ChannelFriendView: BaseViewController {
     
     // MARK: - Properties
-    
+    var currentUser: User?
     var friendUser: [User] = []
     let channelAPI = ChannelAPI()
 
@@ -56,8 +57,12 @@ class ChannelFriendView: BaseViewController {
                 print("DEBUG - FetchUsers Error: ", #function, error.localizedDescription)
             }
             guard let self = self,
+                  let currentUserUid = Auth.auth().currentUser?.uid,
                 let result = snapshot?.documents else { return }
-            self.friendUser = result.map { User(uid: $0.documentID, dictionary: $0.data())}
+            result.forEach { [weak self] result in
+                let user = User(uid: result.documentID, dictionary: result.data())
+                user.uid == currentUserUid ? self?.currentUser = user : self?.friendUser.append(user)
+            }
             print("friendUser: \(friendUser)")
             self.tableView.reloadData()
         }

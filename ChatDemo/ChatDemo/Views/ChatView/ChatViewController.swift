@@ -48,7 +48,7 @@ final class ChatViewController: MessagesViewController {
         self.channel = channel
         super.init(nibName: nil, bundle: nil)
         
-        title = channel.name
+        title = channel.toUserName
     }
     
     required init?(coder: NSCoder) {

@@ -37,7 +37,7 @@ struct Message: MessageType {
     }
     
     init(user: User, image: UIImage) {
-        sender = Sender(senderId: user.uid, displayName: UserDefaultManager.displayName)
+        sender = Sender(senderId: user.uid, displayName: user.fullName)
         self.image = image
         sentDate = Date()
         content = ""

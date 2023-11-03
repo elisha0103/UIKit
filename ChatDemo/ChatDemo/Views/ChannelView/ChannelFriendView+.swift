@@ -13,8 +13,10 @@ extension ChannelFriendView: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let friend = friendUser[indexPath.row].fullName
-        channelAPI.createChannel(with: friend)
+        let friend = friendUser[indexPath.row]
+        guard let currentUser = currentUser else { return }
+        channelAPI.createChannel(currentUser: currentUser, toUser: friend)
+        dismiss(animated: true)
     }
 }
 

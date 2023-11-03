@@ -10,20 +10,31 @@ import Foundation
 import Firebase
 
 struct Channel {
-    var id: String?
-    let name: String
+    let id: String?
+    var toUserName: String
+    let toUserId: String
+    var recentDate: Date
     
-    init(id: String? = nil, name: String) {
+    // create
+    init(id: String? = nil, toUser: User) {
         self.id = id
-        self.name = name
+        self.toUserName = toUser.fullName
+        self.toUserId = toUser.uid
+        self.recentDate = Date()
     }
     
+    // subscribe
     init?(_ document: QueryDocumentSnapshot) {
         let data = document.data()
         
-        guard let name = data["name"] as? String else { return nil }
+        guard let toUserName = data["toUserName"] as? String,
+              let recentDate = data["recentDate"] as? Timestamp,
+              let toUserId = data["toUserId"] as? String else { return nil }
         
+        self.recentDate = recentDate.dateValue()
+
         id = document.documentID
-        self.name = name
+        self.toUserId = toUserId
+        self.toUserName = toUserName
     }
 }
