@@ -74,7 +74,7 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
                 return
             }
             guard let self = self else { return }
-            self.messagesCollectionView.scrollToLastItem()
+            self.messagesCollectionView.scrollToLastItem(animated: false)
             NotiManager.shared.pushNotification(channel: channel, content: text, fcmToken: toUser!.fcmToken, from: user.fullName)
         }
         inputBar.inputTextView.text.removeAll()
@@ -104,7 +104,9 @@ extension ChatViewController: PHPickerViewControllerDelegate {
             var message = Message(user: user, image: image)
             message.downloadURL = url
             self.chatAPI.save(message)
-            self.messagesCollectionView.scrollToLastItem()
+            self.messagesCollectionView.scrollToLastItem(animated: false)
+            NotiManager.shared.pushNotification(channel: channel, content: ("사진"), fcmToken: toUser!.fcmToken, from: user.fullName)
+
         }
     }
     

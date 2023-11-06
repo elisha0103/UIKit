@@ -182,6 +182,6 @@ final class ChatViewController: MessagesViewController {
         messages.sort()
         
         messagesCollectionView.reloadData()
-        self.messagesCollectionView.scrollToLastItem()
+        self.messagesCollectionView.scrollToLastItem(animated: false)
     }
 }
