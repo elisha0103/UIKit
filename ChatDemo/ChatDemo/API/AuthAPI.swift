@@ -67,4 +67,11 @@ struct AuthAPI {
             completion(user)
         }
     }
+    
+    func fetchUser(uid: String) async throws -> User {
+        let result = try await REF_USERS.document(uid).getDocument()
+        
+        let user = User(uid: result.documentID, dictionary: result.data()!)
+        return user
+    }
 }

@@ -7,18 +7,58 @@
 
 import UIKit
 
+import Firebase
 import FirebaseMessaging
 
 extension AppDelegate: UNUserNotificationCenterDelegate, MessagingDelegate {
-    // 푸시 클릭
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse) async {
+//    // 푸시 탭 핸들러
+//    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse) async {
+//        print("Tap Push", #function)
+//    }
+    
+    // 푸시 탭 핸들러
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         print("Tap Push", #function)
+        guard let channelId = response.notification.request.content.userInfo["channelId"] as? String,
+        let fromUserId = response.notification.request.content.userInfo["fromUserId"] as? String else {
+            print("Push Noti on the app, No ChatRoomId", #function)
+            return
+        }
+        if let uid = Auth.auth().currentUser?.uid {
+            Task {
+                do {
+                    let currentUser = try await AuthAPI.shared.fetchUser(uid: uid)
+                    let fromUser = try await AuthAPI.shared.fetchUser(uid: fromUserId)
+                    let channel = Channel(id: channelId, toUser: fromUser)
+                    let chatViewController = ChatViewController(user: currentUser, channel: channel)
+                    let channelViewController = ChannelViewController()
+                    
+                    var navigationController = BaseNavigationController(rootViewController: channelViewController)
+                    navigationController.pushViewController(chatViewController, animated: true)
+                    if UIApplication.shared.applicationState == .active {
+                        window?.rootViewController = navigationController
+                    } else {
+                        window?.rootViewController = navigationController
+                        window?.makeKeyAndVisible()
+                    }
+                } catch let error as NSError {
+                    print("FCM UserFetch Error: \(error.localizedDescription)")
+                }
+                
+            }
+        } else {
+            var navigationController = BaseNavigationController(rootViewController: LoginViewController())
+            window?.rootViewController = navigationController
+            window?.makeKeyAndVisible()
+        }
+
     }
     
-    // 앱 화면 보고있는 중에 푸시 올 때
+    // 노티 푸시 수신
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification) async -> UNNotificationPresentationOptions {
         print("Notification UserInfo", notification.request.content.userInfo)
-        guard let channelId = notification.request.content.userInfo["channelId"] as? String else {
+        guard let channelId = notification.request.content.userInfo["channelId"] as? String,
+                Auth.auth().currentUser != nil else {
             print("Push Noti on the app, No ChatRoomId", #function)
             return [.sound, .banner, .list]
         }
@@ -48,11 +88,6 @@ extension AppDelegate: UNUserNotificationCenterDelegate, MessagingDelegate {
         Messaging.messaging().apnsToken = deviceToken
         let deviceTokenString = deviceToken.reduce("", { $0 + String(format: "%02X", $1) })
         print("APNS 등록, deviceToken", #function, deviceTokenString)
-        Messaging.messaging().token { token, error in
-            if let token = token {
-                print("FCM 토큰", #function, token)
-            }
-        }
     }
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {

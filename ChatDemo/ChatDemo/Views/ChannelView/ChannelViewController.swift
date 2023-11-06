@@ -96,7 +96,24 @@ class ChannelViewController: BaseViewController {
                   confirmButtonName: "확인",
                   confirmButtonCompletion:  {
             do {
+                // TODO: - 로그아웃 딥링크 로직 처리 확인 후 재설정
+                AuthAPI.shared.updateFCMToken(uid: self.currentUser!.uid, fcmToken: "") { error in
+                    print("DEBUG - Logout FCM update error", error?.localizedDescription as Any)
+                }
                 try Auth.auth().signOut()
+                
+                Messaging.messaging().deleteToken { error in
+                    if let error = error {
+                        print("DEBUG - deleteToken Error: \(error.localizedDescription)")
+                    } else {
+                        Messaging.messaging().token { token, _ in
+                            if let token = token {
+                                print("FCM 토큰", #function, token)
+                                UserDefaults.standard.set(token, forKey: "FCMToken")
+                            }
+                        }
+                    }
+                }
             } catch {
                 print("DEBUG - didTapSignOutItem Error: \(error.localizedDescription)")
             }

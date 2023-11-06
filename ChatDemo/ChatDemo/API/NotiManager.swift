@@ -23,13 +23,14 @@ class NotiManager {
     
     private init() { }
     
-    func pushNotification(channel: Channel, content: String, fcmToken: String, from userName: String) {
+    func pushNotification(channel: Channel, content: String, fcmToken: String, from user: User) {
         let value = [
-            "title": userName,
+            "title": user.fullName,
             "body": content,
             "sound": "default"
         ]
-        let channelIdDictionary = ["channelId": channel.id]
+        let channelIdDictionary = ["channelId": channel.id,
+                                   "fromUserId": user.uid]
         let params: Parameters = [
             "to": fcmToken,
             "notification": value,
