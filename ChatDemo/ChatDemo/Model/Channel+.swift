@@ -18,13 +18,4 @@ extension Channel: Comparable {
 }
 
 extension Channel: DatabaseRepresentation {
-    var representation: [String : Any] {
-        let rep = [
-            "toUserId": toUserId,
-            "toUserName": toUserName,
-            "recentDate": recentDate
-        ] as [String : Any]
-                
-        return rep
-    }
 }

@@ -20,8 +20,10 @@ final class ChatViewController: MessagesViewController {
     let channel: Channel
     var messages: [Message] = []
     let chatAPI = ChatAPI()
+    let channelAPI = ChannelAPI()
     let user: User
     var toUser: User?
+    var isNewChat: Bool = true
     
     // ImageTransition 인스턴스 생성
     let imageTransition = ImageTransition()
@@ -113,6 +115,7 @@ final class ChatViewController: MessagesViewController {
             switch result {
             case .success(let messages):
                 self?.loadImageAndUpdateCells(messages)
+                self?.channelAPI.resetAlarmNumber(uid: self!.user.uid, channelId: id)
             case .failure(let error):
                 print("DEBUG - ListenToMessages Error: \(error.localizedDescription)")
             }

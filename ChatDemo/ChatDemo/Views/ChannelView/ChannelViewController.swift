@@ -133,7 +133,7 @@ class ChannelViewController: BaseViewController {
     
     @objc
     private func didTapFriend() {
-        present(ChannelFriendView(), animated: true)
+        self.navigationController?.pushViewController(ChannelFriendView(), animated: true)
     }
     
     // MARK: - Helpers

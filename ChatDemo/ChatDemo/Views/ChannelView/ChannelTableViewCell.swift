@@ -119,19 +119,17 @@ final class ChannelTableViewCell: UITableViewCell {
     }
     
     func updateAlarmLabelSize() {
-        chatAlartNumberLabel.snp.makeConstraints {
+        chatAlartNumberLabel.snp.updateConstraints {
             let size = setTextLabelSize(label: chatAlartNumberLabel)
-            
             $0.width.equalTo(size.0)
             $0.height.equalTo(size.1)
             chatAlartNumberLabel.layer.cornerRadius = size.1 / 2
         }
-
     }
     
     private func setTextLabelSize(label: UILabel) -> (CGFloat, CGFloat) {
         let size = (label.text as NSString?)?.size() ?? .zero
-        let newSize = CGSize(width: size.width + 15, height: size.height + 15)
+        let newSize = CGSize(width: size.width + 15, height: size.height + 10)
         return (newSize.width, newSize.height)
     }
     

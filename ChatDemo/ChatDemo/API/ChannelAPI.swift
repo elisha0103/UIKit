@@ -60,6 +60,59 @@ class ChannelAPI {
         }
     }
     
+    func updateChannelInfo(currentUser: User, toUser: User, channelId: String, message: Message) {
+        var contentMessage: String {
+            switch message.kind {
+            case .photo(_):
+                return "사진"
+            case .text(let content):
+                return content
+            default: return ""
+            }
+        }
+        
+        let fromUpdateInfo = [
+            "toUserName": toUser.fullName,
+            "toUserId": toUser.uid,
+            "recentDate": message.sentDate,
+            "previewContent": contentMessage
+        ] as [String : Any]
+        
+        let toUpdateInfo = [
+            "toUserName": currentUser.fullName,
+            "toUserId": currentUser.uid,
+            "recentDate": message.sentDate,
+            "previewContent": contentMessage,
+            "alarmNumber": FieldValue.increment(Int64(1))
+        ] as [String : Any]
+        
+        REF_USERS.document(currentUser.uid).collection("channels").document(channelId)
+            .updateData(fromUpdateInfo) { err in
+                if let err = err {
+                    print("Error updating document: \(err)")
+                } else {
+                    print("Document successfully updated")
+                }
+                
+            }
+        
+        REF_USERS.document(toUser.uid).collection("channels").document(channelId)
+            .updateData(toUpdateInfo) { err in
+                if let err = err {
+                    print("Error updating document: \(err)")
+                } else {
+                    print("Document successfully updated")
+                }
+                
+            }
+
+    }
+    
+    func resetAlarmNumber(uid: String, channelId: String) {
+        REF_USERS.document(uid).collection("channels").document(channelId)
+            .updateData(["alarmNumber": 0])
+    }
+    
     func removeListener() {
         listener?.remove()
     }

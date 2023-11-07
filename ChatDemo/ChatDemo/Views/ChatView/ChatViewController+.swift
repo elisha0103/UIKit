@@ -87,7 +87,7 @@ extension ChatViewController: MessageCellDelegate {
                 imageMessageViewController.image = image
                 imageMessageViewController.transitioningDelegate = self
                 imageMessageViewController.modalPresentationStyle = .custom
-
+                
                 present(imageMessageViewController, animated: true)
             }
         default:
@@ -111,6 +111,14 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
     func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
         let message = Message(user: user, content: text)
         
+        //        channelAPI.checkExistChannel(currentUser: user, toUser: toUser!) { isExist, channelId in
+        //            if isExist {
+        //                self.isNewChat = false
+        //            } else {
+        //                self.channelAPI.createChannel(currentUser: self.user, toUser: self.toUser!)
+        //                self.isNewChat = false
+        //            }
+        //        }
         chatAPI.save(message) { [weak self] error in
             
             if let error = error {
@@ -118,7 +126,9 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
                 return
             }
             guard let self = self else { return }
+            //            self.isNewChat = false
             self.messagesCollectionView.scrollToLastItem(animated: false)
+            self.channelAPI.updateChannelInfo(currentUser: user, toUser: toUser!, channelId: channel.id!, message: message)
             NotiManager.shared.pushNotification(channel: channel, content: text, fcmToken: toUser!.fcmToken, from: user)
         }
         inputBar.inputTextView.text.removeAll()
@@ -149,6 +159,7 @@ extension ChatViewController: PHPickerViewControllerDelegate {
             message.downloadURL = url
             self.chatAPI.save(message)
             self.messagesCollectionView.scrollToLastItem(animated: false)
+            self.channelAPI.updateChannelInfo(currentUser: user, toUser: toUser!, channelId: channel.id!, message: message)
             NotiManager.shared.pushNotification(channel: channel, content: ("사진"), fcmToken: toUser!.fcmToken, from: user)
             
         }

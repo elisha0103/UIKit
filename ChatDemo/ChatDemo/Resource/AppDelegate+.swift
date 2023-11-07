@@ -66,6 +66,10 @@ extension AppDelegate: UNUserNotificationCenterDelegate, MessagingDelegate {
         if NotiManager.shared.currentChatRoomId == channelId {
             // 현재 활성화된 채팅방이 알림의 채팅방과 동일하다면, 알림 표시 안함
             print("CurrentChatRoom Noti", #function)
+            let channelAPI = ChannelAPI()
+            if let uid = Auth.auth().currentUser?.uid {
+                channelAPI.resetAlarmNumber(uid: uid, channelId: channelId)
+            }
             return []
         }
         // 현재 활성화된 View가 알림의 채팅방 View가 아니라면, 알림 표시
