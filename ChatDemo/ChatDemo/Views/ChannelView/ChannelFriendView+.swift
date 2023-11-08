@@ -16,14 +16,14 @@ extension ChannelFriendView: UITableViewDelegate {
         let friend = friendUser[indexPath.row]
         guard let currentUser = currentUser else { return }
         channelAPI.checkExistChannel(currentUser: currentUser, toUser: friend) { isExist, channelId in
+            print("isExist: \(isExist)")
             if isExist, let channelId = channelId {
-                // TODO: - ChannelViewController Handling
                 let channel = Channel(id: channelId, toUser: friend)
                 let viewController = ChatViewController(user: currentUser, channel: channel)
                 self.navigationController?.pushViewController(viewController, animated: true)
             } else {
                 let channel = Channel(id: UUID().uuidString, toUser: friend)
-                let viewController = ChatViewController(user: currentUser, channel: channel)
+                let viewController = ChatViewController(user: currentUser, channel: channel, isNewChat: true)
                 self.navigationController?.pushViewController(viewController, animated: true)
             }
         }

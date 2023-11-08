@@ -1,10 +1,3 @@
-//
-//  ChatViewController+.swift
-//  ChatDemo
-//
-//  Created by 진태영 on 11/1/23.
-//
-
 import UIKit
 import PhotosUI
 
@@ -110,26 +103,38 @@ extension ChatViewController: UIViewControllerTransitioningDelegate {
 extension ChatViewController: InputBarAccessoryViewDelegate {
     func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
         let message = Message(user: user, content: text)
-        
-        //        channelAPI.checkExistChannel(currentUser: user, toUser: toUser!) { isExist, channelId in
-        //            if isExist {
-        //                self.isNewChat = false
-        //            } else {
-        //                self.channelAPI.createChannel(currentUser: self.user, toUser: self.toUser!)
-        //                self.isNewChat = false
-        //            }
-        //        }
-        chatAPI.save(message) { [weak self] error in
-            
-            if let error = error {
-                print("DEBUG- inputBar Error: \(error.localizedDescription)")
-                return
+        if self.isNewChat {
+            print("isNewChat = \(self.isNewChat)")
+            channelAPI.createChannel(channelId: channel.id!, currentUser: self.user, toUser: self.toUser!) {
+                
+                self.chatAPI.save(message) { [weak self] error in
+                    
+                    if let error = error {
+                        print("DEBUG- inputBar Error: \(error.localizedDescription)")
+                        return
+                    }
+                    guard let self = self else { return }
+                    self.isNewChat = false
+                    self.messagesCollectionView.scrollToLastItem(animated: false)
+                    self.channelAPI.updateChannelInfo(currentUser: user, toUser: toUser!, channelId: channel.id!, message: message)
+                    NotiManager.shared.pushNotification(channel: channel, content: text, fcmToken: toUser!.fcmToken, from: user)
+                }
             }
-            guard let self = self else { return }
-            //            self.isNewChat = false
-            self.messagesCollectionView.scrollToLastItem(animated: false)
-            self.channelAPI.updateChannelInfo(currentUser: user, toUser: toUser!, channelId: channel.id!, message: message)
-            NotiManager.shared.pushNotification(channel: channel, content: text, fcmToken: toUser!.fcmToken, from: user)
+        } else {
+            print("isNewChat = \(self.isNewChat)")
+            
+            chatAPI.save(message) { [weak self] error in
+                
+                if let error = error {
+                    print("DEBUG- inputBar Error: \(error.localizedDescription)")
+                    return
+                }
+                guard let self = self else { return }
+                //            self.isNewChat = false
+                self.messagesCollectionView.scrollToLastItem(animated: false)
+                self.channelAPI.updateChannelInfo(currentUser: user, toUser: toUser!, channelId: channel.id!, message: message)
+                NotiManager.shared.pushNotification(channel: channel, content: text, fcmToken: toUser!.fcmToken, from: user)
+            }
         }
         inputBar.inputTextView.text.removeAll()
     }

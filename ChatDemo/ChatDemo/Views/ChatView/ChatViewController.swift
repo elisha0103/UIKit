@@ -23,7 +23,7 @@ final class ChatViewController: MessagesViewController {
     let channelAPI = ChannelAPI()
     let user: User
     var toUser: User?
-    var isNewChat: Bool = true
+    var isNewChat: Bool = false
     
     // ImageTransition 인스턴스 생성
     let imageTransition = ImageTransition()
@@ -49,9 +49,10 @@ final class ChatViewController: MessagesViewController {
     
     // MARK: - Lifecycles
     
-    init(user: User, channel: Channel) {
+    init(user: User, channel: Channel, isNewChat: Bool = false) {
         self.user = user
         self.channel = channel
+        self.isNewChat = isNewChat
         super.init(nibName: nil, bundle: nil)
         
         title = channel.toUserName

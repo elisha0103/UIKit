@@ -1,4 +1,3 @@
-//
 //  ChannelAPI.swift
 //  ChatDemo
 //
@@ -18,17 +17,22 @@ class ChannelAPI {
         return REF_USERS.document(uid).collection("channels")
     }()
     
-    func createChannel(currentUser: User, toUser: User) {
-        let channelId = UUID().uuidString
+    func createChannel(channelId: String, currentUser: User, toUser: User, completion: @escaping () -> Void) {
         let registrationMyChannel = Channel(toUser: toUser)
         let toChannel = Channel(toUser: currentUser)
-        firestoreDatabase.collection("channels").document(channelId).setData(["members": 2])
-        addChannel(with: currentUser, channelId: channelId, channel: registrationMyChannel)
-        addChannel(with: toUser, channelId: channelId, channel: toChannel)
+        firestoreDatabase.collection("channels").document(channelId).setData(["members": 2]) { error in
+            print("DEBUG - createChannel Error: \(String(describing: error?.localizedDescription))")
+            print("DEBUG - create CHANNEL")
+        }
+        Task {
+            try await addChannel(with: currentUser, channelId: channelId, channel: registrationMyChannel)
+            try await addChannel(with: toUser, channelId: channelId, channel: toChannel)
+            completion()
+        }
     }
     
-    func addChannel(with user: User, channelId: String, channel: Channel) { // User channel 컬렉션에 채널 추가
-        REF_USERS.document(user.uid).collection("channels").document(channelId).setData(channel.representation)
+    func addChannel(with user: User, channelId: String, channel: Channel) async throws -> Void { // User channel 컬렉션에 채널 추가
+        try await REF_USERS.document(user.uid).collection("channels").document(channelId).setData(channel.representation)
     }
     
     // 같은 사람 채팅방 중복 생성 방지 함수

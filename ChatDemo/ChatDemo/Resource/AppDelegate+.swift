@@ -68,7 +68,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate, MessagingDelegate {
             print("CurrentChatRoom Noti", #function)
             let channelAPI = ChannelAPI()
             if let uid = Auth.auth().currentUser?.uid {
-                channelAPI.resetAlarmNumber(uid: uid, channelId: channelId)
+//                channelAPI.resetAlarmNumber(uid: uid, channelId: channelId)
             }
             return []
         }

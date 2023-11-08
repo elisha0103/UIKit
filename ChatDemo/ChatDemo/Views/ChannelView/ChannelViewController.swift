@@ -1,4 +1,3 @@
-//
 //  ChannelViewController.swift
 //  ChatDemo
 //
@@ -49,7 +48,6 @@ class ChannelViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //        configureUI()
         fetchUser()
         addToolBarItems()
         setupListener()
@@ -97,11 +95,13 @@ class ChannelViewController: BaseViewController {
                   confirmButtonName: "확인",
                   confirmButtonCompletion:  {
             do {
+                print("auth.auth().currentUser.uid : \(Auth.auth().currentUser?.uid)")
+                try Auth.auth().signOut()
+
                 // TODO: - 로그아웃 딥링크 로직 처리 확인 후 재설정
                 AuthAPI.shared.updateFCMToken(uid: self.currentUser!.uid, fcmToken: "") { error in
                     print("DEBUG - Logout FCM update error", error?.localizedDescription as Any)
                 }
-                try Auth.auth().signOut()
                 
                 Messaging.messaging().deleteToken { error in
                     if let error = error {
@@ -150,10 +150,14 @@ class ChannelViewController: BaseViewController {
         data.forEach { channel, documentChangeType in
             switch documentChangeType {
             case .added:
+                print("channel add")
+
                 addChannelToTable(channel)
             case .modified:
+                print("channel modified")
                 updateChannelInTable(channel)
             case .removed:
+                print("channel remove")
                 removeChannelFromTable(channel)
             }
         }

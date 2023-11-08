@@ -48,7 +48,7 @@ struct Channel {
         
         self.recentDate = recentDate.dateValue()
         
-        id = document.documentID
+        self.id = document.documentID
         self.toUserId = toUserId
         self.toUserName = toUserName
         self.previewContent = previewContent
