@@ -41,7 +41,6 @@ class ChannelViewController: BaseViewController {
     }
     
     deinit {
-        print("DEBUG - Deinit (channelViewController)")
         channelAPI.removeListener()
     }
     
