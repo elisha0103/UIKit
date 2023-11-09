@@ -6,7 +6,7 @@ import InputBarAccessoryView
 
 extension ChatViewController: MessagesDataSource {
     var currentSender: MessageKit.SenderType {
-        return Sender(senderId: user.uid, displayName: UserDefaultManager.displayName)
+        return Sender(senderId: user.uid, displayName: user.fullName)
     }
     
     func messageForItem(at indexPath: IndexPath, in messagesCollectionView: MessageKit.MessagesCollectionView) -> MessageKit.MessageType {
