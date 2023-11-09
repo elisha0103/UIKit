@@ -24,15 +24,13 @@ class ChannelAPI {
             print("DEBUG - createChannel Error: \(String(describing: error?.localizedDescription))")
             print("DEBUG - create CHANNEL")
         }
-        Task {
-            try await addChannel(with: currentUser, channelId: channelId, channel: registrationMyChannel)
-            try await addChannel(with: toUser, channelId: channelId, channel: toChannel)
+            addChannel(with: currentUser, channelId: channelId, channel: registrationMyChannel)
+            addChannel(with: toUser, channelId: channelId, channel: toChannel)
             completion()
-        }
     }
     
-    func addChannel(with user: User, channelId: String, channel: Channel) async throws -> Void { // User channel 컬렉션에 채널 추가
-        try await REF_USERS.document(user.uid).collection("channels").document(channelId).setData(channel.representation)
+    func addChannel(with user: User, channelId: String, channel: Channel) -> Void { // User channel 컬렉션에 채널 추가
+        REF_USERS.document(user.uid).collection("channels").document(channelId).setData(channel.representation)
     }
     
     // 같은 사람 채팅방 중복 생성 방지 함수

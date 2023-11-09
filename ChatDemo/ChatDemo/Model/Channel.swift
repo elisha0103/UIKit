@@ -20,7 +20,9 @@ struct Channel {
         let rep = [
             "toUserId": toUserId,
             "toUserName": toUserName,
-            "recentDate": recentDate
+            "recentDate": recentDate,
+            "alarmNumber": alarmNumber,
+            "previewContent": previewContent
         ] as [String : Any]
                 
         return rep

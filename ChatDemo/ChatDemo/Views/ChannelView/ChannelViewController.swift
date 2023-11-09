@@ -34,6 +34,8 @@ class ChannelViewController: BaseViewController {
         super.init(nibName: nil, bundle: nil)
         
         title = "Channels"
+        setupListener()
+
     }
     
     required init?(coder: NSCoder) {
@@ -50,7 +52,6 @@ class ChannelViewController: BaseViewController {
         
         fetchUser()
         addToolBarItems()
-        setupListener()
     }
     
     override func viewDidAppear(_ animated: Bool) {

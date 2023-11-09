@@ -33,7 +33,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate, MessagingDelegate {
                     let chatViewController = ChatViewController(user: currentUser, channel: channel)
                     let channelViewController = ChannelViewController()
                     
-                    var navigationController = BaseNavigationController(rootViewController: channelViewController)
+                    let navigationController = BaseNavigationController(rootViewController: channelViewController)
                     navigationController.pushViewController(chatViewController, animated: true)
                     if UIApplication.shared.applicationState == .active {
                         window?.rootViewController = navigationController
@@ -47,7 +47,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate, MessagingDelegate {
                 
             }
         } else {
-            var navigationController = BaseNavigationController(rootViewController: LoginViewController())
+            let navigationController = BaseNavigationController(rootViewController: LoginViewController())
             window?.rootViewController = navigationController
             window?.makeKeyAndVisible()
         }
@@ -68,7 +68,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate, MessagingDelegate {
             print("CurrentChatRoom Noti", #function)
             let channelAPI = ChannelAPI()
             if let uid = Auth.auth().currentUser?.uid {
-//                channelAPI.resetAlarmNumber(uid: uid, channelId: channelId)
+                channelAPI.resetAlarmNumber(uid: uid, channelId: channelId)
             }
             return []
         }
