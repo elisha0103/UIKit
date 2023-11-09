@@ -56,6 +56,9 @@
 		66614A6F2AF4E03B005A594B /* ChannelFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66614A6E2AF4E03B005A594B /* ChannelFriendView.swift */; };
 		66614A712AF4E2AE005A594B /* ChannelFriendView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66614A702AF4E2AE005A594B /* ChannelFriendView+.swift */; };
 		66614A732AF4E30F005A594B /* FriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66614A722AF4E30F005A594B /* FriendTableViewCell.swift */; };
+		66C46D1A2AF88DBC0019834B /* ImageMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C46D192AF88DBC0019834B /* ImageMessageViewController.swift */; };
+		66C46D1C2AF8A9AC0019834B /* ImageTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C46D1B2AF8A9AC0019834B /* ImageTransition.swift */; };
+		66C46D1F2AF8BA100019834B /* DisMissAnim.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C46D1E2AF8BA100019834B /* DisMissAnim.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -117,6 +120,9 @@
 		66614A6E2AF4E03B005A594B /* ChannelFriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelFriendView.swift; sourceTree = "<group>"; };
 		66614A702AF4E2AE005A594B /* ChannelFriendView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChannelFriendView+.swift"; sourceTree = "<group>"; };
 		66614A722AF4E30F005A594B /* FriendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendTableViewCell.swift; sourceTree = "<group>"; };
+		66C46D192AF88DBC0019834B /* ImageMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageMessageViewController.swift; sourceTree = "<group>"; };
+		66C46D1B2AF8A9AC0019834B /* ImageTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTransition.swift; sourceTree = "<group>"; };
+		66C46D1E2AF8BA100019834B /* DisMissAnim.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisMissAnim.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +166,7 @@
 		664D75EB2AEB889400097C8C /* ChatDemo */ = {
 			isa = PBXGroup;
 			children = (
+				66C46D1D2AF8B9FA0019834B /* Utils */,
 				664D76102AEB8C1E00097C8C /* Model */,
 				664D761F2AEB96BB00097C8C /* Views */,
 				66614A302AF1F7F2005A594B /* API */,
@@ -259,6 +266,7 @@
 			children = (
 				664D762F2AEBB54000097C8C /* ChatViewController.swift */,
 				66614A282AF1E7E4005A594B /* ChatViewController+.swift */,
+				66C46D192AF88DBC0019834B /* ImageMessageViewController.swift */,
 			);
 			path = ChatView;
 			sourceTree = "<group>";
@@ -308,6 +316,15 @@
 				66614A6A2AF4BE16005A594B /* SignUpViewController.swift */,
 			);
 			path = SignUpView;
+			sourceTree = "<group>";
+		};
+		66C46D1D2AF8B9FA0019834B /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				66C46D1B2AF8A9AC0019834B /* ImageTransition.swift */,
+				66C46D1E2AF8BA100019834B /* DisMissAnim.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -403,6 +420,7 @@
 			files = (
 				664D761B2AEB956500097C8C /* Sender.swift in Sources */,
 				66614A612AF4A1AE005A594B /* NotiManager.swift in Sources */,
+				66C46D1C2AF8A9AC0019834B /* ImageTransition.swift in Sources */,
 				664D75F12AEB889400097C8C /* LoginViewController.swift in Sources */,
 				66614A682AF4BCE4005A594B /* Costant.swift in Sources */,
 				66614A382AF240D8005A594B /* ChatAPI.swift in Sources */,
@@ -429,11 +447,13 @@
 				664D76192AEB8D6400097C8C /* Message.swift in Sources */,
 				66614A342AF1FD94005A594B /* StorageAPI.swift in Sources */,
 				66614A732AF4E30F005A594B /* FriendTableViewCell.swift in Sources */,
+				66C46D1A2AF88DBC0019834B /* ImageMessageViewController.swift in Sources */,
 				66614A2B2AF1F3A2005A594B /* Encodable+.swift in Sources */,
 				664D76302AEBB54000097C8C /* ChatViewController.swift in Sources */,
 				66614A292AF1E7E4005A594B /* ChatViewController+.swift in Sources */,
 				66614A3C2AF33A00005A594B /* UserDefaultManager.swift in Sources */,
 				664D761D2AEB95C200097C8C /* Message+.swift in Sources */,
+				66C46D1F2AF8BA100019834B /* DisMissAnim.swift in Sources */,
 				66614A3A2AF2417F005A594B /* StreamError.swift in Sources */,
 				66614A322AF1F82D005A594B /* ChannelAPI.swift in Sources */,
 				66614A6D2AF4C9D2005A594B /* User.swift in Sources */,
