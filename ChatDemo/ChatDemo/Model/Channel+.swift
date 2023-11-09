@@ -13,7 +13,7 @@ extension Channel: Comparable {
     }
     
     static func < (lhs: Channel, rhs: Channel) -> Bool {
-        return lhs.recentDate < rhs.recentDate
+        return lhs.recentDate > rhs.recentDate
     }
 }
 
