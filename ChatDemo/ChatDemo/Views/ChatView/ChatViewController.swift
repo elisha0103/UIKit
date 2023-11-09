@@ -25,9 +25,6 @@ final class ChatViewController: MessagesViewController {
     var toUser: User?
     var isNewChat: Bool = false
     
-    // ImageTransition 인스턴스 생성
-    let imageTransition = ImageTransition()
-
     lazy var cameraBarButtonItem: InputBarButtonItem = {
         let button = InputBarButtonItem(type: .system)
         button.tintColor = .primary
@@ -150,7 +147,6 @@ final class ChatViewController: MessagesViewController {
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
-        messagesCollectionView.messageCellDelegate = self
         
         messageInputBar.delegate = self
     }
