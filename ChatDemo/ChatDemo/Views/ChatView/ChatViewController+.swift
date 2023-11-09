@@ -156,6 +156,7 @@ extension ChatViewController: PHPickerViewControllerDelegate {
     }
     
     private func sendPhoto(_ image: UIImage) {
+        // TODO: - 첫 메시지인경우 채팅방 생성 로직 추가
         isSendingPhoto = true
         StorageAPI.uploadImage(image: image, channel: channel) { [weak self] url in
             guard let self = self, let url = url else { return }
