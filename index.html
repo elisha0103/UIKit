@@ -103,9 +103,14 @@
 			sendToIos(addrData);
 		}
 	}
-	  	function sendToAndroid(addrData) {
+	 	function sendToAndroid(addrData) {
 		window.PostcodeAndroid.getAddress(JSON.stringify(addrData));
 	}
+
+	function sendToIos(addrData) {
+		window.webkit.messageHandlers.getAddress.postMessage(JSON.stringify(addrData));
+	}
+
 
 
     function initLayerPosition(){
