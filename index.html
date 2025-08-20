@@ -33,8 +33,7 @@
 <div id="payment-container" style="width: 100%; height: 100%;"></div>
 
 <script>
-    // Function to receive payment configuration from the app
-    function configurePayment(clientId, platform, accessToken, paymentData, confirmUrl) {
+    window.configurePayment = function(clientId, platform, accessToken, paymentData, confirmUrl) {
         NCPPay.setConfiguration({
             'clientId': clientId,
             'confirmUrl': confirmUrl,
@@ -44,14 +43,13 @@
 
         const obj = JSON.parse(paymentData);
         NCPPay.reservation(obj, function (response) {
-            // Notify the app that payment is complete
-            if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.paymentComplete) {
+            if (window.webkit?.messageHandlers?.paymentComplete) {
                 window.webkit.messageHandlers.paymentComplete.postMessage(response);
-            } else if (window.Android && window.Android.paymentComplete) {
+            } else if (window.Android?.paymentComplete) {
                 window.Android.paymentComplete(JSON.stringify(response));
             }
         });
-    }
+    };
 </script>
 </body>
 </html>
