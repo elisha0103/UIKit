@@ -2,164 +2,54 @@
 
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
-	<title>PP Friends</title>
-	<style>
-		* {
-			margin: 0;
-			padding: 0;
-		}
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <script src="https://shop-api.e-ncp.com/payments/ncp_pay.js"></script> <!-- ncp_pay -->
+    <script src="https://xpay.tosspayments.com/xpay/js/xpay_crossplatform.js"></script> <!-- 토스 -->
+    <script src="https://nsp.pay.naver.com/sdk/js/naverpay.min.js"></script> <!-- 네이버 -->
+    <title>ShopbyPayment</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
 
-		html {
-			width: 100%;
-			height: 100%;
-			overflow-y: hidden;
-		}
-
-		body {
-			width: 100%;
-			height: 100%;
-			overflow: hidden;
-		}
-
-		iframe {
-			overflow: hidden;
-		}
-	</style>
-
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+    </style>
+</head>
 <body>
-<input type="hidden" id="postcode" placeholder="우편번호">
-<input type="hidden" id="address" placeholder="주소">
-<input type="hidden" id="detailAddress" placeholder="상세주소">
-<div id="layer"
-	 style="display:block; position:absolute; overflow:hidden; z-index:1; -webkit-overflow-scrolling:touch; ">
-</div>
-<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script>
-	window.onload = () => {
-		execDaumPostcode();
-	}
-
-	var element_layer = document.getElementById('layer');
-	
-	function execDaumPostcode() {
-		new daum.Postcode({
-			oncomplete: function (data) {
-				setAddrData(data);
-			},
-			width: '100%',
-			height: '100%'
-		}).embed(element_layer);
-		element_layer.style.display = "block";
-		initLayerPosition();
-	}
-
-	function setAddrData(data) {
-		// 각 주소의 노출 규칙에 따라 주소를 조합한다.
-		// 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
-		var roadAddr = data.roadAddress; // 도로명 주소 변수
-		var jibunAddr = data.jibunAddress;
-		var extraAddr = ''; // 참고항목 변수
-
-		// 법정동명이 있을 경우 추가한다. (법정리는 제외)
-		// 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
-		if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)) {
-			extraAddr += data.bname;
-		}
-
-		// 건물명이 있고, 공동주택일 경우 추가한다.
-		if (data.buildingName !== '' && data.apartment === 'Y') {
-			extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
-		}
-
-		// 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
-		if (extraAddr !== '') {
-			extraAddr = ' (' + extraAddr + ')';
-		}
-
-		if (data.autoRoadAddress) {
-			roadAddr = data.autoRoadAddress;
-		} else if (data.autoJibunAddress) {
-			jibunAddr = data.autoJibunAddress;
-		}
-		
-		// 정식 주소명으로 변환
-		const fullRoadAddr = normalizeFullAddress(roadAddr) + extraAddr;
-		const fullJibunAddr = normalizeFullAddress(jibunAddr) + extraAddr;
-		
-		// 최종 addrData 구성
-		const addrData = {
-		    postcode: `(${data.zonecode})`,
-		    roadAddr: fullRoadAddr,
-		    jibunAddr: fullJibunAddr
-		};
-		const userOs = navigator.userAgent.toLowerCase();
-
-		if (userOs.indexOf('android') > -1) {
-			sendToAndroid(addrData);
-		} else if (userOs.indexOf('iphone') > -1 || userOs.indexOf('ipad') > -1 || userOs.indexOf('ipod') > -1) {
-			sendToIos(addrData);
-		}
-	}
-
-	function sendToAndroid(addrData) {
-		window.PostcodeAndroid.getAddress(JSON.stringify(addrData));
-	}
-
-	function sendToIos(addrData) {
-		window.webkit.messageHandlers.getAddress.postMessage(JSON.stringify(addrData));
-	}
-
-	function initLayerPosition() {
-		var width = (window.innerWidth || document.documentElement.clientWidth);
-		var height = (window.innerHeight || document.documentElement.clientHeight);
-		element_layer.style.width = width + 'px';
-		element_layer.style.height = height + 'px';
-		element_layer.style.left = (((window.innerWidth || document.documentElement.clientWidth) - width) / 2) + 'px';
-		element_layer.style.top = (((window.innerHeight || document.documentElement.clientHeight) - height) / 2) + 'px';
-	}
-
-	// 1. 축약된 시·도명 → 전체 명칭 매핑
-	const provinceMap = {
-	    '서울': '서울특별시',
-	    '부산': '부산광역시',
-	    '대구': '대구광역시',
-	    '인천': '인천광역시',
-	    '광주': '광주광역시',
-	    '대전': '대전광역시',
-	    '울산': '울산광역시',
-	    '세종': '세종특별자치시',
-	    '경기': '경기도',
-	    '강원': '강원특별자치도',
-	    '충북': '충청북도',
-	    '충남': '충청남도',
-	    '전북': '전라북도',
-	    '전남': '전라남도',
-	    '경북': '경상북도',
-	    '경남': '경상남도',
-	    '제주': '제주특별자치도'
-	};
-	
-	// 2. 축약형 → 전체 명칭 변환 함수
-	function expandProvinceName(shortName) {
-	    return provinceMap[shortName] || shortName;
-	}
-	
-	// 3. 주소 정규화 함수
-	function normalizeFullAddress(address) {
-		if (!address || typeof address !== 'string') return address;
-		
-		const parts = address.trim().split(/\s+/); // 공백으로 분리
-		if (parts.length === 0) return address;
-		
-		parts[0] = expandProvinceName(parts[0]); // 첫 단어만 치환
-		return parts.join(' ');
-	}
-
-</script>
+<div id="payment-container" style="width: 100%; height: 100%;"></div>
 </body>
 
+<script src="https://shop-api.e-ncp.com/payments/ncp_pay.js"></script> <!-- ncp_pay -->
+<script src="https://js.tosspayments.com/v2/standard"></script> <!-- 토스 -->
+<script src="https://nsp.pay.naver.com/sdk/js/naverpay.min.js"></script> <!-- 네이버 -->
+<title>ShopbyPayment</title>
+<script>
+    // Function to receive payment configuration from the app
+    function configurePayment(clientId, platform, accessToken, paymentData, confirmUrl) {
+        NCPPay.setConfiguration({
+            'clientId': clientId,
+            'confirmUrl': confirmUrl,
+            'platform': platform,
+            'accessToken': accessToken
+        });
+
+        const obj = JSON.parse(paymentData);
+        NCPPay.reservation(obj, function (response) {
+            // Notify the app that payment is complete
+            if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.paymentComplete) {
+                window.webkit.messageHandlers.paymentComplete.postMessage(response);
+            } else if (window.Android && window.Android.paymentComplete) {
+                window.Android.paymentComplete(JSON.stringify(response));
+            }
+        });
+    }
+</script>
 </html>
