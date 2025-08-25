@@ -37,7 +37,6 @@
     const oid         = sp.get('oid');        // LGD_OID
     const seqno       = sp.get('seqno') || ''; // 가상계좌면 001 같은 3자리, 아니면 공백
     const tradeType   = sp.get('tradeType') || ''; // BANK | CAS | CR
-    const serviceType = sp.get('serviceType') || 'service'; // service | test
 
     // 문서 로드 즉시 현금영수증 열기
     showCashReceipts(mid, oid, seqno, tradeType, serviceType);
